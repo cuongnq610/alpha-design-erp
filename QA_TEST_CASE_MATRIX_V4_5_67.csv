@@ -1,0 +1,187 @@
+﻿Test ID,Nhóm,Mức độ,Mục tiêu,Tiền điều kiện,Bước thực hiện,Dữ liệu kiểm thử,Kết quả mong đợi,Tự động hóa,Cho phép tự vá,Bằng chứng
+TC-001,G0-Gói phát hành,Critical,Giải nén và đọc toàn bộ gói,Gói đã giải nén,Chạy kiểm tra tự động,ZIP phát hành,Không lỗi CRC; không symlink,Có,Không,Log/assertion
+TC-002,G0-Gói phát hành,Critical,Kiểm tra syntax JavaScript,Gói đã giải nén,Chạy kiểm tra tự động,Tất cả JS/MJS/CJS,node --check đạt,Có,Không,Log/assertion
+TC-003,G0-Gói phát hành,Critical,Tái tạo thư mục public,Gói đã giải nén,Chạy kiểm tra tự động,Danh sách allowlist,Source/public byte parity,Có,Có,Log/assertion
+TC-004,G0-Gói phát hành,Critical,Tái tạo schema hợp nhất,Gói đã giải nén,Chạy kiểm tra tự động,Migration 001–075,"Đúng thứ tự, không thiếu migration",Có,Có,Log/assertion
+TC-005,G0-Gói phát hành,Critical,Xác minh SHA-256 schema,Gói đã giải nén,Chạy kiểm tra tự động,Schema hiện hành,Checksum khớp,Có,Không,Log/assertion
+TC-006,G0-Gói phát hành,Critical,Xác minh manifest file,Gói đã giải nén,Chạy kiểm tra tự động,Toàn bộ gói,Không file thiếu/thừa/sai hash,Có,Không,Log/assertion
+TC-007,G0-Gói phát hành,Critical,Quét secret,Gói đã giải nén,Chạy kiểm tra tự động,Mã nguồn/runtime,Không private key/API key thật,Có,Không,Log/assertion
+TC-008,G0-Gói phát hành,Critical,Quét file rác,Gói đã giải nén,Chạy kiểm tra tự động,bak/tmp/log/pyc,Không tồn tại,Có,Có,Log/assertion
+TC-009,G0-Gói phát hành,Critical,Kiểm tra version đồng nhất,Gói đã giải nén,Chạy kiểm tra tự động,VERSION/package/lock/app/SW,Đều là 4.5.67,Có,Không,Log/assertion
+TC-010,G0-Gói phát hành,Critical,Kiểm tra tài nguyên offline,Gói đã giải nén,Chạy kiểm tra tự động,HTML/CSS/JS/template,Không phụ thuộc CDN,Có,Không,Log/assertion
+TC-011,G1-Thuật toán,Critical,Làm tròn VND dương,Dữ liệu test cô lập,Gọi hàm và đối chiếu oracle,1.4;1.5;1.6,"0 chữ số, quy tắc thống nhất",Có,Không,Log/assertion
+TC-012,G1-Thuật toán,Critical,Làm tròn VND âm,Dữ liệu test cô lập,Gọi hàm và đối chiếu oracle,-1.4;-1.5;-1.6,Đối xứng theo chính sách,Có,Không,Log/assertion
+TC-013,G1-Thuật toán,Major,Chống NaN/Infinity,Dữ liệu test cô lập,Gọi hàm và đối chiếu oracle,"chuỗi rỗng, null, Infinity",Không lan truyền NaN,Có,Không,Log/assertion
+TC-014,G1-Thuật toán,Major,Tổng danh sách rỗng,Dữ liệu test cô lập,Gọi hàm và đối chiếu oracle,[],0,Có,Không,Log/assertion
+TC-015,G1-Thuật toán,Major,Khoảng ngày hợp lệ,Dữ liệu test cô lập,Gọi hàm và đối chiếu oracle,from<=to,Số ngày đúng,Có,Không,Log/assertion
+TC-016,G1-Thuật toán,Major,Khoảng ngày đảo,Dữ liệu test cô lập,Gọi hàm và đối chiếu oracle,from>to,Chặn/không tính,Có,Không,Log/assertion
+TC-017,G1-Thuật toán,Major,Ngày ISO sai,Dữ liệu test cô lập,Gọi hàm và đối chiếu oracle,2026-02-30,Bị từ chối,Có,Không,Log/assertion
+TC-018,G1-Thuật toán,Major,Giờ làm/ngày,Dữ liệu test cô lập,Gọi hàm và đối chiếu oracle,0;24;24.01,>24 bị cảnh báo,Có,Không,Log/assertion
+TC-019,G1-Thuật toán,Major,Chi phí giờ nhân viên,Dữ liệu test cô lập,Gọi hàm và đối chiếu oracle,lương+burden/giờ chuẩn,Khớp tay tới 1 VND,Có,Không,Log/assertion
+TC-020,G1-Thuật toán,Major,CTV theo giờ,Dữ liệu test cô lập,Gọi hàm và đối chiếu oracle,giờ*đơn giá,Chỉ giờ Approved,Có,Không,Log/assertion
+TC-021,G1-Thuật toán,Major,Tiến độ weighted,Dữ liệu test cô lập,Gọi hàm và đối chiếu oracle,trọng số tổng 100%,Tổng có trọng số đúng,Có,Không,Log/assertion
+TC-022,G1-Thuật toán,Major,Tiến độ thiếu stage,Dữ liệu test cô lập,Gọi hàm và đối chiếu oracle,không có stage,Confidence thấp/cảnh báo,Có,Không,Log/assertion
+TC-023,G1-Thuật toán,Critical,EAC khi CPI=0,Dữ liệu test cô lập,Gọi hàm và đối chiếu oracle,"EV=0, AC>0",Không chia 0; trạng thái review,Có,Không,Log/assertion
+TC-024,G1-Thuật toán,Critical,CPI,Dữ liệu test cô lập,Gọi hàm và đối chiếu oracle,EV/AC,Khớp tay,Có,Không,Log/assertion
+TC-025,G1-Thuật toán,Major,SPI,Dữ liệu test cô lập,Gọi hàm và đối chiếu oracle,EV/PV,Khớp tay,Có,Không,Log/assertion
+TC-026,G1-Thuật toán,Major,Forecast bảo toàn,Dữ liệu test cô lập,Gọi hàm và đối chiếu oracle,12 tháng,Tổng tháng = tổng kỳ,Có,Không,Log/assertion
+TC-027,G1-Thuật toán,Critical,Số tiền lớn,Dữ liệu test cô lập,Gọi hàm và đối chiếu oracle,>10 tỷ,Không mất độ chính xác VND,Có,Không,Log/assertion
+TC-028,G1-Thuật toán,Critical,Hash bút toán,Dữ liệu test cô lập,Gọi hàm và đối chiếu oracle,sửa mô tả/số tiền,Hash không còn hợp lệ,Có,Không,Log/assertion
+TC-029,G1-Thuật toán,Major,Randomized invariant,Dữ liệu test cô lập,Gọi hàm và đối chiếu oracle,40.000 scenario,Không vi phạm bất biến,Có,Không,Log/assertion
+TC-030,G1-Thuật toán,Major,Adversarial money,Dữ liệu test cô lập,Gọi hàm và đối chiếu oracle,470.000 checks,Không overflow/mutation,Có,Không,Log/assertion
+TC-031,G2-Kế toán/BCTC,Blocker,Bút toán cân,Chart of accounts và kỳ test,Nhập nghiệp vụ; ghi sổ; đối chiếu,Nợ= Có,Được ghi sổ,Có,Không,Log/assertion
+TC-032,G2-Kế toán/BCTC,Critical,Bút toán lệch 1 đồng,Chart of accounts và kỳ test,Nhập nghiệp vụ; ghi sổ; đối chiếu,Nợ=100; Có=99,Bị chặn,Có,Không,Log/assertion
+TC-033,G2-Kế toán/BCTC,Critical,Tài khoản không tồn tại,Chart of accounts và kỳ test,Nhập nghiệp vụ; ghi sổ; đối chiếu,TK 999999,Bị chặn,Có,Không,Log/assertion
+TC-034,G2-Kế toán/BCTC,Critical,Tài khoản không cho hạch toán,Chart of accounts và kỳ test,Nhập nghiệp vụ; ghi sổ; đối chiếu,postable=false,Bị chặn,Có,Không,Log/assertion
+TC-035,G2-Kế toán/BCTC,Critical,Trùng số chứng từ,Chart of accounts và kỳ test,Nhập nghiệp vụ; ghi sổ; đối chiếu,cùng kỳ/cùng số,Bị cảnh báo/chặn theo quy tắc,Có,Không,Log/assertion
+TC-036,G2-Kế toán/BCTC,Blocker,Chứng từ Posted bị sửa,Chart of accounts và kỳ test,Nhập nghiệp vụ; ghi sổ; đối chiếu,thay dòng sau ghi sổ,Hash phát hiện,Có,Không,Log/assertion
+TC-037,G2-Kế toán/BCTC,Critical,Khóa kỳ,Chart of accounts và kỳ test,Nhập nghiệp vụ; ghi sổ; đối chiếu,ngày thuộc kỳ Locked,Không sửa/xóa/ghi mới,Có,Không,Log/assertion
+TC-038,G2-Kế toán/BCTC,Critical,Mở khóa kỳ,Chart of accounts và kỳ test,Nhập nghiệp vụ; ghi sổ; đối chiếu,đúng quyền+MFA,Có audit trail,Có,Không,Log/assertion
+TC-039,G2-Kế toán/BCTC,Critical,Số dư đầu kỳ,Chart of accounts và kỳ test,Nhập nghiệp vụ; ghi sổ; đối chiếu,ngày đầu năm,Không cộng trùng phát sinh,Có,Không,Log/assertion
+TC-040,G2-Kế toán/BCTC,Blocker,Bảng cân đối thử,Chart of accounts và kỳ test,Nhập nghiệp vụ; ghi sổ; đối chiếu,nhiều tài khoản,Tổng Nợ=Tổng Có,Có,Không,Log/assertion
+TC-041,G2-Kế toán/BCTC,Critical,Sổ chi tiết 131,Chart of accounts và kỳ test,Nhập nghiệp vụ; ghi sổ; đối chiếu,phát sinh/thu tiền,Dư phải thu đúng,Có,Không,Log/assertion
+TC-042,G2-Kế toán/BCTC,Critical,Sổ chi tiết 331,Chart of accounts và kỳ test,Nhập nghiệp vụ; ghi sổ; đối chiếu,mua hàng/trả tiền,Dư phải trả đúng,Có,Không,Log/assertion
+TC-043,G2-Kế toán/BCTC,Critical,Doanh thu,Chart of accounts và kỳ test,Nhập nghiệp vụ; ghi sổ; đối chiếu,TK 511,P&L khớp sổ,Có,Không,Log/assertion
+TC-044,G2-Kế toán/BCTC,Critical,Chi phí,Chart of accounts và kỳ test,Nhập nghiệp vụ; ghi sổ; đối chiếu,TK 6xx/8xx,P&L khớp sổ,Có,Không,Log/assertion
+TC-045,G2-Kế toán/BCTC,Blocker,Kết quả trước thuế,Chart of accounts và kỳ test,Nhập nghiệp vụ; ghi sổ; đối chiếu,doanh thu-chi phí,Khớp tay,Có,Không,Log/assertion
+TC-046,G2-Kế toán/BCTC,Blocker,B01,Chart of accounts và kỳ test,Nhập nghiệp vụ; ghi sổ; đối chiếu,đầu kỳ/cuối kỳ,Tài sản=Nợ phải trả+VCSH,Có,Không,Log/assertion
+TC-047,G2-Kế toán/BCTC,Blocker,B02,Chart of accounts và kỳ test,Nhập nghiệp vụ; ghi sổ; đối chiếu,doanh thu/chi phí,Khớp P&L,Có,Không,Log/assertion
+TC-048,G2-Kế toán/BCTC,Blocker,B03,Chart of accounts và kỳ test,Nhập nghiệp vụ; ghi sổ; đối chiếu,thu/chi tiền,Tiền đầu+net=tiền cuối,Có,Không,Log/assertion
+TC-049,G2-Kế toán/BCTC,Critical,B09,Chart of accounts và kỳ test,Nhập nghiệp vụ; ghi sổ; đối chiếu,8 section,Đủ workflow và parity,Có,Không,Log/assertion
+TC-050,G2-Kế toán/BCTC,Critical,TT133 parity,Chart of accounts và kỳ test,Nhập nghiệp vụ; ghi sổ; đối chiếu,B01/B02/B03/B09,7/7 checks đạt,Có,Không,Log/assertion
+TC-051,G2-Kế toán/BCTC,Critical,TT132 parity,Chart of accounts và kỳ test,Nhập nghiệp vụ; ghi sổ; đối chiếu,bộ biểu mẫu,Checks đạt,Có,Không,Log/assertion
+TC-052,G2-Kế toán/BCTC,Critical,Chuyển chế độ kế toán,Chart of accounts và kỳ test,Nhập nghiệp vụ; ghi sổ; đối chiếu,TT133/TT99/TT132,Template và phân hệ liên quan đổi đúng,Có,Không,Log/assertion
+TC-053,G2-Kế toán/BCTC,Critical,TT99 export gate,Chart of accounts và kỳ test,Nhập nghiệp vụ; ghi sổ; đối chiếu,chưa xác minh schema,Chặn xuất nộp chính thức,Có,Không,Log/assertion
+TC-054,G2-Kế toán/BCTC,Blocker,Xóa chứng từ Posted,Chart of accounts và kỳ test,Nhập nghiệp vụ; ghi sổ; đối chiếu,Posted journal,Bị chặn,Có,Không,Log/assertion
+TC-055,G2-Kế toán/BCTC,Critical,Liên kết finance-journal,Chart of accounts và kỳ test,Nhập nghiệp vụ; ghi sổ; đối chiếu,Paid ↔ Posted 111/112,"Khớp ngày, tiền, dự án, chiều tiền",Có,Không,Log/assertion
+TC-056,G3-Thuế,Blocker,TNDN <=3 tỷ,Policy effective-dated đã kích hoạt,Tính và so sánh oracle pháp lý,3.000.000.000,15% khi đủ điều kiện,Có,Không,Log/assertion
+TC-057,G3-Thuế,Blocker,TNDN trên 3 tỷ,Policy effective-dated đã kích hoạt,Tính và so sánh oracle pháp lý,3.000.000.001,17% khi đủ điều kiện,Có,Không,Log/assertion
+TC-058,G3-Thuế,Blocker,TNDN sát 50 tỷ,Policy effective-dated đã kích hoạt,Tính và so sánh oracle pháp lý,49.999.999.999,17%,Có,Không,Log/assertion
+TC-059,G3-Thuế,Blocker,TNDN đúng 50 tỷ,Policy effective-dated đã kích hoạt,Tính và so sánh oracle pháp lý,50.000.000.000,17%,Có,Không,Log/assertion
+TC-060,G3-Thuế,Blocker,TNDN trên 50 tỷ,Policy effective-dated đã kích hoạt,Tính và so sánh oracle pháp lý,50.000.000.001,20%,Có,Không,Log/assertion
+TC-061,G3-Thuế,Blocker,TNDN thiếu phê duyệt ưu đãi,Policy effective-dated đã kích hoạt,Tính và so sánh oracle pháp lý,eligibility=Unreviewed,20%/yêu cầu review,Có,Không,Log/assertion
+TC-062,G3-Thuế,Blocker,TNDN thủ công 0%,Policy effective-dated đã kích hoạt,Tính và so sánh oracle pháp lý,manual approved,"Giữ 0%, không fallback",Có,Không,Log/assertion
+TC-063,G3-Thuế,Blocker,TNDN điều chỉnh tăng/giảm,Policy effective-dated đã kích hoạt,Tính và so sánh oracle pháp lý,Reviewed adjustments,Thu nhập tính thuế đúng,Có,Không,Log/assertion
+TC-064,G3-Thuế,Blocker,TNDN lỗ chuyển kỳ,Policy effective-dated đã kích hoạt,Tính và so sánh oracle pháp lý,loss carryforward,Không âm; trừ đúng,Có,Không,Log/assertion
+TC-065,G3-Thuế,Blocker,TNCN giảm trừ bản thân 2026,Policy effective-dated đã kích hoạt,Tính và so sánh oracle pháp lý,"15,5 triệu/tháng",Đúng,Có,Không,Log/assertion
+TC-066,G3-Thuế,Blocker,TNCN người phụ thuộc,Policy effective-dated đã kích hoạt,Tính và so sánh oracle pháp lý,"6,2 triệu/người/tháng",Đúng,Có,Không,Log/assertion
+TC-067,G3-Thuế,Blocker,TNCN biểu 5 bậc,Policy effective-dated đã kích hoạt,Tính và so sánh oracle pháp lý,các điểm gãy,Thuế lũy tiến đúng,Có,Không,Log/assertion
+TC-068,G3-Thuế,Blocker,TNCN CTV dưới ngưỡng,Policy effective-dated đã kích hoạt,Tính và so sánh oracle pháp lý,dưới threshold,Không khấu trừ theo policy,Có,Không,Log/assertion
+TC-069,G3-Thuế,Blocker,TNCN CTV đúng ngưỡng,Policy effective-dated đã kích hoạt,Tính và so sánh oracle pháp lý,đúng threshold,Kiểm tra inclusive policy,Có,Không,Log/assertion
+TC-070,G3-Thuế,Blocker,TNCN trước/sau hiệu lực,Policy effective-dated đã kích hoạt,Tính và so sánh oracle pháp lý,hai ngày biên,Chọn policy đúng ngày,Có,Không,Log/assertion
+TC-071,G3-Thuế,Blocker,VAT đầu ra,Policy effective-dated đã kích hoạt,Tính và so sánh oracle pháp lý,base*rate,Khớp hóa đơn/sổ 33311,Có,Không,Log/assertion
+TC-072,G3-Thuế,Blocker,VAT đầu vào hợp lệ,Policy effective-dated đã kích hoạt,Tính và so sánh oracle pháp lý,invoice+bank evidence,Được khấu trừ,Có,Không,Log/assertion
+TC-073,G3-Thuế,Blocker,VAT thiếu thanh toán ngân hàng,Policy effective-dated đã kích hoạt,Tính và so sánh oracle pháp lý,vượt ngưỡng,Bị chặn khấu trừ,Có,Không,Log/assertion
+TC-074,G3-Thuế,Blocker,VAT thanh toán một phần,Policy effective-dated đã kích hoạt,Tính và so sánh oracle pháp lý,nhiều allocation,Khấu trừ/blocked đúng phần,Có,Không,Log/assertion
+TC-075,G3-Thuế,Blocker,VAT sai nhà cung cấp,Policy effective-dated đã kích hoạt,Tính và so sánh oracle pháp lý,vendor mismatch,Bị chặn,Có,Không,Log/assertion
+TC-076,G3-Thuế,Blocker,VAT phân bổ vượt hóa đơn,Policy effective-dated đã kích hoạt,Tính và so sánh oracle pháp lý,allocation>invoice,Bị chặn,Có,Không,Log/assertion
+TC-077,G3-Thuế,Critical,TK 242,Policy effective-dated đã kích hoạt,Tính và so sánh oracle pháp lý,chi phí trả trước,Phân bổ định kỳ khớp journal,Có,Không,Log/assertion
+TC-078,G3-Thuế,Critical,Lịch thuế tháng,Policy effective-dated đã kích hoạt,Tính và so sánh oracle pháp lý,ngày 20 tháng sau,Deadline đúng,Có,Không,Log/assertion
+TC-079,G3-Thuế,Critical,Lịch thuế quý,Policy effective-dated đã kích hoạt,Tính và so sánh oracle pháp lý,cuối tháng đầu quý sau,Deadline đúng,Có,Không,Log/assertion
+TC-080,G3-Thuế,Critical,Quyết toán năm,Policy effective-dated đã kích hoạt,Tính và so sánh oracle pháp lý,tháng thứ 3 năm sau,Deadline đúng,Có,Không,Log/assertion
+TC-081,G4-Tài chính/Kinh tế,Critical,Dòng tiền quản trị,Dữ liệu tài chính/dự án chuẩn,Tính độc lập và đối chiếu tổng,Paid income/expense,Thu-chi-net đúng,Có,Không,Log/assertion
+TC-082,G4-Tài chính/Kinh tế,Critical,Dòng tiền sổ cái,Dữ liệu tài chính/dự án chuẩn,Tính độc lập và đối chiếu tổng,111/112 Posted,Khớp quản trị,Có,Không,Log/assertion
+TC-083,G4-Tài chính/Kinh tế,Critical,Internal transfer,Dữ liệu tài chính/dự án chuẩn,Tính độc lập và đối chiếu tổng,111↔112,Không tăng thu/chi,Có,Không,Log/assertion
+TC-084,G4-Tài chính/Kinh tế,Critical,Current ratio,Dữ liệu tài chính/dự án chuẩn,Tính độc lập và đối chiếu tổng,CA/CL,Khớp tay; 0 denominator=N/A,Có,Không,Log/assertion
+TC-085,G4-Tài chính/Kinh tế,Critical,Gross margin,Dữ liệu tài chính/dự án chuẩn,Tính độc lập và đối chiếu tổng,gross profit/revenue,Khớp tay,Có,Không,Log/assertion
+TC-086,G4-Tài chính/Kinh tế,Critical,Net margin,Dữ liệu tài chính/dự án chuẩn,Tính độc lập và đối chiếu tổng,profit/revenue,Khớp tay,Có,Không,Log/assertion
+TC-087,G4-Tài chính/Kinh tế,Critical,ROA,Dữ liệu tài chính/dự án chuẩn,Tính độc lập và đối chiếu tổng,lợi nhuận/tài sản bình quân,Khớp,Có,Không,Log/assertion
+TC-088,G4-Tài chính/Kinh tế,Critical,ROE,Dữ liệu tài chính/dự án chuẩn,Tính độc lập và đối chiếu tổng,lợi nhuận/VCSH bình quân,Khớp,Có,Không,Log/assertion
+TC-089,G4-Tài chính/Kinh tế,Critical,DSO,Dữ liệu tài chính/dự án chuẩn,Tính độc lập và đối chiếu tổng,AR/doanh thu*ngày,Khớp,Có,Không,Log/assertion
+TC-090,G4-Tài chính/Kinh tế,Critical,DPO,Dữ liệu tài chính/dự án chuẩn,Tính độc lập và đối chiếu tổng,AP/COGS*ngày,Khớp,Có,Không,Log/assertion
+TC-091,G4-Tài chính/Kinh tế,Critical,Cash conversion cycle,Dữ liệu tài chính/dự án chuẩn,Tính độc lập và đối chiếu tổng,DSO+DIO-DPO,Khớp,Có,Không,Log/assertion
+TC-092,G4-Tài chính/Kinh tế,Critical,Interest coverage,Dữ liệu tài chính/dự án chuẩn,Tính độc lập và đối chiếu tổng,EBIT/interest,Khớp,Có,Không,Log/assertion
+TC-093,G4-Tài chính/Kinh tế,Critical,Backlog forecast,Dữ liệu tài chính/dự án chuẩn,Tính độc lập và đối chiếu tổng,hợp đồng còn lại,Phân bổ không vượt hợp đồng,Có,Không,Log/assertion
+TC-094,G4-Tài chính/Kinh tế,Critical,Pipeline weighted,Dữ liệu tài chính/dự án chuẩn,Tính độc lập và đối chiếu tổng,giá trị*xác suất,Khớp,Có,Không,Log/assertion
+TC-095,G4-Tài chính/Kinh tế,Critical,Non-cash expense,Dữ liệu tài chính/dự án chuẩn,Tính độc lập và đối chiếu tổng,khấu hao,Không làm tăng cash-out,Có,Không,Log/assertion
+TC-096,G4-Tài chính/Kinh tế,Critical,Minimum cash buffer,Dữ liệu tài chính/dự án chuẩn,Tính độc lập và đối chiếu tổng,forecast thấp hơn buffer,Cảnh báo,Có,Không,Log/assertion
+TC-097,G4-Tài chính/Kinh tế,Critical,Budget baseline,Dữ liệu tài chính/dự án chuẩn,Tính độc lập và đối chiếu tổng,nhiều approved,Chọn theo effective date/version,Có,Không,Log/assertion
+TC-098,G4-Tài chính/Kinh tế,Critical,Committed cost,Dữ liệu tài chính/dự án chuẩn,Tính độc lập và đối chiếu tổng,PO/commitment,Không cộng trùng,Có,Không,Log/assertion
+TC-099,G4-Tài chính/Kinh tế,Critical,Project actual cost,Dữ liệu tài chính/dự án chuẩn,Tính độc lập và đối chiếu tổng,labor+direct,Khớp nguồn,Có,Không,Log/assertion
+TC-100,G4-Tài chính/Kinh tế,Critical,EAC vượt ngân sách,Dữ liệu tài chính/dự án chuẩn,Tính độc lập và đối chiếu tổng,forecast>budget,Cảnh báo,Có,Không,Log/assertion
+TC-101,G4-Tài chính/Kinh tế,Critical,Hợp đồng >10 tỷ,Dữ liệu tài chính/dự án chuẩn,Tính độc lập và đối chiếu tổng,nhiều đợt,Không mất số,Có,Không,Log/assertion
+TC-102,G4-Tài chính/Kinh tế,Critical,Milestone total,Dữ liệu tài chính/dự án chuẩn,Tính độc lập và đối chiếu tổng,tổng > hợp đồng,Bị chặn,Có,Không,Log/assertion
+TC-103,G4-Tài chính/Kinh tế,Critical,Invoice allocation,Dữ liệu tài chính/dự án chuẩn,Tính độc lập và đối chiếu tổng,phân bổ nhiều lần,Không vượt invoice/payment,Có,Không,Log/assertion
+TC-104,G4-Tài chính/Kinh tế,Critical,100 nhân sự,Dữ liệu tài chính/dự án chuẩn,Tính độc lập và đối chiếu tổng,timesheet/payroll,Tính ổn định,Có,Không,Log/assertion
+TC-105,G4-Tài chính/Kinh tế,Critical,48 dự án,Dữ liệu tài chính/dự án chuẩn,Tính độc lập và đối chiếu tổng,portfolio/forecast,Không treo và tổng đúng,Có,Không,Log/assertion
+TC-106,G5-Nghiệp vụ/UI,Major,Tạo/sửa/xem danh mục,Session test hợp lệ,Thao tác end-to-end,client/vendor/project,Dữ liệu lưu đúng,Có,Không,Log/assertion
+TC-107,G5-Nghiệp vụ/UI,Major,Phê duyệt/reject,Session test hợp lệ,Thao tác end-to-end,workflow hợp lệ,Trạng thái và audit đúng,Có,Không,Log/assertion
+TC-108,G5-Nghiệp vụ/UI,Major,Nút chức năng,Session test hợp lệ,Thao tác end-to-end,mọi button/menu,Không nút chết,Bán tự động,Không,Log/assertion
+TC-109,G5-Nghiệp vụ/UI,Major,Bộ lọc,Session test hợp lệ,Thao tác end-to-end,kết hợp nhiều điều kiện,Kết quả đúng,Có,Không,Log/assertion
+TC-110,G5-Nghiệp vụ/UI,Major,Sắp xếp/phân trang,Session test hợp lệ,Thao tác end-to-end,bảng dài,Không mất bản ghi,Có,Không,Log/assertion
+TC-111,G5-Nghiệp vụ/UI,Major,Giữ vị trí cuộn dọc,Session test hợp lệ,Thao tác end-to-end,sửa/lưu/duyệt,Không nhảy dòng đầu,Có,Không,Log/assertion
+TC-112,G5-Nghiệp vụ/UI,Major,Giữ vị trí cuộn ngang,Session test hợp lệ,Thao tác end-to-end,bảng rộng,Không reset ngoài ý muốn,Có,Không,Log/assertion
+TC-113,G5-Nghiệp vụ/UI,Major,Đổi view/filter,Session test hợp lệ,Thao tác end-to-end,điều hướng chủ động,Reset đúng chủ đích,Có,Không,Log/assertion
+TC-114,G5-Nghiệp vụ/UI,Major,Thùng rác,Session test hợp lệ,Thao tác end-to-end,xóa record hợp lệ,Giữ payload 30 ngày,Có,Không,Log/assertion
+TC-115,G5-Nghiệp vụ/UI,Major,Khôi phục đúng phân hệ,Session test hợp lệ,Thao tác end-to-end,module/subview/index,Đúng vị trí,Có,Không,Log/assertion
+TC-116,G5-Nghiệp vụ/UI,Major,Xung đột ID khi restore,Session test hợp lệ,Thao tác end-to-end,ID đã tồn tại,Không ghi đè; báo lỗi,Có,Không,Log/assertion
+TC-117,G5-Nghiệp vụ/UI,Major,Restore bundle,Session test hợp lệ,Thao tác end-to-end,record+related,Khôi phục toàn vẹn,Có,Không,Log/assertion
+TC-118,G5-Nghiệp vụ/UI,Major,Xóa vĩnh viễn,Session test hợp lệ,Thao tác end-to-end,MFA+confirm,Xóa source và trash,Có,Không,Log/assertion
+TC-119,G5-Nghiệp vụ/UI,Major,Dọn sau 30 ngày,Session test hợp lệ,Thao tác end-to-end,expiresAt từ server,Tự dọn đúng hạn,Có,Không,Log/assertion
+TC-120,G5-Nghiệp vụ/UI,Major,File Cloud,Session test hợp lệ,Thao tác end-to-end,xóa mềm,Chưa xóa vật lý,Có,Không,Log/assertion
+TC-121,G5-Nghiệp vụ/UI,Major,File Cloud purge,Session test hợp lệ,Thao tác end-to-end,xóa vĩnh viễn,Xóa vật lý có kiểm soát,Có,Không,Log/assertion
+TC-122,G5-Nghiệp vụ/UI,Major,Offline queue,Session test hợp lệ,Thao tác end-to-end,mất mạng,Không mất thao tác; sync an toàn,Có,Không,Log/assertion
+TC-123,G5-Nghiệp vụ/UI,Major,Conflict sync,Session test hợp lệ,Thao tác end-to-end,hai client sửa,Phát hiện conflict,Có,Không,Log/assertion
+TC-124,G5-Nghiệp vụ/UI,Major,Export center,Session test hợp lệ,Thao tác end-to-end,CSV/XLSX/PDF...,Gate và metadata đúng,Có,Không,Log/assertion
+TC-125,G5-Nghiệp vụ/UI,Major,Responsive mobile,Session test hợp lệ,Thao tác end-to-end,360/390/430,Không tràn/chồng,Có,Không,Log/assertion
+TC-126,G5-Nghiệp vụ/UI,Major,Tablet,Session test hợp lệ,Thao tác end-to-end,768/820/1024,Bảng và sidebar dùng được,Có,Không,Log/assertion
+TC-127,G5-Nghiệp vụ/UI,Major,Dark/light,Session test hợp lệ,Thao tác end-to-end,mọi view,Tương phản/nhãn đúng,Có,Không,Log/assertion
+TC-128,G5-Nghiệp vụ/UI,Major,Modal scroll,Session test hợp lệ,Thao tác end-to-end,form dài,Cuộn và nút hành động thấy,Có,Không,Log/assertion
+TC-129,G5-Nghiệp vụ/UI,Major,Thông báo deep link,Session test hợp lệ,Thao tác end-to-end,click notification,Đi đúng record/view,Có,Không,Log/assertion
+TC-130,G5-Nghiệp vụ/UI,Major,Đánh dấu đã xem,Session test hợp lệ,Thao tác end-to-end,notification,Badge/count cập nhật,Có,Không,Log/assertion
+TC-131,G6-Bảo mật/Database,Blocker,Authentication fail closed,Môi trường test/staging,Gửi request/payload đối kháng,token thiếu/hết hạn,Từ chối,Có,Không,Log/assertion
+TC-132,G6-Bảo mật/Database,Blocker,MFA AAL2,Môi trường test/staging,Gửi request/payload đối kháng,thao tác nhạy cảm,Bắt buộc,Có,Không,Log/assertion
+TC-133,G6-Bảo mật/Database,Blocker,RLS công ty,Môi trường test/staging,Gửi request/payload đối kháng,user công ty A,Không đọc B,Có,Không,Log/assertion
+TC-134,G6-Bảo mật/Database,Blocker,Permission read/write,Môi trường test/staging,Gửi request/payload đối kháng,role matrix,Đúng quyền,Có,Không,Log/assertion
+TC-135,G6-Bảo mật/Database,Blocker,Admin-only trash,Môi trường test/staging,Gửi request/payload đối kháng,user thường,Không thấy/restore/purge,Có,Không,Log/assertion
+TC-136,G6-Bảo mật/Database,Blocker,Payload validation,Môi trường test/staging,Gửi request/payload đối kháng,schema sai,Reject,Có,Không,Log/assertion
+TC-137,G6-Bảo mật/Database,Blocker,Entity source match,Môi trường test/staging,Gửi request/payload đối kháng,trash payload giả,Reject,Có,Không,Log/assertion
+TC-138,G6-Bảo mật/Database,Blocker,SQL injection,Môi trường test/staging,Gửi request/payload đối kháng,chuỗi đặc biệt,Parameterized/reject,Có,Không,Log/assertion
+TC-139,G6-Bảo mật/Database,Blocker,XSS stored/reflected,Môi trường test/staging,Gửi request/payload đối kháng,script payload,Không thực thi,Có,Không,Log/assertion
+TC-140,G6-Bảo mật/Database,Blocker,CSV formula injection,Môi trường test/staging,Gửi request/payload đối kháng,=HYPERLINK...,Escape,Có,Không,Log/assertion
+TC-141,G6-Bảo mật/Database,Blocker,CSRF/origin,Môi trường test/staging,Gửi request/payload đối kháng,origin lạ,Reject,Có,Không,Log/assertion
+TC-142,G6-Bảo mật/Database,Blocker,Rate limit,Môi trường test/staging,Gửi request/payload đối kháng,burst request,429/giới hạn,Có,Không,Log/assertion
+TC-143,G6-Bảo mật/Database,Blocker,Mass assignment,Môi trường test/staging,Gửi request/payload đối kháng,field quyền cao,Bỏ/chặn,Có,Không,Log/assertion
+TC-144,G6-Bảo mật/Database,Blocker,Duplicate ID,Môi trường test/staging,Gửi request/payload đối kháng,same collection,Reject,Có,Không,Log/assertion
+TC-145,G6-Bảo mật/Database,Blocker,Audit trail,Môi trường test/staging,Gửi request/payload đối kháng,create/update/delete,Append-only,Có,Không,Log/assertion
+TC-146,G6-Bảo mật/Database,Blocker,Posting hash,Môi trường test/staging,Gửi request/payload đối kháng,tamper,Phát hiện,Có,Không,Log/assertion
+TC-147,G6-Bảo mật/Database,Blocker,CORS/header,Môi trường test/staging,Gửi request/payload đối kháng,production config,Không wildcard nguy hiểm,Có,Không,Log/assertion
+TC-148,G6-Bảo mật/Database,Blocker,Secret exposure,Môi trường test/staging,Gửi request/payload đối kháng,bundle/source map,Không lộ,Có,Không,Log/assertion
+TC-149,G6-Bảo mật/Database,Blocker,Backup encryption,Môi trường test/staging,Gửi request/payload đối kháng,backup artifact,Bảo vệ quyền truy cập,Có,Không,Log/assertion
+TC-150,G6-Bảo mật/Database,Blocker,Restore permission,Môi trường test/staging,Gửi request/payload đối kháng,restore DB,Chỉ người có quyền,Có,Không,Log/assertion
+TC-151,G7-Trình duyệt,Major,Structural 27 views,Chromium/Playwright,Chạy audit trình duyệt thật,7 viewport x 2 theme,378/378 state đạt,Có,Không,Log/assertion
+TC-152,G7-Trình duyệt,Major,Body overflow,Chromium/Playwright,Chạy audit trình duyệt thật,mọi view,0 overflow ngoài chủ đích,Có,Không,Log/assertion
+TC-153,G7-Trình duyệt,Major,Table overflow,Chromium/Playwright,Chạy audit trình duyệt thật,bảng chính,Thanh cuộn đúng container,Có,Không,Log/assertion
+TC-154,G7-Trình duyệt,Major,KPI text overflow,Chromium/Playwright,Chạy audit trình duyệt thật,dashboard,0 cắt chữ,Có,Không,Log/assertion
+TC-155,G7-Trình duyệt,Major,Script errors,Chromium/Playwright,Chạy audit trình duyệt thật,console/pageerror,0,Có,Không,Log/assertion
+TC-156,G7-Trình duyệt,Major,Auth browser,Chromium/Playwright,Chạy audit trình duyệt thật,login/MFA/logout,Đạt,Có,Không,Log/assertion
+TC-157,G7-Trình duyệt,Major,XSS browser,Chromium/Playwright,Chạy audit trình duyệt thật,payload UI,Không execute,Có,Không,Log/assertion
+TC-158,G7-Trình duyệt,Major,Accessibility keyboard,Chromium/Playwright,Chạy audit trình duyệt thật,tab/focus/modal,Điều hướng được,Có,Không,Log/assertion
+TC-159,G7-Trình duyệt,Major,Offline browser,Chromium/Playwright,Chạy audit trình duyệt thật,network off/on,Queue/sync đúng,Có,Không,Log/assertion
+TC-160,G7-Trình duyệt,Major,Print/export viewport,Chromium/Playwright,Chạy audit trình duyệt thật,report,Không cắt sai,Có,Không,Log/assertion
+TC-161,G8-Hiệu năng,Critical,Cold start,Dataset tải chuẩn,Đo thời gian/tài nguyên,server/app,Trong ngưỡng,Bán tự động,Không,Log/assertion
+TC-162,G8-Hiệu năng,Critical,CRUD latency,Dataset tải chuẩn,Đo thời gian/tài nguyên,1/10/100 concurrent,Không timeout,Bán tự động,Không,Log/assertion
+TC-163,G8-Hiệu năng,Critical,Calculation stress,Dataset tải chuẩn,Đo thời gian/tài nguyên,dữ liệu lớn,Không lỗi/bất biến giữ,Bán tự động,Không,Log/assertion
+TC-164,G8-Hiệu năng,Critical,Memory growth,Dataset tải chuẩn,Đo thời gian/tài nguyên,lặp render/filter,Không leak rõ rệt,Bán tự động,Không,Log/assertion
+TC-165,G8-Hiệu năng,Critical,Database query plan,Dataset tải chuẩn,Đo thời gian/tài nguyên,bảng lớn,Dùng index/không full scan bất hợp lý,Bán tự động,Không,Log/assertion
+TC-166,G8-Hiệu năng,Critical,Sync retry,Dataset tải chuẩn,Đo thời gian/tài nguyên,network chập chờn,Backoff/idempotent,Bán tự động,Không,Log/assertion
+TC-167,G8-Hiệu năng,Critical,Import large CSV,Dataset tải chuẩn,Đo thời gian/tài nguyên,file giới hạn,Không treo; báo lỗi dòng,Bán tự động,Không,Log/assertion
+TC-168,G8-Hiệu năng,Critical,Export large report,Dataset tải chuẩn,Đo thời gian/tài nguyên,nhiều dòng,Hoàn thành/không sai số,Bán tự động,Không,Log/assertion
+TC-169,G9-Backup/DR,Blocker,Backup hoàn chỉnh,Supabase staging độc lập,Thực hiện diễn tập,DB+storage+config,Có checksum,Thủ công,Không,Log/assertion
+TC-170,G9-Backup/DR,Blocker,Restore staging,Supabase staging độc lập,Thực hiện diễn tập,backup mới nhất,Ứng dụng chạy/đối chiếu khớp,Thủ công,Không,Log/assertion
+TC-171,G9-Backup/DR,Blocker,Point-in-time recovery,Supabase staging độc lập,Thực hiện diễn tập,mốc sự cố,RPO đạt,Thủ công,Không,Log/assertion
+TC-172,G9-Backup/DR,Blocker,RTO,Supabase staging độc lập,Thực hiện diễn tập,đồng hồ phục hồi,Trong mục tiêu,Thủ công,Không,Log/assertion
+TC-173,G9-Backup/DR,Blocker,Recycle purge recovery,Supabase staging độc lập,Thực hiện diễn tập,trước/sau purge,Phù hợp chính sách,Thủ công,Không,Log/assertion
+TC-174,G9-Backup/DR,Blocker,Migration rollback plan,Supabase staging độc lập,Thực hiện diễn tập,migration 075,Có kế hoạch fail-forward/restore,Thủ công,Không,Log/assertion
+TC-175,G9-Backup/DR,Blocker,Disaster credential rotation,Supabase staging độc lập,Thực hiện diễn tập,key bị lộ giả lập,Đổi key và thu hồi,Thủ công,Không,Log/assertion
+TC-176,G9-Backup/DR,Blocker,Business continuity,Supabase staging độc lập,Thực hiện diễn tập,Supabase unavailable,Thông báo/offline đúng,Thủ công,Không,Log/assertion
+TC-177,G10-UAT Production,Blocker,Đối chiếu 2 kỳ,Dữ liệu thật đã ẩn/được phép,Thực hiện có người ký,sổ thật đã ký,Sai lệch 0 hoặc giải trình,Thủ công,Không,Log/assertion
+TC-178,G10-UAT Production,Blocker,Kế toán trưởng nghiệm thu,Dữ liệu thật đã ẩn/được phép,Thực hiện có người ký,BCTC/thuế/payroll,Ký biên bản,Thủ công,Không,Log/assertion
+TC-179,G10-UAT Production,Blocker,Giám đốc nghiệm thu,Dữ liệu thật đã ẩn/được phép,Thực hiện có người ký,KPI/quyền/DR,Ký quyết định,Thủ công,Không,Log/assertion
+TC-180,G10-UAT Production,Blocker,Schema HTKK/eTax,Dữ liệu thật đã ẩn/được phép,Thực hiện có người ký,phiên bản hiện hành,Xác minh chính thức,Thủ công,Không,Log/assertion
+TC-181,G10-UAT Production,Blocker,Hóa đơn điện tử,Dữ liệu thật đã ẩn/được phép,Thực hiện có người ký,nhà cung cấp thật,Sandbox/UAT đạt,Thủ công,Không,Log/assertion
+TC-182,G10-UAT Production,Blocker,Ngân hàng,Dữ liệu thật đã ẩn/được phép,Thực hiện có người ký,statement thật đã che dữ liệu,Đối chiếu đạt,Thủ công,Không,Log/assertion
+TC-183,G10-UAT Production,Blocker,Supabase parity,Dữ liệu thật đã ẩn/được phép,Thực hiện có người ký,schema/RLS/function,Staging=release,Thủ công,Không,Log/assertion
+TC-184,G10-UAT Production,Blocker,Multi-device UAT,Dữ liệu thật đã ẩn/được phép,Thực hiện có người ký,desktop/tablet/mobile,Danh sách đạt,Thủ công,Không,Log/assertion
+TC-185,G10-UAT Production,Blocker,Pen test,Dữ liệu thật đã ẩn/được phép,Thực hiện có người ký,đơn vị độc lập,Không Blocker/Critical,Thủ công,Không,Log/assertion
+TC-186,G10-UAT Production,Blocker,Go-live rehearsal,Dữ liệu thật đã ẩn/được phép,Thực hiện có người ký,cutover checklist,Rollback khả dụng,Thủ công,Không,Log/assertion

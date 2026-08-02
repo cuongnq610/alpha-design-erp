@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const app=readFileSync(new URL('../app.js',import.meta.url),'utf8');
+const css=readFileSync(new URL('../alpha-design-system.css',import.meta.url),'utf8');
+const cloud=readFileSync(new URL('../cloud-v2.js',import.meta.url),'utf8');
+for(const marker of ['journal-colgroup','journal-lock-indicator','Chi tiết định khoản Nợ / Có','journal-total-debit','journal-total-credit','journal-total-difference','modal-wide'])assert.ok(app.includes(marker),marker);
+for(const marker of ['v4.5.12','journal-col-actions','deployment-config-card','deployment-security-note','journal-lines-title'])assert.ok(css.includes(marker),marker);
+assert.ok(cloud.includes('deployment-config-card'));
+assert.ok(cloud.includes("ENVIRONMENT==='demo'?'':`<div class=\"deployment-actions\""));
+assert.equal(cloud.includes('<div class="form-actions">${ENVIRONMENT'),false,'Demo Cloud card must not render an empty sticky form-actions strip');
+assert.ok(app.includes('Chứng từ Posted đã khóa nội dung'));
+console.log('UI_FINAL_CLOSURE_V4512_OK');

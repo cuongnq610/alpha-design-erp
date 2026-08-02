@@ -1,0 +1,22 @@
+{
+  "releaseVersion": "4.5.60",
+  "payrollChartTitle": true,
+  "payrollMeaning": true,
+  "payrollSummaryCount": 1,
+  "payrollNoOldTitle": true,
+  "cashOutTitle": true,
+  "cashBalanceTitle": true,
+  "cashExplanations": true,
+  "cashSummaryVisible": true,
+  "autoCalendarTitle": true,
+  "calendarRows": 6,
+  "calendarSyncVisible": true,
+  "calendarExplanation": true,
+  "calendarCountdowns": 6,
+  "oldCitSelectorsRemoved": true,
+  "manualCitFields": true,
+  "manualCitSaved": true,
+  "manualCitHistorySaved": true,
+  "pageErrors": [],
+  "passed": true
+}

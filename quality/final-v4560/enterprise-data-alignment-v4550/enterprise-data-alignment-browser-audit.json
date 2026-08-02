@@ -1,0 +1,707 @@
+{
+  "summary": {
+    "releaseVersion": "4.5.60",
+    "states": 7,
+    "passedStates": 7,
+    "failedStates": 0,
+    "runtimeErrors": [],
+    "screenshots": [],
+    "passed": true
+  },
+  "records": [
+    {
+      "viewport": [
+        1792,
+        900
+      ],
+      "theme": "light",
+      "view": "procurement-orders",
+      "metrics": {
+        "missing": false,
+        "firstWidth": 122,
+        "firstHeaderOverflow": 0,
+        "firstCellOverflow": 0,
+        "firstText": "PO-2026-00219/7/2026",
+        "grid": "fitted",
+        "wrapOverflow": 0
+      },
+      "centering": {
+        "missing": false,
+        "columns": [
+          {
+            "target": "Thanh toán",
+            "index": 5,
+            "headerAlign": "center",
+            "headerVertical": "middle",
+            "details": [
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Payable",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Bank",
+                "childOffset": 0
+              }
+            ]
+          },
+          {
+            "target": "Chứng từ",
+            "index": 7,
+            "headerAlign": "center",
+            "headerVertical": "middle",
+            "details": [
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Đã sinh Draft",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Đã sinh Draft",
+                "childOffset": 0
+              }
+            ]
+          }
+        ],
+        "tableClass": "table-purchase-orders table-fit-wide table-columns-9 balanced-table table-fit desktop-fit-table table-column-grid table-grid-exact table-auto-columns table-generated-grid"
+      },
+      "issues": [],
+      "passed": true
+    },
+    {
+      "viewport": [
+        1792,
+        900
+      ],
+      "theme": "light",
+      "view": "payroll-sticky-header",
+      "metrics": {
+        "missing": false,
+        "wrapTop": 544.703125,
+        "scrollTop": 260,
+        "headers": [
+          {
+            "text": "Mã / Họ tên",
+            "top": 545.703125,
+            "left": 283,
+            "z": 100,
+            "position": "sticky",
+            "hitTag": "TH",
+            "hitText": "Mã / Họ tên"
+          },
+          {
+            "text": "Bộ môn",
+            "top": 545.703125,
+            "left": 473,
+            "z": 100,
+            "position": "sticky",
+            "hitTag": "TH",
+            "hitText": "Bộ môn"
+          },
+          {
+            "text": "Loại",
+            "top": 545.703125,
+            "left": 603,
+            "z": 92,
+            "position": "sticky",
+            "hitTag": "TH",
+            "hitText": "Loại"
+          },
+          {
+            "text": "Ngày công chuẩn",
+            "top": 545.703125,
+            "left": 683,
+            "z": 92,
+            "position": "sticky",
+            "hitTag": "TH",
+            "hitText": "Ngày công chuẩn"
+          },
+          {
+            "text": "Ngày hưởng lương",
+            "top": 545.703125,
+            "left": 793,
+            "z": 92,
+            "position": "sticky",
+            "hitTag": "TH",
+            "hitText": "Ngày hưởng lương"
+          }
+        ],
+        "bodyStickyZ": [
+          2,
+          2
+        ],
+        "headerCount": 25
+      },
+      "issues": [],
+      "passed": true
+    },
+    {
+      "viewport": [
+        1792,
+        900
+      ],
+      "theme": "light",
+      "view": "annual-benefit-header",
+      "metrics": {
+        "missing": false,
+        "count": 10,
+        "headers": [
+          {
+            "text": "Mã / Họ tên",
+            "align": "center",
+            "width": 215.203125,
+            "height": 58,
+            "overflowX": 0,
+            "overflowY": 0,
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "Bộ môn",
+            "align": "center",
+            "width": 148.59375,
+            "height": 58,
+            "overflowX": 0,
+            "overflowY": 0,
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "Lương bình quân",
+            "align": "center",
+            "width": 148.59375,
+            "height": 58,
+            "overflowX": 0,
+            "overflowY": 0,
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "Ngày đủ điều kiện",
+            "align": "center",
+            "width": 129.125,
+            "height": 58,
+            "overflowX": 0,
+            "overflowY": 0,
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "Tỷ lệ thời gian",
+            "align": "center",
+            "width": 129.125,
+            "height": 58,
+            "overflowX": 0,
+            "overflowY": 0,
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "Hệ số cá nhân",
+            "align": "center",
+            "width": 125.015625,
+            "height": 58,
+            "overflowX": 0,
+            "overflowY": 0,
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "Hệ số công ty",
+            "align": "center",
+            "width": 125.015625,
+            "height": 58,
+            "overflowX": 0,
+            "overflowY": 0,
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "Thưởng dự kiến",
+            "align": "center",
+            "width": 157.8125,
+            "height": 58,
+            "overflowX": 0,
+            "overflowY": 0,
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "Ngân sách tiền mặt",
+            "align": "center",
+            "width": 166.015625,
+            "height": 58,
+            "overflowX": 0,
+            "overflowY": 0,
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "Thao tác",
+            "align": "center",
+            "width": 141.5,
+            "height": 58,
+            "overflowX": 0,
+            "overflowY": 0,
+            "whiteSpace": "normal"
+          }
+        ]
+      },
+      "issues": [],
+      "passed": true
+    },
+    {
+      "viewport": [
+        1792,
+        900
+      ],
+      "theme": "light",
+      "view": "financial-analytics",
+      "metrics": {
+        "missing": false,
+        "columns": [
+          {
+            "target": "Đánh giá",
+            "index": 2,
+            "headerAlign": "center",
+            "headerVertical": "middle",
+            "details": [
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Tốt",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Tốt",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Tốt",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Tốt",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Tốt",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Tốt",
+                "childOffset": 0
+              }
+            ]
+          }
+        ],
+        "tableClass": "table-fit-wide table-financial-key-ratios balanced-table table-fit desktop-fit-table table-column-grid table-grid-exact table-auto-columns table-generated-grid table-columns-4"
+      },
+      "issues": [],
+      "passed": true
+    },
+    {
+      "viewport": [
+        1792,
+        900
+      ],
+      "theme": "light",
+      "view": "accounting-accounts",
+      "metrics": {
+        "missing": false,
+        "columns": [
+          {
+            "target": "Nhóm",
+            "index": 2,
+            "headerAlign": "center",
+            "headerVertical": "middle",
+            "details": [
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Asset",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Asset",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Asset",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Asset",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Asset",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Asset",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Asset",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Asset",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Asset",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Asset",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Asset",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Liability",
+                "childOffset": 0
+              }
+            ]
+          },
+          {
+            "target": "Tính chất",
+            "index": 3,
+            "headerAlign": "center",
+            "headerVertical": "middle",
+            "details": [
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Dư Nợ",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Dư Nợ",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Dư Nợ",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Dư Nợ",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Dư Nợ",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Dư Nợ",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Dư Nợ",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Dư Nợ",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Dư Nợ",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Dư Có",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Dư Nợ",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Dư Có",
+                "childOffset": 0
+              }
+            ]
+          }
+        ],
+        "tableClass": "table-columns-7 balanced-table desktop-fit-table table-column-grid table-grid-exact table-auto-columns table-generated-grid"
+      },
+      "issues": [],
+      "passed": true
+    },
+    {
+      "viewport": [
+        1792,
+        900
+      ],
+      "theme": "light",
+      "view": "users-roles",
+      "metrics": {
+        "missing": false,
+        "columns": [
+          {
+            "target": "Vai trò",
+            "index": 2,
+            "headerAlign": "center",
+            "headerVertical": "middle",
+            "details": [
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Giám đốc",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Kế toán trưởng",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Quản lý dự án",
+                "childOffset": 0.0078125
+              }
+            ]
+          },
+          {
+            "target": "Bộ phận",
+            "index": 3,
+            "headerAlign": "center",
+            "headerVertical": "middle",
+            "details": [
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Ban giám đốc",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Kế toán",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Kiến trúc",
+                "childOffset": 0
+              }
+            ]
+          }
+        ],
+        "tableClass": "balanced-table table-fit desktop-fit-table table-column-grid table-grid-exact table-auto-columns table-generated-grid table-columns-6"
+      },
+      "issues": [],
+      "passed": true
+    },
+    {
+      "viewport": [
+        1792,
+        900
+      ],
+      "theme": "light",
+      "view": "audit-log",
+      "metrics": {
+        "missing": false,
+        "columns": [
+          {
+            "target": "Hành động",
+            "index": 2,
+            "headerAlign": "center",
+            "headerVertical": "middle",
+            "details": [
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Mở phân hệ",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Mở phân hệ",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Mở phân hệ",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Mở phân hệ",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Mở phân hệ",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Đăng nhập Demo",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Sao lưu tự động",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Đăng nhập",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Ghi sổ",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Phê duyệt",
+                "childOffset": 0
+              }
+            ]
+          },
+          {
+            "target": "Phân hệ",
+            "index": 3,
+            "headerAlign": "center",
+            "headerVertical": "middle",
+            "details": [
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Điều hướng",
+                "childOffset": 0.0078125
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Điều hướng",
+                "childOffset": 0.0078125
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Điều hướng",
+                "childOffset": 0.0078125
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Điều hướng",
+                "childOffset": 0.0078125
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Điều hướng",
+                "childOffset": 0.0078125
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Hệ thống",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Sao lưu",
+                "childOffset": 0.0078125
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Hệ thống",
+                "childOffset": 0
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Kế toán",
+                "childOffset": 0.0078125
+              },
+              {
+                "align": "center",
+                "vertical": "middle",
+                "content": "Timesheet",
+                "childOffset": 0
+              }
+            ]
+          }
+        ],
+        "tableClass": "balanced-table table-fit desktop-fit-table table-column-grid table-grid-exact table-auto-columns table-generated-grid table-columns-5"
+      },
+      "issues": [],
+      "passed": true
+    }
+  ]
+}

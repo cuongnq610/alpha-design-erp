@@ -1,0 +1,47 @@
+{
+  "releaseVersion": "4.5.60",
+  "taxHeadingYear2026": true,
+  "taxInternalVersionHidden": true,
+  "taxProvenanceVisible": true,
+  "taxRowsOnlySelectedYear": true,
+  "taxChartHeightExpanded": true,
+  "taxChartAdaptiveUnit": true,
+  "taxAutoRollsTo2027": true,
+  "tax2027RowsGenerated": true,
+  "documentViewportTall": true,
+  "documentViewportScrollable": true,
+  "documentHeaderSticky": true,
+  "controlKpisOneRowAllTabs": true,
+  "controlTabDetails": {
+    "actual": {
+      "oneRow": true,
+      "count": 6,
+      "maxHeight": 121.53125
+    },
+    "commercial": {
+      "oneRow": true,
+      "count": 6,
+      "maxHeight": 110.921875
+    },
+    "cash": {
+      "oneRow": true,
+      "count": 6,
+      "maxHeight": 110.921875
+    },
+    "quality": {
+      "oneRow": true,
+      "count": 6,
+      "maxHeight": 99.921875
+    }
+  },
+  "planningKpisOneRow": true,
+  "financialKpisOneRow": true,
+  "threeAccountingRegimes": true,
+  "obsoleteCitInfoRemoved": true,
+  "regimeSavePropagates": true,
+  "accountingViewReflectsRegime": true,
+  "departmentRowsDetailed": true,
+  "departmentBreakdownVisible": true,
+  "pageErrors": [],
+  "passed": true
+}

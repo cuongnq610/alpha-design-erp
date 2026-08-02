@@ -1,0 +1,1 @@
+{"releaseVersion": "4.5.60", "views": 26, "states": 208, "passedStates": 208, "failedStates": 0, "authenticatedDemoSession": true, "passed": true}

@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const app=readFileSync(new URL('../app.js',import.meta.url),'utf8');
+const css=readFileSync(new URL('../alpha-design-system.css',import.meta.url),'utf8');
+const cloud=readFileSync(new URL('../cloud-v2.js',import.meta.url),'utf8');
+for(const marker of ['adjust-journal','openJournalAdjustment','Phiếu điều chỉnh','adjustmentOf','tax-vat-cell','tax-control-cell','tax-actions-cell'])assert.ok(app.includes(marker),marker);
+for(const marker of ['backup-type-cell','backup-size-cell','backup-size-chip'])assert.ok(cloud.includes(marker),marker);
+for(const marker of ['journal-action-cell','tax-actions-cell','backup-size-cell','v4.5.11','v4.5.12'])assert.ok(css.includes(marker),marker);
+assert.ok(!app.includes('class="table-lock-state" title="Chứng từ đã ghi sổ là bất biến"'));
+console.log('UI_ACTION_COLLISION_V4511_OK');

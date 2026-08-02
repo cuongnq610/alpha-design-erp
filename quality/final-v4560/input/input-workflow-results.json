@@ -1,0 +1,228 @@
+{
+  "version": "4.5.60",
+  "checks": [
+    {
+      "name": "Project preview contains contract value",
+      "actual": true,
+      "expected": true,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Project preview contains direct budget",
+      "actual": true,
+      "expected": true,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Project contract value saved",
+      "actual": 1200000000,
+      "expected": 1200000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Project direct budget saved",
+      "actual": 720000000,
+      "expected": 720000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Project manual progress saved",
+      "actual": 35,
+      "expected": 35,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Synced customer contract value",
+      "actual": 1200000000,
+      "expected": 1200000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Synced contract client",
+      "actual": "c1",
+      "expected": "c1",
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Synced approved budget direct cost",
+      "actual": 720000000,
+      "expected": 720000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Synced target contribution",
+      "actual": 480000000,
+      "expected": 480000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Contract project auto-fills client",
+      "actual": "c1",
+      "expected": "c1",
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Contract preview VAT 10%",
+      "actual": true,
+      "expected": true,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Explicit contract value saved",
+      "actual": 330000000,
+      "expected": 330000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Explicit contract VAT rate saved",
+      "actual": 10,
+      "expected": 10,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Explicit contract total incl VAT (independent)",
+      "actual": 363000000,
+      "expected": 363000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Timesheet preview shows hours",
+      "actual": true,
+      "expected": true,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Timesheet hours saved",
+      "actual": 7.5,
+      "expected": 7.5,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Timesheet approved flag saved",
+      "actual": true,
+      "expected": true,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Independent labor cost",
+      "actual": 0,
+      "expected": 0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Independent recoverable value",
+      "actual": 3150000,
+      "expected": 3150000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Purchase request amount independent",
+      "actual": 50000000,
+      "expected": 50000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Purchase request VAT independent",
+      "actual": 5000000,
+      "expected": 5000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "PO auto-fill item",
+      "actual": "Máy trạm kiểm thử",
+      "expected": "Máy trạm kiểm thử",
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "PO auto-fill quantity",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "PO auto-fill unit price",
+      "actual": 25000000.0,
+      "expected": 25000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "PO excl VAT total",
+      "actual": 50000000,
+      "expected": 50000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "PO VAT total",
+      "actual": 5000000,
+      "expected": 5000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "PO gross total",
+      "actual": 55000000,
+      "expected": 55000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Projects count increment",
+      "actual": 51,
+      "expected": 51,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Timesheets count increment",
+      "actual": 581,
+      "expected": 581,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Purchase requests count increment",
+      "actual": 4,
+      "expected": 4,
+      "tolerance": 0,
+      "pass": true
+    }
+  ],
+  "screenshots": [
+    "quality/final-v4560/input/01-project-live-preview.png",
+    "quality/final-v4560/input/02-project-created.png",
+    "quality/final-v4560/input/03-contract-live-preview.png",
+    "quality/final-v4560/input/04-timesheet-live-preview.png",
+    "quality/final-v4560/input/05-timesheet-created.png",
+    "quality/final-v4560/input/06-purchase-request-preview.png",
+    "quality/final-v4560/input/07-purchase-order-preview.png",
+    "quality/final-v4560/input/08-procurement-after-entry.png"
+  ],
+  "errors": [],
+  "passed": 30,
+  "failed": 0
+}

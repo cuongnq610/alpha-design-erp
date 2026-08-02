@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const app=readFileSync(new URL('../app.js',import.meta.url),'utf8');
+const css=readFileSync(new URL('../alpha-design-system.css',import.meta.url),'utf8');
+assert.ok(app.includes('role="region" aria-label="Bảng lương chi tiết có thể cuộn ngang" tabindex="0"'),'accessible payroll scroll region missing');
+assert.equal((app.match(/payroll-header-label/g)||[]).length,25,'all 25 payroll headings must use the wrap-safe label');
+for(const marker of ['Ngày công chuẩn','Ngày hưởng lương','Lương / tiền công','BH người lao động','Tổng chi phí DN','Doanh thu thu hồi','Cost Recovery'])assert.ok(app.includes(`<span class="payroll-header-label">${marker}</span>`),`missing wrapped heading ${marker}`);
+for(const marker of ['width:3015px','height:62px','white-space:normal!important','overflow:visible!important','.payroll-detail-table col:nth-child(25){width:170px}'])assert.ok(css.includes(marker),`missing payroll header CSS contract ${marker}`);
+assert.ok(css.includes('.payroll-detail-table thead th.numeric{text-align:center')||css.includes('text-align:center!important'),'numeric payroll headings must be centered');
+console.log('PASS v4.5.43 payroll header width, wrapping, alignment and accessibility contract');

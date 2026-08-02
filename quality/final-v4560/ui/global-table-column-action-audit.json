@@ -1,0 +1,1885 @@
+{
+  "summary": {
+    "releaseVersion": "4.5.60",
+    "views": 26,
+    "states": 208,
+    "passedStates": 208,
+    "failedStates": 0,
+    "authenticatedDemoSession": true,
+    "passed": true
+  },
+  "records": [
+    {
+      "width": 1280,
+      "theme": "light",
+      "view": "dashboard",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "view": "tasks",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "view": "projects",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "view": "controls",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "view": "documents",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "view": "commercial",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "view": "planning",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "view": "procurement",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "view": "crm",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "view": "approvals",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "view": "people",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "view": "timesheets",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "view": "payroll",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "view": "finance",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "view": "financialAnalytics",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "view": "accounting",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "view": "tax",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "view": "cloud-admin",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "view": "readiness",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "view": "security-center",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "view": "users",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "view": "audit",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "view": "storage",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "view": "integrations",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "view": "exports",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "view": "settings",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "view": "dashboard",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "view": "tasks",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "view": "projects",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "view": "controls",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "view": "documents",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "view": "commercial",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "view": "planning",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "view": "procurement",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "view": "crm",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "view": "approvals",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "view": "people",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "view": "timesheets",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "view": "payroll",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "view": "finance",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "view": "financialAnalytics",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "view": "accounting",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "view": "tax",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "view": "cloud-admin",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "view": "readiness",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "view": "security-center",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "view": "users",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "view": "audit",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "view": "storage",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "view": "integrations",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "view": "exports",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "view": "settings",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "dashboard",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "tasks",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "projects",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "controls",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "documents",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "commercial",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "planning",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "procurement",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "crm",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "approvals",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "people",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "timesheets",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "payroll",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "finance",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "financialAnalytics",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "accounting",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "tax",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "cloud-admin",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "readiness",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "security-center",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "users",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "audit",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "storage",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "integrations",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "exports",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "view": "settings",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "dashboard",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "tasks",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "projects",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "controls",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "documents",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "commercial",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "planning",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "procurement",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "crm",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "approvals",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "people",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "timesheets",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "payroll",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "finance",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "financialAnalytics",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "accounting",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "tax",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "cloud-admin",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "readiness",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "security-center",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "users",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "audit",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "storage",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "integrations",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "exports",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "view": "settings",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "light",
+      "view": "dashboard",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "light",
+      "view": "tasks",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "light",
+      "view": "projects",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "light",
+      "view": "controls",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "light",
+      "view": "documents",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "light",
+      "view": "commercial",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "light",
+      "view": "planning",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "light",
+      "view": "procurement",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "light",
+      "view": "crm",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "light",
+      "view": "approvals",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "light",
+      "view": "people",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "light",
+      "view": "timesheets",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "light",
+      "view": "payroll",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "light",
+      "view": "finance",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "light",
+      "view": "financialAnalytics",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "light",
+      "view": "accounting",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "light",
+      "view": "tax",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "light",
+      "view": "cloud-admin",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "light",
+      "view": "readiness",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "light",
+      "view": "security-center",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "light",
+      "view": "users",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "light",
+      "view": "audit",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "light",
+      "view": "storage",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "light",
+      "view": "integrations",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "light",
+      "view": "exports",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "light",
+      "view": "settings",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "dark",
+      "view": "dashboard",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "dark",
+      "view": "tasks",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "dark",
+      "view": "projects",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "dark",
+      "view": "controls",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "dark",
+      "view": "documents",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "dark",
+      "view": "commercial",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "dark",
+      "view": "planning",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "dark",
+      "view": "procurement",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "dark",
+      "view": "crm",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "dark",
+      "view": "approvals",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "dark",
+      "view": "people",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "dark",
+      "view": "timesheets",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "dark",
+      "view": "payroll",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "dark",
+      "view": "finance",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "dark",
+      "view": "financialAnalytics",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "dark",
+      "view": "accounting",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "dark",
+      "view": "tax",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "dark",
+      "view": "cloud-admin",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "dark",
+      "view": "readiness",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "dark",
+      "view": "security-center",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "dark",
+      "view": "users",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "dark",
+      "view": "audit",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "dark",
+      "view": "storage",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "dark",
+      "view": "integrations",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "dark",
+      "view": "exports",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1536,
+      "theme": "dark",
+      "view": "settings",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "light",
+      "view": "dashboard",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "light",
+      "view": "tasks",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "light",
+      "view": "projects",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "light",
+      "view": "controls",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "light",
+      "view": "documents",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "light",
+      "view": "commercial",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "light",
+      "view": "planning",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "light",
+      "view": "procurement",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "light",
+      "view": "crm",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "light",
+      "view": "approvals",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "light",
+      "view": "people",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "light",
+      "view": "timesheets",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "light",
+      "view": "payroll",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "light",
+      "view": "finance",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "light",
+      "view": "financialAnalytics",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "light",
+      "view": "accounting",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "light",
+      "view": "tax",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "light",
+      "view": "cloud-admin",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "light",
+      "view": "readiness",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "light",
+      "view": "security-center",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "light",
+      "view": "users",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "light",
+      "view": "audit",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "light",
+      "view": "storage",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "light",
+      "view": "integrations",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "light",
+      "view": "exports",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "light",
+      "view": "settings",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "dark",
+      "view": "dashboard",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "dark",
+      "view": "tasks",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "dark",
+      "view": "projects",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "dark",
+      "view": "controls",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "dark",
+      "view": "documents",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "dark",
+      "view": "commercial",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "dark",
+      "view": "planning",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "dark",
+      "view": "procurement",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "dark",
+      "view": "crm",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "dark",
+      "view": "approvals",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "dark",
+      "view": "people",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "dark",
+      "view": "timesheets",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "dark",
+      "view": "payroll",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "dark",
+      "view": "finance",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "dark",
+      "view": "financialAnalytics",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "dark",
+      "view": "accounting",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "dark",
+      "view": "tax",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "dark",
+      "view": "cloud-admin",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "dark",
+      "view": "readiness",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "dark",
+      "view": "security-center",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "dark",
+      "view": "users",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "dark",
+      "view": "audit",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "dark",
+      "view": "storage",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "dark",
+      "view": "integrations",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "dark",
+      "view": "exports",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "theme": "dark",
+      "view": "settings",
+      "issues": [],
+      "bodyOverflow": 0,
+      "errors": [],
+      "passed": true
+    }
+  ]
+}

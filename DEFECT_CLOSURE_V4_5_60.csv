@@ -1,0 +1,8 @@
+id,severity,status,area,description,verification
+V4560-001,High,Closed,Export Center,Full ZIP package bypassed the active statutory release gate,Export browser audit blocks incomplete TT133 ZIP and passes complete TT99 ZIP
+V4560-002,High,Closed,Export Center,Statutory JSON could bypass balance and approval gates,Export browser audit confirms failed log and no download
+V4560-003,High,Closed,Export Center,Direct print/PDF did not share the full certificate hash gate,Static contract and browser fail-closed test
+V4560-004,Medium,Closed,TT99 linkage,TT99 full package retained TT133 cash-flow and account-master labels,ZIP content audit confirms B03-DN and TT99 account title
+V4560-005,Low,Closed,UI metadata,Table grid version remained hard-coded to v4.5.50,Responsive sidebar audit passes 12/12 states
+V4560-006,Low,Closed,QA metadata,Release evidence flags contradicted the completed browser run,VERSION and closure tests require 18/18 completion
+V4560-007,Low,Closed,QA package,Three obsolete browser scripts used removed selectors,Scripts removed and current/extended browser suites pass

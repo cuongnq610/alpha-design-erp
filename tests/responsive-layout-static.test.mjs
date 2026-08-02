@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const css=fs.readFileSync(new URL('../alpha-design-system.css',import.meta.url),'utf8');
+const js=fs.readFileSync(new URL('../app.js',import.meta.url),'utf8');
+const html=fs.readFileSync(new URL('../index.html',import.meta.url),'utf8');
+for(const width of [1024,820,600,374])assert.ok(css.includes(`max-width:${width}px`),`Missing responsive breakpoint ${width}`);
+for(const width of [360,390,430,768,820,1024])assert.ok(JSON.parse(fs.readFileSync(new URL('../VERSION.json',import.meta.url),'utf8')).responsiveBreakpoints.includes(width));
+assert.match(css,/overflow-x:clip/);assert.match(css,/\.grid>\*\{min-width:0;max-width:100%\}/);assert.match(css,/height:100dvh/);assert.match(css,/safe-area-inset-bottom/);assert.match(css,/touch-action:pan-x pan-y/);assert.match(css,/font-size:16px/);
+assert.match(js,/function syncResponsiveLayout\(/);assert.match(js,/function enhanceResponsiveTables\(/);assert.match(js,/orientationchange/);assert.match(js,/setSidebarOpen/);
+assert.match(html,/aria-controls="sidebar"/);assert.match(html,/aria-label="Điều hướng nhanh trên thiết bị di động"/);
+console.log('PASS v4.5.9 responsive static contract for 360, 390, 430, 768, 820 and 1024 px');

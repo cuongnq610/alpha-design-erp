@@ -1,0 +1,508 @@
+{
+  "version": "4.5.60",
+  "checks": [
+    {
+      "name": "Fixed employee saved",
+      "actual": 31000000,
+      "expected": 31000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Fixed allowance saved",
+      "actual": 2400000,
+      "expected": 2400000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Fixed insurance base saved",
+      "actual": 28000000,
+      "expected": 28000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "CTV hourly rate saved",
+      "actual": 210000,
+      "expected": 210000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Project live preview contribution displayed",
+      "actual": true,
+      "expected": true,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Project value saved",
+      "actual": 2750000000,
+      "expected": 2750000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Project budget saved",
+      "actual": 1120000000,
+      "expected": 1120000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Auto contract synchronized",
+      "actual": 2750000000,
+      "expected": 2750000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Approved budget synchronized",
+      "actual": 1120000000,
+      "expected": 1120000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Pending row exposes direct approval button",
+      "actual": 1,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Direct approval persists approved flag",
+      "actual": true,
+      "expected": true,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Direct approval stamps approver",
+      "actual": true,
+      "expected": true,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Approved row removes approval button",
+      "actual": 0,
+      "expected": 0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "25-hour invalid entry remains in form",
+      "actual": true,
+      "expected": true,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "25-hour invalid entry not persisted",
+      "actual": 585,
+      "expected": 585,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Fixed standard workdays independent",
+      "actual": 23,
+      "expected": 23,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Fixed approved hours",
+      "actual": 24,
+      "expected": 24,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Fixed billable hours",
+      "actual": 16,
+      "expected": 16,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Fixed overtime hours",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Fixed base salary",
+      "actual": 31000000,
+      "expected": 31000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Automatic allowance",
+      "actual": 2400000,
+      "expected": 2400000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Automatic overtime pay",
+      "actual": 505435,
+      "expected": 505435,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Gross income",
+      "actual": 33905435,
+      "expected": 33905435,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Employee insurance",
+      "actual": 2940000,
+      "expected": 2940000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Employer insurance",
+      "actual": 6020000,
+      "expected": 6020000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Taxable income",
+      "actual": 9265435,
+      "expected": 9265435,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Progressive PIT",
+      "actual": 463272,
+      "expected": 463272,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Net pay",
+      "actual": 30502163,
+      "expected": 30502163,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Recoverable revenue",
+      "actual": 9920000,
+      "expected": 9920000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "CTV approved hours",
+      "actual": 30,
+      "expected": 30,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "CTV gross from timesheet",
+      "actual": 6300000,
+      "expected": 6300000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "CTV withholding 10%",
+      "actual": 630000,
+      "expected": 630000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "CTV net pay",
+      "actual": 5670000,
+      "expected": 5670000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Payroll row hides automatic source word",
+      "actual": false,
+      "expected": false,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Payroll row keeps overtime audit",
+      "actual": true,
+      "expected": true,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Unbalanced Posted journal blocked",
+      "actual": true,
+      "expected": true,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Unbalanced feedback mentions balance",
+      "actual": true,
+      "expected": true,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Unbalanced journal not saved",
+      "actual": true,
+      "expected": true,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Income journal posted",
+      "actual": "Posted",
+      "expected": "Posted",
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Income journal balanced",
+      "actual": 550000000,
+      "expected": 550000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Posted journal has immutable hash",
+      "actual": true,
+      "expected": true,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Expense journal balanced",
+      "actual": 110000000,
+      "expected": 110000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Input VAT automatically traceable to journal",
+      "actual": "je-qa-exp-4554",
+      "expected": "je-qa-exp-4554",
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Paid income matches Posted cash journal",
+      "actual": 550000000,
+      "expected": 550000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Paid expense matches Posted cash journal",
+      "actual": 110000000,
+      "expected": 110000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Revenue delta from Posted entry",
+      "actual": 500000000,
+      "expected": 500000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Expense delta from Posted entry",
+      "actual": 100000000,
+      "expected": 100000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Profit delta independent",
+      "actual": 400000000,
+      "expected": 400000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Cash inflow delta from linked Paid",
+      "actual": 550000000,
+      "expected": 550000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Cash outflow delta from linked Paid",
+      "actual": 110000000,
+      "expected": 110000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Net cash delta",
+      "actual": 440000000,
+      "expected": 440000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "VAT output delta",
+      "actual": 50000000,
+      "expected": 50000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "VAT deductible input delta",
+      "actual": 10000000,
+      "expected": 10000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "VAT payable delta",
+      "actual": 40000000,
+      "expected": 40000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "VAT output register equals ledger",
+      "actual": 4081250000,
+      "expected": 4081250000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "VAT input register equals ledger",
+      "actual": 599636364,
+      "expected": 599636364,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Saved employee persists salary after cross-module operations",
+      "actual": 31000000,
+      "expected": 31000000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Saved employee persists billing rate after cross-module operations",
+      "actual": 620000,
+      "expected": 620000,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Dashboard core KPI count",
+      "actual": 4,
+      "expected": 4,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Dashboard compact context KPI count",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Dashboard source note count",
+      "actual": 1,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Project/people KPI cards are compact",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "Collapsed active sidebar icon remains inside rail",
+      "actual": true,
+      "expected": true,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "people record count delta",
+      "actual": 102,
+      "expected": 102,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "projects record count delta",
+      "actual": 51,
+      "expected": 51,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "timesheets record count delta",
+      "actual": 585,
+      "expected": 585,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "journalEntries record count delta",
+      "actual": 235,
+      "expected": 235,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "finance record count delta",
+      "actual": 86,
+      "expected": 86,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "taxInvoices record count delta",
+      "actual": 85,
+      "expected": 85,
+      "tolerance": 0,
+      "pass": true
+    }
+  ],
+  "screenshots": [
+    "quality/final-v4560/end-to-end-input-accounting/01-fixed-employee-input.png",
+    "quality/final-v4560/end-to-end-input-accounting/02-project-complex-input.png",
+    "quality/final-v4560/end-to-end-input-accounting/03-timesheet-pending-direct-approval.png",
+    "quality/final-v4560/end-to-end-input-accounting/04-payroll-automatic-complex-results.png",
+    "quality/final-v4560/end-to-end-input-accounting/05-finance-linked-paid-records.png",
+    "quality/final-v4560/end-to-end-input-accounting/06-dashboard-compact-overview.png",
+    "quality/final-v4560/end-to-end-input-accounting/07-collapsed-sidebar-not-clipped.png"
+  ],
+  "errors": [],
+  "records": {
+    "fixedPersonId": "p-ms8d9zpc-of85xz1p",
+    "ctvPersonId": "p-ms8da0g8-hdtavw42",
+    "projectId": "pr-ms8da1ol-n57iiiyt",
+    "contractId": "ct-ms8da1om-qm6y4ncn",
+    "incomeJournalId": "je-ms8dafj5-okugslke",
+    "expenseJournalId": "je-qa-exp-4554"
+  },
+  "passed": 69,
+  "failed": 0
+}

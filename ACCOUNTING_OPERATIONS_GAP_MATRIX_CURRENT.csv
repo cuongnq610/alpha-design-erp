@@ -1,0 +1,14 @@
+﻿Code,Nghiệp vụ,Trạng thái,Ghi chú
+CASH,Tiền mặt,SUPPORTED,"Sổ 111, phiếu thu/chi, đối chiếu"
+BANK,Ngân hàng,PARTIAL,"Cần UI nhập sổ phụ, matching và UAT Cloud"
+PURCHASE_AP,Mua hàng và phải trả,CONDITIONAL,Có nghiệp vụ nền; cần UAT end-to-end
+SALES_AR,Bán hàng và phải thu,SUPPORTED,"Hợp đồng, hóa đơn, phân bổ, tuổi nợ"
+EINVOICE,Hóa đơn điện tử,PARTIAL,Chưa kết nối nhà cung cấp/cơ quan thuế
+INVENTORY,Kho,NOT_APPLICABLE_DEFAULT,Doanh nghiệp dịch vụ; kích hoạt khi cần
+PREPAID_TOOLS,CCDC và trả trước,SUPPORTED,Lịch phân bổ và khóa lịch
+FIXED_ASSET,TSCĐ,SUPPORTED,Khấu hao và kiểm soát
+PROJECT_COST,Giá thành dự án,SUPPORTED,"TK154, timesheet, P&L dự án"
+TAX,GTGT/TNCN/TNDN,SUPPORTED_WITH_PACKAGE,Biểu mẫu theo gói hiệu lực
+FX,Ngoại tệ,PARTIAL,Thiếu sổ nguyên tệ/đánh giá lại đầy đủ
+CLOSE,Tổng hợp và khóa sổ,SUPPORTED,"Trial balance, BCTC, khóa kỳ"
+TAX_XML,XML nộp thuế,BLOCKED_UNTIL_VALIDATED,Phải xác minh HTKK/eTax

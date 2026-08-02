@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {spawnSync} from 'node:child_process';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const run=(extra={})=>spawnSync(process.execPath,['scripts/preflight-matbao.mjs','--strict'],{cwd:root,env:{...process.env,NODE_ENV:'test',ALPHA_ENV:'test',PREFLIGHT_STRICT:'0',...extra},encoding:'utf8'});
+const missing=run({SUPABASE_URL:'',CORS_ORIGINS:'',VALIDATION_EVIDENCE_SECRET:'',SUPABASE_PUBLISHABLE_KEY:'',SUPABASE_SECRET_KEY:'',SUPABASE_ANON_KEY:'',SUPABASE_SERVICE_ROLE_KEY:''});
+assert.notEqual(missing.status,0,'Strict preflight must fail when production variables are missing');
+const missingBody=JSON.parse(missing.stdout);assert.equal(missingBody.strict,true);assert(missingBody.errors.length>=5);
+const ok=run({SUPABASE_URL:'https://project-ref.supabase.co',CORS_ORIGINS:'https://erp.alphadesign.vn',VALIDATION_EVIDENCE_SECRET:'0123456789abcdef0123456789abcdef',SUPABASE_PUBLISHABLE_KEY:'sb_publishable_example',SUPABASE_SECRET_KEY:'sb_secret_example_server_only'});
+assert.equal(ok.status,0,ok.stderr||ok.stdout);const okBody=JSON.parse(ok.stdout);assert.equal(okBody.ok,true);assert.equal(okBody.strict,true);assert.deepEqual(okBody.errors,[]);
+console.log('PASS v4.5.18 strict production preflight fails closed and accepts complete validated configuration');

@@ -1,0 +1,14 @@
+'use strict';
+const assert=require('node:assert/strict');
+const C=require('../calculation-core.js');
+const exact=[0,1,-1,4_000_000_000_000_000,-4_000_000_000_000_000,8_000_000_000_000_000,-8_000_000_000_000_000,Number.MAX_SAFE_INTEGER,-Number.MAX_SAFE_INTEGER];
+for(const value of exact) assert.equal(C.vnd(value),value,`integer drift: ${value}`);
+assert.equal(C.vnd(1.5),2);assert.equal(C.vnd(-1.5),-2);
+assert.equal(C.vnd(4_000_000_000_000_000.5),4_000_000_000_000_001);
+assert.equal(C.vnd(-4_000_000_000_000_000.5),-4_000_000_000_000_001);
+assert.equal(Object.is(C.vnd(-0),-0),false);
+const db={settings:{},accounts:[{code:'1111',active:true,postable:true},{code:'331',active:true,postable:true}],journalEntries:[],accountingPeriods:[]};
+const unsafe=Number.MAX_SAFE_INTEGER+1;
+const result=C.entryValidation(db,{date:'2026-07-27',documentNo:'SAFE-1',status:'Draft',lines:[{accountCode:'1111',debit:unsafe,credit:0},{accountCode:'331',debit:0,credit:unsafe}]});
+assert.equal(result.valid,false);assert(result.errors.some(x=>x.includes('phạm vi số nguyên an toàn')));
+console.log('PASS v4.5.23 VND safe-integer boundary and no-drift regression');

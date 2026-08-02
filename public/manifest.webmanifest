@@ -1,0 +1,35 @@
+{
+  "id": "/",
+  "name": "ALPHA DESIGN ERP Cloud v4.5.67 DEEP QA AUTOHEAL RELEASE",
+  "short_name": "ALPHA ERP 4.5.67",
+  "description": "Hệ thống quản trị dự án, nguồn lực, tài chính, kế toán TT133 và thuế của ALPHA DESIGN, tối ưu cho máy tính, máy tính bảng và điện thoại.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone"
+  ],
+  "orientation": "any",
+  "background_color": "#07131f",
+  "theme_color": "#062f55",
+  "categories": [
+    "business",
+    "finance",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

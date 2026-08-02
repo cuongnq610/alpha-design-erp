@@ -1,0 +1,102 @@
+{
+  "releaseVersion": "4.5.60",
+  "expectedSteps": 18,
+  "steps": [
+    {
+      "script": "scripts/static-security-audit.py",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "script": "scripts/auth-security-browser-audit-v4515.py",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "script": "scripts/ui-structural-browser-audit-v4525.py",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "script": "scripts/focused-global-table-columns-v4525.py",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "script": "scripts/focused-journal-tax-columns-v4522.py",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "script": "scripts/accessibility-integration-browser-audit-v4519.py",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "script": "scripts/mobile-more-security-browser-audit-v4516.py",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "script": "scripts/focused-accounting-report-layout-v4517.py",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "script": "scripts/focused-tax-integration-typography-v4518.py",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "script": "scripts/ui-modal-scroll-browser-audit-v4515.py",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "script": "scripts/input-workflow-browser-audit-v4515.py",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "script": "scripts/production-invariants-browser-v4527.py",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "script": "scripts/offline-browser-audit.py",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "script": "scripts/xss-browser-audit.py",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "script": "scripts/responsive-browser-audit.py",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "script": "scripts/interaction-smoke-v4521.py",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "script": "scripts/tt99-export-activation-browser-audit-v4560.py",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "script": "scripts/export-center-browser-audit-v4560.py",
+      "status": "PASS",
+      "exitCode": 0
+    }
+  ],
+  "passedSteps": 18,
+  "failedSteps": 0,
+  "duplicateScripts": [],
+  "reportIntegrity": true,
+  "passed": true,
+  "policy": "Each browser step has a hard timeout, continues after failures, and preserves its stdout/stderr evidence."
+}

@@ -1,0 +1,11 @@
+{
+  "version": "4.5.60",
+  "productionApproval": false,
+  "remainingGates": [
+    "Execute and reconcile migrations 001-068 on real Supabase.",
+    "Validate tax XML profiles against official filing software/schema in effect.",
+    "Complete live bank/e-invoice/tax integrations before claiming MISA AMIS equivalence.",
+    "Complete Cloud parity, B09 approval, backup/restore and dual sign-off."
+  ],
+  "note": "Local and browser QA do not replace execution on the real Supabase project or reconciliation with signed company data."
+}

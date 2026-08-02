@@ -1,0 +1,155 @@
+{
+  "summary": {
+    "releaseVersion": "4.5.60",
+    "states": 12,
+    "passedStates": 12,
+    "failedStates": 0,
+    "passed": true
+  },
+  "records": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "theme": "light",
+      "taxOk": true,
+      "integrationButtonsOk": true,
+      "emailModalOk": true,
+      "bankModalOk": true,
+      "verticalTextClipping": [],
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "theme": "dark",
+      "taxOk": true,
+      "integrationButtonsOk": true,
+      "emailModalOk": true,
+      "bankModalOk": true,
+      "verticalTextClipping": [],
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "height": 1000,
+      "theme": "light",
+      "taxOk": true,
+      "integrationButtonsOk": true,
+      "emailModalOk": true,
+      "bankModalOk": true,
+      "verticalTextClipping": [],
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "width": 1792,
+      "height": 1000,
+      "theme": "dark",
+      "taxOk": true,
+      "integrationButtonsOk": true,
+      "emailModalOk": true,
+      "bankModalOk": true,
+      "verticalTextClipping": [],
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "height": 1000,
+      "theme": "light",
+      "taxOk": true,
+      "integrationButtonsOk": true,
+      "emailModalOk": true,
+      "bankModalOk": true,
+      "verticalTextClipping": [],
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "height": 1000,
+      "theme": "dark",
+      "taxOk": true,
+      "integrationButtonsOk": true,
+      "emailModalOk": true,
+      "bankModalOk": true,
+      "verticalTextClipping": [],
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "height": 900,
+      "theme": "light",
+      "taxOk": true,
+      "integrationButtonsOk": true,
+      "emailModalOk": true,
+      "bankModalOk": true,
+      "verticalTextClipping": [],
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "height": 900,
+      "theme": "dark",
+      "taxOk": true,
+      "integrationButtonsOk": true,
+      "emailModalOk": true,
+      "bankModalOk": true,
+      "verticalTextClipping": [],
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "width": 1024,
+      "height": 900,
+      "theme": "light",
+      "taxOk": true,
+      "integrationButtonsOk": true,
+      "emailModalOk": true,
+      "bankModalOk": true,
+      "verticalTextClipping": [],
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "width": 1024,
+      "height": 900,
+      "theme": "dark",
+      "taxOk": true,
+      "integrationButtonsOk": true,
+      "emailModalOk": true,
+      "bankModalOk": true,
+      "verticalTextClipping": [],
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "theme": "light",
+      "taxOk": true,
+      "integrationButtonsOk": true,
+      "emailModalOk": true,
+      "bankModalOk": true,
+      "verticalTextClipping": [],
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "theme": "dark",
+      "taxOk": true,
+      "integrationButtonsOk": true,
+      "emailModalOk": true,
+      "bankModalOk": true,
+      "verticalTextClipping": [],
+      "pageErrors": [],
+      "passed": true
+    }
+  ]
+}

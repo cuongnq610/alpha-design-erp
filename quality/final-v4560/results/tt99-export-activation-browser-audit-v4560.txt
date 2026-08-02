@@ -1,0 +1,7 @@
+stage:set_content
+stage:ui_ready
+stage:exports
+stage:preview_screenshot
+stage:download
+stage:source_contracts
+{"releaseVersion": "4.5.60", "checks": {"tt99CardVisible": true, "tt99SelectionPersistsUnderTT133": true, "tt99PreviewTitle": true, "regimeMismatchNoticeVisible": true, "tt99RegimeCommitted": true, "tt99LocalStatutoryGatePasses": true, "tt99HasExpectedForms": true, "tt99B09EightOfEight": true, "regimeMismatchNoticeClears": true, "tt99XlsxDownloaded": true, "tt99XlsxFilename": true, "tt99B09EditBindingPresent": true, "tt99B09FormConfigPresent": true, "noUnexpectedDialogs": true, "noPageErrors": true}, "passedChecks": 15, "totalChecks": 15, "dialogs": [], "pageErrors": [], "artifacts": {"xlsx": "quality/final-v4560/tt99-export-activation/Bo_bao_cao_tai_chinh_TT99_2026-01-01_2026-12-31.xlsx", "exportCenterScreenshot": "quality/final-v4560/tt99-export-activation/TT99_EXPORT_CENTER_V4_5_60.png"}, "passed": true}

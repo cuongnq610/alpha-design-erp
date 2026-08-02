@@ -1,0 +1,13 @@
+[responsive] viewport 360x800
+[responsive] completed 360px
+[responsive] viewport 390x844
+[responsive] completed 390px
+[responsive] viewport 430x932
+[responsive] completed 430px
+[responsive] viewport 768x1024
+[responsive] completed 768px
+[responsive] viewport 820x1180
+[responsive] completed 820px
+[responsive] viewport 1024x1366
+[responsive] completed 1024px
+{"passed": true, "viewports": 6, "evidence": "quality/final-v4560/browser/RESPONSIVE_VIEWPORT_AUDIT_V4_5_60.json"}

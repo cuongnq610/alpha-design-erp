@@ -1,0 +1,693 @@
+{
+  "manifest": {
+    "packageType": "alpha-statutory-report-template",
+    "schemaVersion": 1,
+    "templateId": "TT99-VI-BASELINE",
+    "name": "TT99 Việt Nam — Bản xem trước tương thích, khóa phát hành",
+    "version": "2026.1",
+    "accountingRegime": "TT99/2025/TT-BTC",
+    "effectiveFrom": "2026-01-01",
+    "legalReference": "Tham chiếu Thông tư số 99/2025/TT-BTC ngày 27/10/2025 của Bộ Tài chính; chưa đối chiếu đầy đủ Phụ lục IV",
+    "status": "reference-only",
+    "validationStatus": "blocked-until-native-appendix-iv-mapping-is-independently-validated"
+  },
+  "reports": {
+    "B01-DN": {
+      "form": "B01-DN",
+      "title": "BÁO CÁO TÌNH HÌNH TÀI CHÍNH",
+      "subtitle": "",
+      "unitLabel": "Đơn vị tính",
+      "rows": [
+        {
+          "code": "100",
+          "label": "TÀI SẢN NGẮN HẠN",
+          "noteRef": "",
+          "level": 0,
+          "bold": true
+        },
+        {
+          "code": "110",
+          "label": "Tiền và các khoản tương đương tiền",
+          "noteRef": "V.01",
+          "level": 1,
+          "bold": false
+        },
+        {
+          "code": "120",
+          "label": "Đầu tư tài chính ngắn hạn",
+          "noteRef": "V.02",
+          "level": 1,
+          "bold": false
+        },
+        {
+          "code": "130",
+          "label": "Các khoản phải thu ngắn hạn",
+          "noteRef": "V.03",
+          "level": 1,
+          "bold": false
+        },
+        {
+          "code": "131",
+          "label": "Phải thu ngắn hạn của khách hàng",
+          "noteRef": "",
+          "level": 2,
+          "bold": false
+        },
+        {
+          "code": "132",
+          "label": "Trả trước cho người bán ngắn hạn",
+          "noteRef": "",
+          "level": 2,
+          "bold": false
+        },
+        {
+          "code": "134",
+          "label": "Phải thu ngắn hạn khác",
+          "noteRef": "",
+          "level": 2,
+          "bold": false
+        },
+        {
+          "code": "140",
+          "label": "Hàng tồn kho",
+          "noteRef": "V.04",
+          "level": 1,
+          "bold": false
+        },
+        {
+          "code": "150",
+          "label": "Tài sản ngắn hạn khác",
+          "noteRef": "V.05",
+          "level": 1,
+          "bold": false
+        },
+        {
+          "code": "200",
+          "label": "TÀI SẢN DÀI HẠN",
+          "noteRef": "",
+          "level": 0,
+          "bold": true
+        },
+        {
+          "code": "220",
+          "label": "Tài sản cố định",
+          "noteRef": "V.06",
+          "level": 1,
+          "bold": false
+        },
+        {
+          "code": "221",
+          "label": "Nguyên giá tài sản cố định",
+          "noteRef": "",
+          "level": 2,
+          "bold": false
+        },
+        {
+          "code": "222",
+          "label": "Giá trị hao mòn lũy kế",
+          "noteRef": "",
+          "level": 2,
+          "bold": false
+        },
+        {
+          "code": "230",
+          "label": "Bất động sản đầu tư",
+          "noteRef": "V.07",
+          "level": 1,
+          "bold": false
+        },
+        {
+          "code": "231",
+          "label": "Nguyên giá bất động sản đầu tư",
+          "noteRef": "",
+          "level": 2,
+          "bold": false
+        },
+        {
+          "code": "232",
+          "label": "Giá trị hao mòn lũy kế bất động sản đầu tư",
+          "noteRef": "",
+          "level": 2,
+          "bold": false
+        },
+        {
+          "code": "240",
+          "label": "Xây dựng cơ bản dở dang",
+          "noteRef": "V.08",
+          "level": 1,
+          "bold": false
+        },
+        {
+          "code": "250",
+          "label": "Đầu tư tài chính dài hạn",
+          "noteRef": "V.09",
+          "level": 1,
+          "bold": false
+        },
+        {
+          "code": "260",
+          "label": "Tài sản dài hạn khác",
+          "noteRef": "V.10",
+          "level": 1,
+          "bold": false
+        },
+        {
+          "code": "270",
+          "label": "TỔNG CỘNG TÀI SẢN",
+          "noteRef": "",
+          "level": 0,
+          "bold": true
+        },
+        {
+          "code": "300",
+          "label": "NỢ PHẢI TRẢ",
+          "noteRef": "",
+          "level": 0,
+          "bold": true
+        },
+        {
+          "code": "311",
+          "label": "Phải trả người bán",
+          "noteRef": "V.11",
+          "level": 1,
+          "bold": false
+        },
+        {
+          "code": "312",
+          "label": "Người mua trả tiền trước",
+          "noteRef": "V.12",
+          "level": 1,
+          "bold": false
+        },
+        {
+          "code": "313",
+          "label": "Thuế và các khoản phải nộp Nhà nước",
+          "noteRef": "V.13",
+          "level": 1,
+          "bold": false
+        },
+        {
+          "code": "314",
+          "label": "Phải trả người lao động",
+          "noteRef": "V.14",
+          "level": 1,
+          "bold": false
+        },
+        {
+          "code": "315",
+          "label": "Phải trả khác",
+          "noteRef": "V.15",
+          "level": 1,
+          "bold": false
+        },
+        {
+          "code": "316",
+          "label": "Vay và nợ thuê tài chính",
+          "noteRef": "V.16",
+          "level": 1,
+          "bold": false
+        },
+        {
+          "code": "317",
+          "label": "Dự phòng phải trả",
+          "noteRef": "V.17",
+          "level": 1,
+          "bold": false
+        },
+        {
+          "code": "318",
+          "label": "Quỹ khen thưởng, phúc lợi và quỹ khác",
+          "noteRef": "V.18",
+          "level": 1,
+          "bold": false
+        },
+        {
+          "code": "400",
+          "label": "VỐN CHỦ SỞ HỮU",
+          "noteRef": "",
+          "level": 0,
+          "bold": true
+        },
+        {
+          "code": "411",
+          "label": "Vốn góp của chủ sở hữu",
+          "noteRef": "V.19",
+          "level": 1,
+          "bold": false
+        },
+        {
+          "code": "412",
+          "label": "Thặng dư vốn cổ phần",
+          "noteRef": "",
+          "level": 1,
+          "bold": false
+        },
+        {
+          "code": "413",
+          "label": "Vốn khác của chủ sở hữu",
+          "noteRef": "",
+          "level": 1,
+          "bold": false
+        },
+        {
+          "code": "414",
+          "label": "Cổ phiếu quỹ",
+          "noteRef": "",
+          "level": 1,
+          "bold": false
+        },
+        {
+          "code": "415",
+          "label": "Chênh lệch tỷ giá hối đoái",
+          "noteRef": "",
+          "level": 1,
+          "bold": false
+        },
+        {
+          "code": "416",
+          "label": "Các quỹ thuộc vốn chủ sở hữu",
+          "noteRef": "",
+          "level": 1,
+          "bold": false
+        },
+        {
+          "code": "417",
+          "label": "Lợi nhuận sau thuế chưa phân phối",
+          "noteRef": "V.20",
+          "level": 1,
+          "bold": false
+        },
+        {
+          "code": "440",
+          "label": "TỔNG CỘNG NGUỒN VỐN",
+          "noteRef": "",
+          "level": 0,
+          "bold": true
+        }
+      ]
+    },
+    "B02-DN": {
+      "form": "B02-DN",
+      "title": "BÁO CÁO KẾT QUẢ HOẠT ĐỘNG KINH DOANH",
+      "subtitle": "",
+      "unitLabel": "Đơn vị tính",
+      "rows": [
+        {
+          "code": "01",
+          "label": "Doanh thu bán hàng và cung cấp dịch vụ",
+          "noteRef": "VI.01",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "02",
+          "label": "Các khoản giảm trừ doanh thu",
+          "noteRef": "VI.02",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "10",
+          "label": "Doanh thu thuần",
+          "noteRef": "",
+          "level": 0,
+          "bold": true
+        },
+        {
+          "code": "11",
+          "label": "Giá vốn hàng bán",
+          "noteRef": "VI.03",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "20",
+          "label": "Lợi nhuận gộp",
+          "noteRef": "",
+          "level": 0,
+          "bold": true
+        },
+        {
+          "code": "21",
+          "label": "Doanh thu hoạt động tài chính",
+          "noteRef": "VI.04",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "22",
+          "label": "Chi phí tài chính",
+          "noteRef": "VI.05",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "23",
+          "label": "Trong đó: Chi phí lãi vay",
+          "noteRef": "",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "24",
+          "label": "Chi phí quản lý kinh doanh",
+          "noteRef": "VI.06",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "30",
+          "label": "Lợi nhuận thuần từ hoạt động kinh doanh",
+          "noteRef": "",
+          "level": 0,
+          "bold": true
+        },
+        {
+          "code": "31",
+          "label": "Thu nhập khác",
+          "noteRef": "VI.07",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "32",
+          "label": "Chi phí khác",
+          "noteRef": "VI.08",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "40",
+          "label": "Lợi nhuận khác",
+          "noteRef": "",
+          "level": 0,
+          "bold": true
+        },
+        {
+          "code": "50",
+          "label": "Tổng lợi nhuận kế toán trước thuế",
+          "noteRef": "",
+          "level": 0,
+          "bold": true
+        },
+        {
+          "code": "51",
+          "label": "Chi phí thuế TNDN",
+          "noteRef": "VI.09",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "60",
+          "label": "Lợi nhuận sau thuế TNDN",
+          "noteRef": "",
+          "level": 0,
+          "bold": true
+        }
+      ]
+    },
+    "B03-DN": {
+      "form": "B03-DN",
+      "title": "BÁO CÁO LƯU CHUYỂN TIỀN TỆ",
+      "subtitle": "(Theo phương pháp trực tiếp)",
+      "unitLabel": "Đơn vị tính",
+      "rows": [
+        {
+          "code": "01",
+          "label": "Tiền thu từ bán hàng, cung cấp dịch vụ và doanh thu khác",
+          "noteRef": "VII.01",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "02",
+          "label": "Tiền chi trả cho người cung cấp hàng hóa, dịch vụ",
+          "noteRef": "VII.02",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "03",
+          "label": "Tiền chi trả cho người lao động",
+          "noteRef": "VII.03",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "04",
+          "label": "Tiền lãi vay đã trả",
+          "noteRef": "VII.04",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "05",
+          "label": "Thuế TNDN đã nộp",
+          "noteRef": "VII.05",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "06",
+          "label": "Tiền thu khác từ hoạt động kinh doanh",
+          "noteRef": "VII.06",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "07",
+          "label": "Tiền chi khác cho hoạt động kinh doanh",
+          "noteRef": "VII.07",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "20",
+          "label": "Lưu chuyển tiền thuần từ hoạt động kinh doanh",
+          "noteRef": "",
+          "level": 0,
+          "bold": true
+        },
+        {
+          "code": "21",
+          "label": "Tiền chi mua sắm, xây dựng TSCĐ và tài sản dài hạn",
+          "noteRef": "VII.08",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "22",
+          "label": "Tiền thu thanh lý, nhượng bán TSCĐ và tài sản dài hạn",
+          "noteRef": "VII.09",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "23",
+          "label": "Tiền chi cho vay, mua các công cụ nợ của đơn vị khác",
+          "noteRef": "VII.10",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "24",
+          "label": "Tiền thu hồi cho vay, bán lại các công cụ nợ của đơn vị khác",
+          "noteRef": "VII.11",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "25",
+          "label": "Tiền chi đầu tư góp vốn vào đơn vị khác",
+          "noteRef": "VII.12",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "26",
+          "label": "Tiền thu hồi đầu tư góp vốn vào đơn vị khác",
+          "noteRef": "VII.13",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "27",
+          "label": "Tiền thu lãi cho vay, cổ tức và lợi nhuận được chia",
+          "noteRef": "VII.14",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "30",
+          "label": "Lưu chuyển tiền thuần từ hoạt động đầu tư",
+          "noteRef": "",
+          "level": 0,
+          "bold": true
+        },
+        {
+          "code": "31",
+          "label": "Tiền thu từ phát hành cổ phiếu, nhận vốn góp của chủ sở hữu",
+          "noteRef": "VII.15",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "32",
+          "label": "Tiền trả lại vốn góp cho chủ sở hữu, mua lại cổ phiếu đã phát hành",
+          "noteRef": "VII.16",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "33",
+          "label": "Tiền thu từ đi vay",
+          "noteRef": "VII.17",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "34",
+          "label": "Tiền trả nợ gốc vay",
+          "noteRef": "VII.18",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "35",
+          "label": "Tiền trả nợ gốc thuê tài chính",
+          "noteRef": "VII.19",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "36",
+          "label": "Cổ tức, lợi nhuận đã trả cho chủ sở hữu",
+          "noteRef": "VII.20",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "40",
+          "label": "Lưu chuyển tiền thuần từ hoạt động tài chính",
+          "noteRef": "",
+          "level": 0,
+          "bold": true
+        },
+        {
+          "code": "50",
+          "label": "Lưu chuyển tiền thuần trong kỳ",
+          "noteRef": "",
+          "level": 0,
+          "bold": true
+        },
+        {
+          "code": "60",
+          "label": "Tiền và tương đương tiền đầu kỳ",
+          "noteRef": "",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "61",
+          "label": "Ảnh hưởng thay đổi tỷ giá quy đổi ngoại tệ",
+          "noteRef": "",
+          "level": 0,
+          "bold": false
+        },
+        {
+          "code": "70",
+          "label": "Tiền và tương đương tiền cuối kỳ",
+          "noteRef": "",
+          "level": 0,
+          "bold": true
+        }
+      ]
+    },
+    "BCDSPS": {
+      "form": "BCDSPS",
+      "title": "BẢNG CÂN ĐỐI SỐ PHÁT SINH",
+      "subtitle": "",
+      "unitLabel": "Đơn vị tính",
+      "rows": []
+    },
+    "B09-DN": {
+      "form": "B09-DN",
+      "title": "BẢN THUYẾT MINH BÁO CÁO TÀI CHÍNH",
+      "subtitle": "",
+      "unitLabel": "Đơn vị tính",
+      "rows": [
+        {
+          "code": "I",
+          "label": "Đặc điểm hoạt động của doanh nghiệp",
+          "level": 0,
+          "bold": true
+        },
+        {
+          "code": "II",
+          "label": "Kỳ kế toán, đơn vị tiền tệ sử dụng trong kế toán",
+          "level": 0,
+          "bold": true
+        },
+        {
+          "code": "III",
+          "label": "Chuẩn mực và chế độ kế toán áp dụng",
+          "level": 0,
+          "bold": true
+        },
+        {
+          "code": "IV",
+          "label": "Các chính sách kế toán áp dụng",
+          "level": 0,
+          "bold": true
+        },
+        {
+          "code": "V",
+          "label": "Thông tin bổ sung cho các khoản mục trình bày trong Báo cáo tình hình tài chính",
+          "level": 0,
+          "bold": true
+        },
+        {
+          "code": "VI",
+          "label": "Thông tin bổ sung cho các khoản mục trình bày trong Báo cáo kết quả hoạt động kinh doanh",
+          "level": 0,
+          "bold": true
+        },
+        {
+          "code": "VII",
+          "label": "Thông tin bổ sung cho Báo cáo lưu chuyển tiền tệ",
+          "level": 0,
+          "bold": true
+        },
+        {
+          "code": "VIII",
+          "label": "Những thông tin khác",
+          "level": 0,
+          "bold": true
+        }
+      ]
+    }
+  },
+  "accountMapping": {
+    "mode": "calculation-core-controlled",
+    "note": "Bộ mẫu TT99 tích hợp dùng Calculation Core và mapping sổ cái đã kiểm thử; thay đổi mapping phải qua migration, kiểm thử và phê duyệt kế toán."
+  },
+  "validationRules": [
+    {
+      "id": "B01_BALANCE",
+      "severity": "critical",
+      "source": "Calculation Core"
+    },
+    {
+      "id": "B03_LEDGER_RECONCILIATION",
+      "severity": "critical",
+      "source": "Calculation Core"
+    },
+    {
+      "id": "B09_APPROVAL",
+      "severity": "critical",
+      "source": "Controlled workflow"
+    }
+  ],
+  "printLayout": "@page{size:A4 landscape;margin:12mm}.statutory-table{font-size:10pt}.statutory-official-title{text-align:center}",
+  "referenceNotice": "Gói mẫu tham chiếu tích hợp. Phải đối chiếu phụ lục biểu mẫu TT99 đang có hiệu lực và dữ liệu doanh nghiệp trước khi phát hành BCTC pháp định."
+}

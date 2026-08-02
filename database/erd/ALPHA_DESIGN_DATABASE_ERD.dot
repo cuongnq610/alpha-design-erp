@@ -1,0 +1,95 @@
+digraph ERP {
+  graph [rankdir=LR, bgcolor="white", pad=0.3, nodesep=0.35, ranksep=0.8, fontname="Arial", label="ALPHA DESIGN ERP CLOUD v4.5.31 – DATABASE ERD", labelloc=t, fontsize=20];
+  node [shape=record, style="rounded,filled", fillcolor="#F8FBFF", color="#0B5FA5", fontname="Arial", fontsize=9, margin="0.08,0.05"];
+  edge [color="#6B7D90", arrowsize=0.6, penwidth=0.8];
+
+  subgraph cluster_security {
+    label="TENANT & SECURITY"; color="#7BC8F6"; style="rounded";
+    companies [label="{companies|PK id|code|accounting_regime}", fillcolor="#E6F4FF"];
+    profiles [label="{profiles|PK user_id|full_name|status}"];
+    memberships [label="{memberships|PK company_id,user_id|FK role_id|status}"];
+    roles [label="{roles|PK id|FK company_id|code}"];
+    permissions [label="{permissions|PK code|module|risk_level}"];
+    role_permissions [label="{role_permissions|PK role_id,permission_code}"];
+    membership_roles [label="{membership_roles|PK company_id,user_id,role_id}"];
+    branches [label="{branches|PK id|FK company_id|code}"];
+    departments [label="{departments|PK id|FK company_id,branch_id|code}"];
+  }
+
+  subgraph cluster_crm {
+    label="CRM, CONTRACTS & PROJECT DELIVERY"; color="#4DD0E1"; style="rounded";
+    clients [label="{clients|PK id|FK company_id|code|tax_code}"];
+    vendors [label="{vendors|PK id|FK company_id|code|vendor_type}"];
+    contacts [label="{contacts|PK id|FK client_id/vendor_id|full_name}"];
+    projects [label="{projects|PK id|FK company_id,client_id|contract_value|direct_budget}", fillcolor="#EAF9FF"];
+    project_stages [label="{project_stages|PK id|FK project_id|status|budget_hours}"];
+    contracts [label="{contracts|PK id|FK project_id,client_id/vendor_id|contract_no|total_value}"];
+    milestones [label="{contract_milestones|PK id|FK contract_id|amount_excl_vat|payment_status}"];
+    tasks [label="{tasks|PK id|FK project_id,stage_id,parent_id|status|planned_hours}"];
+    task_assignments [label="{task_assignments|PK task_id,employee_id,role|FK company_id}"];
+    project_assignments [label="{project_assignments|PK id|FK project_id,employee_id|allocation_percent}"];
+  }
+
+  subgraph cluster_hr {
+    label="HR, TIMESHEET & PAYROLL"; color="#69C779"; style="rounded";
+    disciplines [label="{disciplines|PK id|FK company_id|code}"];
+    employees [label="{employees|PK id|FK company_id,department_id,discipline_id|employee_no|hourly_cost}", fillcolor="#EFFBEF"];
+    timesheets [label="{timesheets|PK id|FK employee_id,project_id,task_id|hours|billable_hours|cost_amount}"];
+    payroll_periods [label="{payroll_periods|PK id|FK company_id|period_code|status}"];
+    payroll_items [label="{payroll_items|PK id|FK payroll_period_id,employee_id|gross_salary|net_salary}"];
+  }
+
+  subgraph cluster_accounting {
+    label="ACCOUNTING TT133, CASH, TAX & SUBLEDGERS"; color="#F5A623"; style="rounded";
+    accounting_periods [label="{accounting_periods|PK id|FK company_id|date_from/date_to|status}"];
+    accounts [label="{accounts|PK id|FK company_id|code|normal_side|postable}"];
+    journal_entries [label="{journal_entries|PK id|FK company_id,period_id|document_no|status|posting_hash}", fillcolor="#FFF4E5"];
+    journal_lines [label="{journal_lines|PK id|FK entry_id,account_id|debit|credit|dimensions}"];
+    opening_balances [label="{opening_balances|PK id|FK account_id|fiscal_year|debit/credit}"];
+    tax_invoices [label="{tax_invoices|PK id|direction|invoice_no|tax_base|vat_amount}"];
+    subledger_documents [label="{subledger_documents|PK id|receivable/payable|original_amount|due_date}"];
+    payments [label="{payments|PK id|direction|amount|status}"];
+    payment_allocations [label="{payment_allocations|PK id|FK payment_id,subledger_document_id|allocated_amount}"];
+    bank_accounts [label="{bank_accounts|PK id|FK ledger_account_id|account_number}"];
+    bank_transactions [label="{bank_transactions|PK id|FK bank_account_id,journal_entry_id|debit/credit}"];
+    bank_reconciliations [label="{bank_reconciliations|PK id|period_end|statement_balance|difference}"];
+    fixed_assets [label="{fixed_assets|PK id|original_cost|useful_life_months|status}"];
+    depreciation [label="{fixed_asset_depreciation|PK id|FK fixed_asset_id,period_id|amount}"];
+    prepaid [label="{prepaid_expenses|PK id|original_amount|start/end|status}"];
+    prepaid_alloc [label="{prepaid_allocations|PK id|FK prepaid_expense_id,period_id|amount}"];
+    tax_declarations [label="{tax_declarations|PK id|tax_type|period|tax_amount|status}"];
+    tax_lines [label="{tax_declaration_lines|PK id|FK tax_declaration_id|line_code|amount}"];
+    tax_payments [label="{tax_payments|PK id|FK tax_declaration_id|amount}"];
+    report_snapshots [label="{report_snapshots|PK id|report_code|data_hash|status}"];
+  }
+
+  subgraph cluster_ops {
+    label="PROCUREMENT, DOCUMENTS, SYNC & AUDIT"; color="#9B7BE5"; style="rounded";
+    purchase_requests [label="{purchase_requests|PK id|request_no|estimated_amount|status}"];
+    purchase_orders [label="{purchase_orders|PK id|FK vendor_id|order_no|total_amount|status}"];
+    purchase_order_lines [label="{purchase_order_lines|PK id|FK purchase_order_id|quantity|unit_price}"];
+    expense_claims [label="{expense_claims|PK id|claim_no|total_amount|status}"];
+    files_metadata [label="{files_metadata|PK id|object_path|classification|sha256}"];
+    document_versions [label="{document_versions|PK id|FK file_id|version_no|sha256}"];
+    notifications [label="{notifications|PK id|user_id|priority|read_at}"];
+    integrations [label="{integration_connections|PK id|type|provider|status}"];
+    audit_events [label="{audit_events|PK id|event_hash|previous_hash|payload_json}", fillcolor="#F5EEFF"];
+    idempotency [label="{idempotency_keys|PK company_id,request_id|request_hash|status}"];
+    outbox [label="{outbox_events|PK id|event_id|aggregate|published_at}"];
+    devices [label="{device_registrations|PK id|user_id|device_id|last_seen_at}"];
+  }
+
+  companies -> memberships; companies -> roles; companies -> branches; branches -> departments;
+  roles -> role_permissions; permissions -> role_permissions; memberships -> membership_roles; roles -> membership_roles;
+  clients -> contacts; vendors -> contacts; clients -> projects; projects -> project_stages; projects -> contracts; contracts -> milestones;
+  projects -> tasks; project_stages -> tasks; tasks -> task_assignments; employees -> task_assignments; projects -> project_assignments; employees -> project_assignments;
+  departments -> employees; disciplines -> employees; employees -> timesheets; projects -> timesheets; tasks -> timesheets; payroll_periods -> payroll_items; employees -> payroll_items;
+  accounting_periods -> journal_entries; journal_entries -> journal_lines; accounts -> journal_lines; accounts -> opening_balances; projects -> journal_lines;
+  tax_invoices -> journal_lines; tax_invoices -> subledger_documents; journal_entries -> subledger_documents; payments -> payment_allocations; subledger_documents -> payment_allocations;
+  bank_accounts -> bank_transactions; journal_entries -> bank_transactions; bank_accounts -> bank_reconciliations;
+  fixed_assets -> depreciation; accounting_periods -> depreciation; prepaid -> prepaid_alloc; accounting_periods -> prepaid_alloc;
+  tax_declarations -> tax_lines; tax_declarations -> tax_payments; journal_entries -> tax_payments;
+  purchase_requests -> purchase_orders; vendors -> purchase_orders; purchase_orders -> purchase_order_lines; projects -> expense_claims;
+  files_metadata -> document_versions; projects -> files_metadata;
+  companies -> audit_events; companies -> idempotency; companies -> outbox; companies -> devices; companies -> integrations; companies -> notifications; companies -> report_snapshots;
+}

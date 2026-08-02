@@ -1,0 +1,6 @@
+{
+  "releaseVersion": "4.5.60",
+  "passedChecks": 23,
+  "failedChecks": 0,
+  "errors": []
+}

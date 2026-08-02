@@ -1,0 +1,39 @@
+{
+  "releaseVersion": "4.5.60",
+  "schemaSha256": "13cd7d6de7c5bbfdc0a3ea361be8bcd87019ae9a9412cba960c200de6bbd32f6",
+  "counts": {
+    "publicTables": 90,
+    "rlsEnabledTables": 89,
+    "policies": 103,
+    "securityDefinerFunctions": 164
+  },
+  "missingRls": [],
+  "securityDefinerMissingSearchPath": [],
+  "publicSecretHits": [],
+  "checks": {
+    "allBusinessTablesHaveRls": true,
+    "allSecurityDefinerFunctionsSetSearchPath": true,
+    "noServerSecretPatternInPublicFiles": true,
+    "exactCorsAllowlist": true,
+    "securityHeadersPresent": true,
+    "newSecretKeyNotSentAsBearer": true,
+    "proxyHeadersValidatedAsIp": true,
+    "apiNeverCachedByServiceWorker": true,
+    "businessRecordsNotPersistedByServiceWorker": true,
+    "offlineProductionFailSafe": true,
+    "runtimeConfigNeverPersisted": true,
+    "serviceWorkerCacheCleanupIsScoped": true,
+    "serviceWorkerShellMatchingIsExact": true,
+    "privateStorageBucketDeclared": true,
+    "mfaPrivilegeIncludesReleaseApproval": true,
+    "entityTriggerPreservesOperationalKillSwitch": true,
+    "entityValidationHelpersArePrivate": true,
+    "allSynchronizedNamespacesValidated": true,
+    "entityDependencySafeDeletion": true,
+    "notificationReadsArrayCompatible": true,
+    "authoritativeWritesRpcOnly": true,
+    "entityIdentityImmutable": true,
+    "storageUploadCeilingAndRiskyTypes": true
+  },
+  "passed": true
+}

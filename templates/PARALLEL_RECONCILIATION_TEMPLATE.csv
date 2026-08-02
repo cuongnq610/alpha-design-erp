@@ -1,0 +1,11 @@
+Kỳ,Chỉ tiêu,Mã báo cáo/TK,Số phần mềm hiện hành,Số ALPHA ERP,Chênh lệch,Nguyên nhân,Điều chỉnh,Người lập,Người soát xét,Trạng thái
+2026-01,Tiền và tương đương tiền,B01a-110,0,0,0,,,,,Mở
+2026-01,Phải thu khách hàng,TK131,0,0,0,,,,,Mở
+2026-01,Phải trả người bán,TK331,0,0,0,,,,,Mở
+2026-01,Doanh thu thuần,B02-10,0,0,0,,,,,Mở
+2026-01,Lợi nhuận trước thuế,B02-50,0,0,0,,,,,Mở
+2026-01,VAT đầu ra,TK33311,0,0,0,,,,,Mở
+2026-01,VAT đầu vào được khấu trừ,TK1331,0,0,0,,,,,Mở
+2026-01,Thuế TNCN đã khấu trừ,TK3335,0,0,0,,,,,Mở
+2026-01,Thuế TNDN,TK3334/8211,0,0,0,,,,,Mở
+2026-01,Tiền cuối kỳ,B03-70,0,0,0,,,,,Mở

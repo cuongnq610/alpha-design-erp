@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const app=fs.readFileSync(new URL('../app.js',import.meta.url),'utf8');
+const css=fs.readFileSync(new URL('../alpha-design-system.css',import.meta.url),'utf8');
+const cloud=fs.readFileSync(new URL('../cloud-v2.js',import.meta.url),'utf8');
+for(const marker of ['lastModalFocus','activeDrawerId','visibleFocusables','label for="${controlId}"','desktop-fit-table','headers[columnCount-1].textContent=\'Thao tác\'']) assert.ok(app.includes(marker),`Missing v4.5.19 app marker: ${marker}`);
+for(const marker of ['v4.5.19 — final table fit','.table-controls','.table-contracts','.desktop-no-scroll','min-height:44px',':focus-visible']) assert.ok(css.includes(marker),`Missing v4.5.19 CSS marker: ${marker}`);
+for(const marker of ['Đã bật mô phỏng — chưa phải kết nối thật','chưa có backend adapter']) assert.ok(cloud.includes(marker),`Missing truthful integration marker: ${marker}`);
+assert.equal(cloud.includes('Phạm vi Demo:'),false,'Annotated Demo scope row must remain removed');
+console.log('PASS accessibility, full-width table fit, action headings, glyph alignment and targeted integration-note removal');

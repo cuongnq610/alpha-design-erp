@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const app=readFileSync(new URL('../app.js',import.meta.url),'utf8');
+const css=readFileSync(new URL('../alpha-design-system.css',import.meta.url),'utf8');
+const cloud=readFileSync(new URL('../cloud-v2.js',import.meta.url),'utf8');
+for(const marker of ['people-directory-card','Danh sách nhân sự','table-people-directory','tax-control-stack','journal-status-stack','view-journal','openReadOnlyRecord']) assert.ok(app.includes(marker),marker);
+for(const marker of ['cloud-deployment-grid','backup-restore-card','table-cloud-backups','Thao tác']) assert.ok(cloud.includes(marker),marker);
+for(const marker of ['table-lock-state','table-tax-invoices','table-journals','table-cloud-backups']) assert.ok(css.includes(marker),marker);
+assert.ok(!app.includes('<th>Khấu trừ</th><th>Đối chiếu</th><th></th>'));
+console.log('UI_TABLE_SEPARATION_ACTION_V4510_OK');

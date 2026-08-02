@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "seed": "0x4531C0DE",
+  "checks": 315092,
+  "counts": {
+    "exact_rational_labor_rows": 120081,
+    "vat_boolean_import_rows": 50005,
+    "mixed_journal_lines": 30006,
+    "cit_custom_bands": 50000,
+    "prime_remainder_schedules": 32000,
+    "forecast_vnd_conservation": 3000,
+    "bounded_purchase_vat": 20000,
+    "cross_type_project_ids": 10000
+  }
+}

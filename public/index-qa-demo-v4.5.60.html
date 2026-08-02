@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#062f55" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="ALPHA ERP" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <meta name="description" content="ALPHA DESIGN ERP Cloud v4.5.67 DEEP QA AUTOHEAL RELEASE - bản demo kiểm thử nghiệp vụ và phục hồi dữ liệu trong 30 ngày." />
+  <title>ALPHA DESIGN ERP Cloud v4.5.67 DEEP QA AUTOHEAL RELEASE</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="logo-alpha-transparent.png" />
+  <script src="theme-bootstrap.js"></script>
+  <link rel="stylesheet" href="alpha-design-system.css" />
+</head>
+<body>
+  <a class="skip-link" href="#content">Bỏ qua điều hướng</a>
+  <svg aria-hidden="true" width="0" height="0" style="position:absolute">
+    <defs>
+      <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.8 12 3l9 7.8v9.2a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/><path d="M9 21v-6h6v6"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M7 12l3 3 7-7"/></symbol>
+      <symbol id="i-project" viewBox="0 0 24 24"><path d="M4 3h11l5 5v13H4z"/><path d="M15 3v5h5M8 12h8M8 16h8"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="i-client" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/><path d="M19 4h3M20.5 2.5v3"/></symbol>
+      <symbol id="i-contract" viewBox="0 0 24 24"><path d="M5 3h10l4 4v14H5z"/><path d="M15 3v5h5M8 12h8M8 16h5"/><path d="m14 19 2 2 4-4"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="i-cost" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M16 8.5c-.7-.9-2-1.5-3.5-1.5-2 0-3.5 1-3.5 2.5s1.2 2.2 3.7 2.7c2.4.5 3.3 1.3 3.3 2.8s-1.5 2.5-3.7 2.5c-1.7 0-3.2-.6-4.1-1.7M12 5v14"/></symbol>
+      <symbol id="i-cart" viewBox="0 0 24 24"><path d="M3 3h2l2.4 11.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.6L21 7H6"/><circle cx="10" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></symbol>
+      <symbol id="i-warehouse" viewBox="0 0 24 24"><path d="m3 9 9-6 9 6v12H3z"/><path d="M7 13h10M7 17h10M9 9h6"/></symbol>
+      <symbol id="i-revenue" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 16v-4M12 16V8M17 16v-7"/></symbol>
+      <symbol id="i-accounting" viewBox="0 0 24 24"><path d="M4 3h16v18H4z"/><path d="M8 3v18M12 7h5M12 11h5M12 15h5"/></symbol>
+      <symbol id="i-report" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+      <symbol id="i-cashflow" viewBox="0 0 24 24"><path d="M4 7h13M14 4l3 3-3 3M20 17H7M10 14l-3 3 3 3"/></symbol>
+      <symbol id="i-tax" viewBox="0 0 24 24"><path d="M5 3h14v18H5z"/><path d="M8 7h8M8 11h3M13 11h3M8 15h8M9 19l6-12"/></symbol>
+      <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1L7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3A1.7 1.7 0 0 0 10 3V2.8h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1z"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 20 6v6c0 5-3.4 8.2-8 9-4.6-.8-8-4-8-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l4 2"/></symbol>
+      <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 6h7l2 2h9v12H3z"/></symbol>
+      <symbol id="i-procurement" viewBox="0 0 24 24"><path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L20.5 8H6"/><path d="M9 8V5h7v3"/><circle cx="10" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></symbol>
+      <symbol id="i-project-files" viewBox="0 0 24 24"><path d="M3 7h6l2-2h4l2 2h4v13H3z"/><path d="M8 11h8M8 14h6M8 17h4"/></symbol>
+      <symbol id="i-storage" viewBox="0 0 24 24"><path d="M4 7h16l-1 13H5z"/><path d="M3 4h18v4H3zM9 12h6"/></symbol>
+      <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></symbol>
+      <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4l11-11-4-4L4 16z"/><path d="m13.5 6.5 4 4M4 20h16"/></symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M7 7l1 13h8l1-13M10 11v5M14 11v5"/></symbol>
+      <symbol id="i-readiness" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="m8 12 2.5 2.5L16 9M8 6h8M8 18h8"/></symbol>
+      <symbol id="i-access" viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><path d="M3 20a5 5 0 0 1 10 0M16 8h5M18.5 5.5v5M15 15h6M18 12v6"/></symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="i-plug" viewBox="0 0 24 24"><path d="M8 3v5M16 3v5M7 8h10v3a5 5 0 0 1-5 5v5M9 21h6"/></symbol>
+      <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18h11a4 4 0 0 0 .7-7.9A7 7 0 0 0 5.2 8.4 5 5 0 0 0 7 18z"/><path d="m9 13 3-3 3 3M12 10v7"/></symbol>
+      <symbol id="i-export" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M5 21h14a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2"/></symbol>
+      <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></symbol>
+    </defs>
+  </svg>
+
+  <section id="loginScreen" class="login-screen hidden" aria-label="Đăng nhập">
+    <div class="login-visual">
+      <img src="logo-alpha-on-dark.png" alt="ALPHA DESIGN" class="login-logo" />
+      <div class="login-copy">
+        <span class="sr-only">ERP CLOUD v4.5.67</span>
+        <h1>Một hệ thống vận hành thống nhất cho ALPHA DESIGN</h1>
+        <p>Dự án, nhân sự, kế toán, thuế, hồ sơ và phê duyệt trên cùng một nền tảng.</p>
+      </div>
+    </div>
+    <form id="loginForm" class="login-card">
+      <div class="login-card-head"><h2>Đăng nhập hệ thống</h2><p>Sử dụng tài khoản Supabase Auth đã được mời vào ALPHA DESIGN.</p></div>
+      <label>Email<input id="loginEmail" type="email" autocomplete="username" placeholder="name@alphadesign.vn" required /></label>
+      <label>Mật khẩu<input id="loginPassword" type="password" autocomplete="current-password" required /></label>
+      <div class="login-assistance"><button type="button" class="text-link" id="forgotPasswordBtn">Quên mật khẩu?</button></div>
+      <button type="submit" class="primary-btn login-submit">Đăng nhập</button>
+      <div class="demo-accounts">
+        <button type="button" data-demo-login="director.demo@alpha.local">Giám đốc Demo</button>
+        <button type="button" data-demo-login="accounting.demo@alpha.local">Kế toán Demo</button>
+        <button type="button" data-demo-login="pm.demo@alpha.local">Quản lý dự án Demo</button>
+      </div>
+      <small>Chế độ DEMO lưu cục bộ. STAGING/PRODUCTION bắt buộc kết nối Supabase/PostgreSQL và phân quyền RLS.</small>
+    </form>
+  </section>
+
+  <section id="authSecurityScreen" class="auth-security-screen hidden" aria-modal="true" role="dialog" aria-labelledby="authSecurityTitle">
+    <div class="auth-security-card">
+      <div class="auth-security-mark" aria-hidden="true">✓</div>
+      <h2 id="authSecurityTitle">Bảo mật tài khoản</h2>
+      <p id="authSecurityMessage">Xác minh danh tính để tiếp tục.</p>
+
+      <div id="mfaSetupBlock" class="mfa-setup hidden">
+        <img id="mfaQrCode" class="mfa-qr hidden" alt="Mã QR thiết lập xác thực hai bước" />
+        <div class="mfa-secret-wrap"><span>Khóa nhập thủ công</span><code id="mfaSecret"></code></div>
+      </div>
+
+      <form id="mfaVerificationForm" class="auth-security-form hidden">
+        <label>Mã từ ứng dụng Authenticator
+          <input id="mfaCode" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}" placeholder="000000" required />
+        </label>
+        <button type="submit" class="primary-btn">Xác minh và tiếp tục</button>
+      </form>
+
+      <form id="passwordRecoveryRequestForm" class="auth-security-form hidden">
+        <label>Email tài khoản
+          <input id="recoveryEmail" type="email" autocomplete="email" placeholder="name@alphadesign.vn" required />
+        </label>
+        <button type="submit" class="primary-btn">Gửi đường dẫn đặt lại mật khẩu</button>
+      </form>
+
+      <form id="passwordUpdateForm" class="auth-security-form hidden">
+        <label>Mật khẩu mới
+          <input id="newPassword" type="password" autocomplete="new-password" minlength="12" required />
+        </label>
+        <label>Nhập lại mật khẩu mới
+          <input id="confirmPassword" type="password" autocomplete="new-password" minlength="12" required />
+        </label>
+        <div class="password-policy">Tối thiểu 12 ký tự, gồm chữ hoa, chữ thường, chữ số và ký tự đặc biệt.</div>
+        <button type="submit" class="primary-btn">Cập nhật mật khẩu</button>
+      </form>
+
+      <div id="accountSecuritySummary" class="account-security-summary hidden">
+        <div><span>Môi trường</span><strong id="accountSecurityEnvironment">DEMO</strong></div>
+        <div><span>Kết nối xác thực</span><strong id="accountSecurityConnection">CHƯA KẾT NỐI</strong></div>
+        <div><span>Cấp xác thực hiện tại</span><strong id="accountSecurityAal">—</strong></div>
+        <div><span>Phương thức MFA đã xác minh</span><strong id="accountSecurityFactors">0</strong></div>
+        <button type="button" class="secondary-btn" id="accountSecurityAction">Thiết lập MFA</button>
+      </div>
+
+      <p id="authSecurityFeedback" class="auth-security-feedback" role="status" aria-live="polite"></p>
+      <div class="auth-security-actions">
+        <button type="button" class="secondary-btn" id="authSecurityBack">Quay lại</button>
+        <button type="button" class="secondary-btn danger" id="authSecurityLogout">Hủy và đăng xuất</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="app-shell" id="appShell">
+    <aside class="sidebar" id="sidebar" aria-label="Điều hướng ứng dụng">
+      <div class="brand-row">
+        <button class="plain-icon desktop-menu" id="collapseBtn" type="button" aria-label="Thu gọn menu" aria-controls="sidebar" aria-expanded="true" title="Thu gọn menu"><svg class="menu-toggle-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+        <div class="brand-lockup">
+          <span class="brand-picture" aria-hidden="true">
+            <img src="logo-alpha-transparent.png" alt="" class="brand-image brand-image-light" />
+            <img src="logo-alpha-on-dark.png" alt="" class="brand-image brand-image-dark" />
+            <img src="icon-192.png" alt="" class="brand-compact-icon" />
+          </span>
+          <span class="sr-only">ALPHA DESIGN ERP CLOUD VERSION 4.5.67 DEEP QA AUTOHEAL RELEASE</span>
+        </div>
+      </div>
+      <nav class="nav" id="nav" aria-label="Điều hướng chính">
+        <div class="nav-group is-open" data-nav-group="operations">
+          <button class="nav-group-toggle" type="button" aria-expanded="true"><span>Điều hành</span><span class="nav-group-chevron" aria-hidden="true">⌄</span></button>
+          <div class="nav-group-items">
+            <button class="nav-item active" data-view="dashboard" data-permission="dashboard"><svg class="nav-svg"><use href="#i-home"/></svg><span class="nav-label">Tổng quan</span></button>
+            <button class="nav-item" data-view="tasks" data-permission="tasks"><svg class="nav-svg"><use href="#i-check"/></svg><span class="nav-label">Công việc</span></button>
+            <button class="nav-item" data-view="projects" data-permission="projects"><svg class="nav-svg"><use href="#i-project"/></svg><span class="nav-label">Dự án</span></button>
+            <button class="nav-item" data-view="controls" data-permission="controls"><svg class="nav-svg"><use href="#i-report"/></svg><span class="nav-label">Kiểm soát vận hành</span></button>
+            <button class="nav-item" data-view="documents" data-permission="documents"><svg class="nav-svg"><use href="#i-project-files"/></svg><span class="nav-label">Hồ sơ dự án</span></button>
+          </div>
+        </div>
+        <div class="nav-group" data-nav-group="commercial">
+          <button class="nav-group-toggle" type="button" aria-expanded="false"><span>Kinh doanh & nguồn lực</span><span class="nav-group-chevron" aria-hidden="true">⌄</span></button>
+          <div class="nav-group-items">
+            <button class="nav-item" data-view="commercial" data-permission="commercial"><svg class="nav-svg"><use href="#i-contract"/></svg><span class="nav-label">Hợp đồng & Công nợ</span></button>
+            <button class="nav-item" data-view="planning" data-permission="planning"><svg class="nav-svg"><use href="#i-cost"/></svg><span class="nav-label">Ngân sách & Nguồn lực</span></button>
+            <button class="nav-item" data-view="procurement" data-permission="procurement"><svg class="nav-svg"><use href="#i-procurement"/></svg><span class="nav-label">Mua sắm & Tài sản</span></button>
+            <button class="nav-item" data-view="crm" data-permission="crm"><svg class="nav-svg"><use href="#i-client"/></svg><span class="nav-label">Khách hàng & Doanh thu</span></button>
+            <button class="nav-item" data-view="approvals" data-permission="approvals"><svg class="nav-svg"><use href="#i-contract"/></svg><span class="nav-label">Hợp đồng & Phê duyệt</span></button>
+          </div>
+        </div>
+        <div class="nav-group" data-nav-group="people">
+          <button class="nav-group-toggle" type="button" aria-expanded="false"><span>Nhân sự</span><span class="nav-group-chevron" aria-hidden="true">⌄</span></button>
+          <div class="nav-group-items">
+            <button class="nav-item" data-view="people" data-permission="people"><svg class="nav-svg"><use href="#i-users"/></svg><span class="nav-label">Danh mục nhân sự</span></button>
+            <button class="nav-item" data-view="timesheets" data-permission="timesheets"><svg class="nav-svg"><use href="#i-clock"/></svg><span class="nav-label">Chấm công</span></button>
+            <button class="nav-item" data-view="payroll" data-permission="payroll"><svg class="nav-svg"><use href="#i-cost"/></svg><span class="nav-label">Lương & Chi phí</span></button>
+          </div>
+        </div>
+        <div class="nav-group" data-nav-group="finance">
+          <button class="nav-group-toggle" type="button" aria-expanded="false"><span>Tài chính</span><span class="nav-group-chevron" aria-hidden="true">⌄</span></button>
+          <div class="nav-group-items">
+            <button class="nav-item" data-view="finance" data-permission="finance"><svg class="nav-svg"><use href="#i-cashflow"/></svg><span class="nav-label">Dòng tiền</span></button>
+            <button class="nav-item" data-view="financialAnalytics" data-permission="financialAnalytics"><svg class="nav-svg"><use href="#i-report"/></svg><span class="nav-label">Phân tích tài chính</span></button>
+            <button class="nav-item" data-view="accounting" data-permission="accounting"><svg class="nav-svg"><use href="#i-accounting"/></svg><span class="nav-label">Kế toán</span></button>
+            <button class="nav-item" data-view="tax" data-permission="tax"><svg class="nav-svg"><use href="#i-tax"/></svg><span class="nav-label">Thuế</span></button>
+          </div>
+        </div>
+        <div class="nav-group" data-nav-group="system">
+          <button class="nav-group-toggle" type="button" aria-expanded="false"><span>Hệ thống</span><span class="nav-group-chevron" aria-hidden="true">⌄</span></button>
+          <div class="nav-group-items">
+            <button class="nav-item cloud-nav" data-view="cloud-admin" data-permission="admin"><svg class="nav-svg"><use href="#i-cloud"/></svg><span class="nav-label">Quản trị Cloud</span></button>
+            <button class="nav-item cloud-nav" data-view="readiness" data-permission="dashboard"><svg class="nav-svg"><use href="#i-readiness"/></svg><span class="nav-label">Sẵn sàng vận hành</span></button>
+            <button class="nav-item cloud-nav" data-view="security-center" data-permission="dashboard"><svg class="nav-svg"><use href="#i-shield"/></svg><span class="nav-label">Trung tâm bảo mật</span></button>
+            <button class="nav-item cloud-nav" data-view="users" data-permission="admin"><svg class="nav-svg"><use href="#i-access"/></svg><span class="nav-label">Người dùng & Phân quyền</span></button>
+            <button class="nav-item cloud-nav" data-view="audit" data-permission="admin"><svg class="nav-svg"><use href="#i-history"/></svg><span class="nav-label">Nhật ký hệ thống</span></button>
+            <button class="nav-item cloud-nav" data-view="storage" data-permission="documents"><svg class="nav-svg"><use href="#i-storage"/></svg><span class="nav-label">Lưu trữ tệp</span></button>
+            <button class="nav-item" data-view="trash" data-permission="trash"><svg class="nav-svg"><use href="#i-trash"/></svg><span class="nav-label">Thùng rác</span></button>
+            <button class="nav-item cloud-nav" data-view="integrations" data-permission="admin"><svg class="nav-svg"><use href="#i-plug"/></svg><span class="nav-label">Tích hợp</span></button>
+            <button class="nav-item" data-view="exports" data-permission="reports"><svg class="nav-svg"><use href="#i-export"/></svg><span class="nav-label">Trung tâm xuất/nhập</span></button>
+            <button class="nav-item" data-view="settings" data-permission="settings"><svg class="nav-svg"><use href="#i-settings"/></svg><span class="nav-label">Thiết lập</span></button>
+          </div>
+        </div>
+      </nav>
+      <div class="sidebar-footer" aria-label="Trạng thái sản phẩm"><div class="online-state product-state"><i aria-hidden="true"></i><span class="sidebar-product"><strong>ERP CLOUD</strong><small>made by AlphaNam</small></span></div><span id="sidebarSyncText" class="sr-only">Chế độ Cloud-ready</span></div>
+    </aside>
+
+    <main class="main">
+      <header class="global-header">
+        <div class="header-left">
+          <button class="plain-icon mobile-menu" id="menuBtn" type="button" aria-label="Mở menu" aria-controls="sidebar" aria-expanded="false"><svg class="menu-toggle-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+          <span class="mobile-brand">ALPHA DESIGN</span>
+          <div class="global-search-wrap"><span aria-hidden="true">⌕</span><input id="globalSearch" aria-label="Tìm kiếm nhanh" placeholder="Tìm kiếm nhanh..." autocomplete="off" /><kbd>Ctrl K</kbd><div id="searchResults" class="search-results hidden"></div></div>
+        </div>
+        <div class="header-actions">
+          <button class="sync-pill" id="syncBtn" title="Trạng thái đồng bộ"><svg><use href="#i-cloud"/></svg><span id="syncText">Đã đồng bộ</span></button>
+          <div class="theme-switcher" id="themeSwitcher">
+            <button class="header-icon theme-toggle" id="themeBtn" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Chọn giao diện">
+              <span id="themeIcon" aria-hidden="true">☼</span><span class="sr-only" id="themeLabel">Giao diện Ngày</span>
+            </button>
+            <div class="theme-menu hidden" id="themeMenu" role="menu" aria-label="Chế độ giao diện">
+              <button type="button" role="menuitemradio" data-theme-option="light"><span aria-hidden="true">☼</span><span><strong>Ngày</strong><small>Nền sáng, độ tương phản rõ</small></span><i aria-hidden="true">✓</i></button>
+              <button type="button" role="menuitemradio" data-theme-option="dark"><span aria-hidden="true">☾</span><span><strong>Đêm</strong><small>Nền tối, giảm chói mắt</small></span><i aria-hidden="true">✓</i></button>
+              <button type="button" role="menuitemradio" data-theme-option="system"><span aria-hidden="true">◐</span><span><strong>Theo hệ thống</strong><small>Tự đổi theo thiết bị</small></span><i aria-hidden="true">✓</i></button>
+            </div>
+          </div>
+          <button class="header-icon notification-button" id="notificationBtn" type="button" aria-label="Thông báo"><svg class="header-action-svg" aria-hidden="true"><use href="#i-bell"/></svg><span class="notification-badge" id="notificationCount" hidden>0</span></button>
+          <button class="header-icon" id="helpBtn" aria-label="Trợ giúp">?</button>
+          <button class="profile-button" id="profileBtn" aria-label="Mở thông tin tài khoản"><span class="avatar" id="headerAvatar">AD</span><span class="profile-copy"><strong id="headerUserName">Người dùng ALPHA</strong><small id="headerUserRole">Chưa đăng nhập</small></span><span aria-hidden="true">⌄</span></button>
+        </div>
+      </header>
+
+      <section class="page-toolbar">
+        <div class="page-heading"><span class="page-icon" id="pageIcon">⌂</span><div><h1 id="pageTitle">Tổng quan</h1><p id="pageSubtitle">Trung tâm điều hành ALPHA DESIGN</p></div></div>
+        <div class="toolbar-actions">
+          <div class="date-control"><input id="dateFrom" type="date" aria-label="Từ ngày" /><span aria-hidden="true">—</span><input id="dateTo" type="date" aria-label="Đến ngày" /></div>
+          <select class="toolbar-select" id="periodPreset" aria-label="Khoảng thời gian"><option value="year">Năm nay</option><option value="quarter">Quý này</option><option value="month">Tháng này</option><option value="custom">Tùy chọn</option></select>
+          <button class="toolbar-button" id="filterBtn">⌁ <span>Bộ lọc</span></button>
+          <button class="toolbar-button" id="refreshBtn">↻ <span>Làm mới</span></button>
+          <button class="primary-btn" id="primaryAction">+ Thêm mới</button>
+        </div>
+      </section>
+
+      <section id="content" class="content" tabindex="-1"></section>
+    </main>
+  </div>
+
+  <div id="drawerBackdrop" class="drawer-backdrop hidden"></div>
+  <aside id="notificationDrawer" class="right-drawer hidden" role="dialog" aria-modal="true" aria-labelledby="notificationDrawerTitle"><div class="drawer-header"><div><h2 id="notificationDrawerTitle">Thông báo</h2><p>Cảnh báo cần xử lý</p></div><div class="drawer-header-actions"><button class="drawer-text-btn" id="markAllNotificationsRead" type="button"><svg aria-hidden="true"><use href="#i-eye"/></svg>Đánh dấu tất cả đã xem</button><button class="plain-icon" data-close-drawer aria-label="Đóng thông báo">×</button></div></div><div id="notificationList" class="drawer-list"></div></aside>
+  <aside id="filterDrawer" class="right-drawer hidden" role="dialog" aria-modal="true" aria-labelledby="filterDrawerTitle"><div class="drawer-header"><div><h2 id="filterDrawerTitle">Bộ lọc dữ liệu</h2><p>Áp dụng trên phân hệ hiện tại</p></div><button class="plain-icon" data-close-drawer aria-label="Đóng bộ lọc">×</button></div><form id="filterForm" class="drawer-form"><label>Trạng thái<select name="status"><option value="">Tất cả</option><option>Active</option><option>In Progress</option><option>Pending</option><option>Completed</option></select></label><label>Dự án<select name="project" id="filterProject"></select></label><label>Bộ môn<select name="department"><option value="">Tất cả</option><option>Kiến trúc</option><option>Kết cấu</option><option>MEP</option><option>Nội thất</option><option>Cảnh quan</option></select></label><div class="drawer-actions"><button type="button" class="secondary-btn" id="clearFilter">Xóa lọc</button><button type="submit" class="primary-btn">Áp dụng</button></div></form></aside>
+  <aside id="profileDrawer" class="right-drawer hidden" role="dialog" aria-modal="true" aria-labelledby="profileDrawerTitle"><div class="drawer-header"><div><h2 id="profileDrawerTitle">Tài khoản</h2><p>Phiên đăng nhập hiện tại</p></div><button class="plain-icon" data-close-drawer aria-label="Đóng thông tin tài khoản">×</button></div><div class="profile-panel"><div class="profile-card"><span class="avatar large" id="profileAvatar">AD</span><div><strong id="profileName">Người dùng ALPHA</strong><p id="profileRole">Chưa đăng nhập</p></div></div><button class="drawer-link" id="installBtn" hidden>Cài ứng dụng lên thiết bị</button><button class="drawer-link" data-open-export-center>Trung tâm xuất/nhập</button><button class="drawer-link demo-only-control" id="exportBtn">Xuất bản sao dữ liệu Demo JSON</button><label class="drawer-link file-label demo-only-control">Nhập bản sao dữ liệu Demo<input id="importInput" type="file" accept="application/json" hidden /></label><button class="drawer-link" id="accountSecurityBtn">Bảo mật tài khoản & MFA</button><button class="drawer-link" id="resetLayout">Khôi phục bố cục</button><button class="drawer-link danger-link" id="logoutBtn">Đăng xuất</button></div></aside>
+
+  <nav class="mobile-bottom-nav" aria-label="Điều hướng nhanh trên thiết bị di động"><button class="active" data-mobile-view="dashboard"><svg class="mobile-nav-icon" aria-hidden="true"><use href="#i-home"/></svg><span class="mobile-nav-label">Tổng quan</span></button><button data-mobile-view="finance"><svg class="mobile-nav-icon" aria-hidden="true"><use href="#i-cashflow"/></svg><span class="mobile-nav-label">Dòng tiền</span></button><button id="mobileQuickAdd" class="mobile-plus" aria-label="Thêm bản ghi"><span aria-hidden="true">+</span></button><button data-mobile-view="people"><svg class="mobile-nav-icon" aria-hidden="true"><use href="#i-users"/></svg><span class="mobile-nav-label">Nhân sự</span></button><button id="mobileMore" aria-label="Mở thêm phân hệ"><svg class="mobile-nav-icon" aria-hidden="true"><use href="#i-more"/></svg><span class="mobile-nav-label">Thêm</span></button></nav>
+
+  <div class="modal-backdrop hidden" id="modalBackdrop"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-header"><div><h2 id="modalTitle">Thêm mới</h2><p id="modalHelp"></p></div><button class="plain-icon" id="closeModal" aria-label="Đóng biểu mẫu">×</button></div><form id="modalForm" class="modal-form"></form></div></div>
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+  <script src="runtime-config.js"></script>
+  <script src="calculation-core.js"></script>
+  <script src="reporting-period.js"></script>
+  <script src="statutory-template-manager.js"></script>
+  <script src="statutory-template-reference.js"></script>
+  <script src="tax-compliance-package-manager.js"></script>
+  <script src="tax-compliance-reference.js"></script>
+  <script src="tax-calendar.js"></script>
+  <script src="accounting-operations.js"></script>
+  <script src="payroll-detail.js"></script>
+  <script src="annual-benefits.js"></script>
+  <script src="recycle-bin.js"></script>
+  <script src="permission-map.js"></script>
+  <script src="production-guard.js"></script>
+  <script src="export-center.js"></script>
+  <script src="theme-manager.js"></script>
+  <script src="demo-enterprise-seed.js"></script>
+  <script src="app.js"></script>
+  <script src="qa-demo-seed-v4560.js"></script>
+  <script src="cloud-adapter.js"></script>
+  <script src="alpha-sync.bundle.js"></script>
+  <script src="auth-security.js"></script>
+  <script src="cloud-v2.js"></script>
+  <script src="alpha-enterprise.js"></script>
+</body>
+</html>

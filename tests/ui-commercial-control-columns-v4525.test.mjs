@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const app=fs.readFileSync(new URL('../app.js',import.meta.url),'utf8');
+const css=fs.readFileSync(new URL('../alpha-design-system.css',import.meta.url),'utf8');
+const publicApp=fs.readFileSync(new URL('../public/app.js',import.meta.url),'utf8');
+const publicCss=fs.readFileSync(new URL('../public/alpha-design-system.css',import.meta.url),'utf8');
+assert.match(app,/table-control-commercial table-fit-desktop/);
+assert.match(app,/Đã xuất hóa đơn/);
+assert.match(app,/Phải thu gộp/);
+assert.match(app,/\$\{fmtMoney\(row\.invoicedNet\)\}/);
+assert.match(app,/\$\{fmtMoney\(row\.receivable\)\}/);
+assert.match(app,/table\.classList\.contains\('table-control-commercial'\)/);
+assert.match(app,/table-columns-\$\{columnCount\}/);
+assert.match(css,/v4\.5\.25 — full-value commercial controls/);
+assert.match(css,/\.table-control-commercial td:nth-child\(4\)/);
+assert.equal(publicApp,app);
+assert.equal(publicCss,css);
+console.log('PASS v4.5.25 commercial full-value columns and global table spacing static regression');

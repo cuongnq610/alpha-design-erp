@@ -1,0 +1,75 @@
+{
+  "manifest": {
+    "packageType": "alpha-statutory-report-template",
+    "schemaVersion": 1,
+    "templateId": "TT132-VI-BASELINE",
+    "name": "TT132 Việt Nam — Bộ mẫu doanh nghiệp siêu nhỏ",
+    "version": "2026.1",
+    "accountingRegime": "TT132/2018/TT-BTC (DNSN)",
+    "effectiveFrom": "2019-02-15",
+    "legalReference": "Ban hành kèm theo Thông tư số 132/2018/TT-BTC ngày 28/12/2018 của Bộ Tài chính"
+  },
+  "reports": {
+    "B01-DNSN": {
+      "form": "B01-DNSN",
+      "title": "BÁO CÁO TÌNH HÌNH TÀI CHÍNH",
+      "subtitle": "",
+      "unitLabel": "Đơn vị tính",
+      "rows": [
+        {"code":"110","label":"Tiền","noteRef":"","level":0,"bold":false},
+        {"code":"120","label":"Các khoản nợ phải thu","noteRef":"","level":0,"bold":false},
+        {"code":"130","label":"Hàng tồn kho","noteRef":"","level":0,"bold":false},
+        {"code":"140","label":"Giá trị còn lại của tài sản cố định","noteRef":"","level":0,"bold":false},
+        {"code":"150","label":"Tài sản khác","noteRef":"","level":0,"bold":false},
+        {"code":"200","label":"TỔNG CỘNG TÀI SẢN","noteRef":"","level":0,"bold":true},
+        {"code":"300","label":"I. Nợ phải trả","noteRef":"","level":0,"bold":true},
+        {"code":"310","label":"Các khoản nợ phải trả","noteRef":"","level":1,"bold":false},
+        {"code":"320","label":"Thuế và các khoản phải nộp Nhà nước","noteRef":"","level":1,"bold":false},
+        {"code":"400","label":"II. Vốn chủ sở hữu","noteRef":"","level":0,"bold":true},
+        {"code":"410","label":"Vốn đầu tư của chủ sở hữu","noteRef":"","level":1,"bold":false},
+        {"code":"420","label":"Lợi nhuận sau thuế chưa phân phối","noteRef":"","level":1,"bold":false},
+        {"code":"500","label":"TỔNG CỘNG NGUỒN VỐN","noteRef":"","level":0,"bold":true}
+      ]
+    },
+    "B02-DNSN": {
+      "form": "B02-DNSN",
+      "title": "BÁO CÁO KẾT QUẢ HOẠT ĐỘNG KINH DOANH",
+      "subtitle": "",
+      "unitLabel": "Đơn vị tính",
+      "rows": [
+        {"code":"01","label":"Doanh thu và thu nhập thuần","noteRef":"","level":0,"bold":false},
+        {"code":"02","label":"Các khoản chi phí","noteRef":"","level":0,"bold":false},
+        {"code":"03","label":"Lợi nhuận kế toán sau thuế TNDN (03 = 01 - 02)","noteRef":"","level":0,"bold":true}
+      ]
+    },
+    "F01-DNSN": {
+      "form": "F01-DNSN",
+      "title": "BẢNG CÂN ĐỐI TÀI KHOẢN",
+      "subtitle": "",
+      "unitLabel": "Đơn vị tính",
+      "rows": []
+    },
+    "F02-DNSN": {
+      "form": "F02-DNSN",
+      "title": "BÁO CÁO TÌNH HÌNH THỰC HIỆN NGHĨA VỤ VỚI NGÂN SÁCH NHÀ NƯỚC",
+      "subtitle": "",
+      "unitLabel": "Đơn vị tính",
+      "rows": [
+        {"code":"01","label":"Thuế GTGT","noteRef":"","level":0,"bold":false},
+        {"code":"02","label":"Thuế TNDN","noteRef":"","level":0,"bold":false},
+        {"code":"03","label":"Các loại thuế, phí, lệ phí và các khoản phải nộp khác vào NSNN","noteRef":"","level":0,"bold":false},
+        {"code":"10","label":"TỔNG CỘNG","noteRef":"","level":0,"bold":true}
+      ]
+    }
+  },
+  "accountMapping": {
+    "strategy": "TT132_NATIVE_WITH_TT133_COMPATIBILITY_COLLAPSE",
+    "notes": "Ưu tiên tài khoản TT132 9111/9112, 33131/33134/33138; đồng thời hỗ trợ dữ liệu chuyển đổi từ hệ tài khoản TT133."
+  },
+  "validationRules": [
+    {"code":"TT132-B01-BALANCE","description":"Tổng cộng tài sản phải bằng tổng cộng nguồn vốn."},
+    {"code":"TT132-B02-FORMULA","description":"Chỉ tiêu 03 phải bằng chỉ tiêu 01 trừ chỉ tiêu 02."},
+    {"code":"TT132-F01-BALANCE","description":"Tổng phát sinh Nợ bằng tổng phát sinh Có và tổng dư Nợ cuối kỳ bằng tổng dư Có cuối kỳ."},
+    {"code":"TT132-F02-RECONCILE","description":"Số còn phải nộp đầu năm cộng số phải nộp phát sinh trừ số đã nộp bằng số còn phải nộp cuối năm."}
+  ]
+}

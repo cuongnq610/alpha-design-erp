@@ -1,0 +1,31 @@
+'use strict';
+const assert=require('node:assert/strict');
+const C=require('../calculation-core.js');
+let seed=0x4518abcd;const rnd=()=>{seed=(1664525*seed+1013904223)>>>0;return seed/2**32};const int=(a,b)=>Math.floor(rnd()*(b-a+1))+a;
+const oracleVnd=v=>{v=Number.isFinite(Number(v))?Number(v):0;if(!v)return 0;const r=Math.floor(Math.abs(v)+0.5+Number.EPSILON*Math.max(1,Math.abs(v)));return r===0?0:(v<0?-r:r)};
+let scenarios=0;
+for(let i=0;i<20000;i++){const sign=rnd()<.5?-1:1;const v=sign*(int(0,1_000_000_000)+[0,.1,.49,.5,.51,.9][int(0,5)]);assert.equal(C.vnd(v),oracleVnd(v));assert.equal(Object.is(C.vnd(v),-0),false);scenarios++;}
+for(let i=0;i<5000;i++){
+ const revC=int(0,1e9),revD=int(0,revC),expD=int(0,1e9),expC=int(0,expD),taxD=int(0,1e8),taxC=int(0,taxD),noise=int(0,1e9);
+ const db={accounts:[{code:'5113',type:'Revenue'},{code:'6422',type:'Expense'},{code:'8211',type:'Expense'},{code:'1121',type:'Asset'}],openingBalances:[],journalEntries:[{id:'p',date:'2026-07-01',status:'Posted',lines:[{accountCode:'5113',debit:revD,credit:revC},{accountCode:'6422',debit:expD,credit:expC},{accountCode:'8211',debit:taxD,credit:taxC}]},{id:'d',date:'2026-07-01',status:'Draft',lines:[{accountCode:'5113',debit:0,credit:noise}]}]};
+ const x=C.profitAndLoss(db,{from:'2026-01-01',to:'2026-12-31'});const revenue=revC-revD,expense=expD-expC,tax=taxD-taxC;
+ assert.deepEqual(x,{revenue,expenseBeforeTax:expense,incomeTaxExpense:tax,profitBeforeTax:revenue-expense,profitAfterTax:revenue-expense-tax,marginBeforeTax:revenue?(revenue-expense)/revenue*100:0});scenarios++;
+}
+for(let i=0;i<5000;i++){
+ const income=int(0,1e9),expense=int(0,1e9),pending=int(0,1e9),transfer=int(0,1e9);
+ const db={finance:[{date:'2026-07-01',type:'Income',status:'Paid',amount:income},{date:'2026-07-02',type:'Expense',status:'Paid',amount:expense},{date:'2026-07-03',type:'Income',status:'Pending',amount:pending},{date:'2026-07-04',type:'Expense',status:'Paid',amount:transfer,transactionNature:'Internal transfer'}]};
+ const x=C.cashFlow(db,{from:'2026-01-01',to:'2026-12-31'});assert.equal(x.cashIn,income);assert.equal(x.cashOut,expense);assert.equal(x.net,income-expense);assert.equal(x.internalTransfers||0,transfer);scenarios++;
+}
+for(let i=0;i<5000;i++){
+ const out=int(0,1e8),inDed=int(0,1e8),inNo=int(0,1e8),draft=int(0,1e8);
+ const db={taxInvoices:[{date:'2026-07-01',direction:'Output',status:'Valid',vatAmount:out},{date:'2026-07-02',direction:'Input',status:'Valid',vatAmount:inDed,deductible:true},{date:'2026-07-03',direction:'Input',status:'Valid',vatAmount:inNo,deductible:false},{date:'2026-07-04',direction:'Output',status:'Draft',vatAmount:draft}]};
+ const x=C.vatRegisterSummary(db,{from:'2026-01-01',to:'2026-12-31'});assert.deepEqual(x,{output:out,inputAll:inDed+inNo,inputDeductible:inDed,payable:Math.max(0,out-inDed),creditCarry:Math.max(0,inDed-out)});scenarios++;
+}
+for(let i=0;i<5000;i++){
+ const gross=int(0,1e9),taxable=int(0,gross),rate=int(0,10000)/100,threshold=int(0,10_000_000);
+ const x=C.pitWithholding({date:'2026-07-01',grossIncome:gross,taxableIncome:taxable,rate,withholdingMethod:'Khấu trừ tỷ lệ'},{pitWithholdingThreshold:threshold,pitWithholdingRate:10,pitWithholdingThresholdEffectiveDate:'2026-07-01'});
+ const expected=gross>=threshold?Math.min(gross,oracleVnd(taxable*Math.min(100,Math.max(0,rate))/100)):0;assert.equal(x.tax,expected);assert.equal(x.net,gross-expected);scenarios++;
+}
+const canonical={settings:{citRateMode:'Manual',corporateTaxRate:20,maxContractValue:1e12},accounts:[{code:'1121',type:'Asset',normalSide:'Debit'},{code:'131',type:'Asset',normalSide:'Debit'},{code:'1331',type:'Asset',normalSide:'Debit'},{code:'154',type:'Asset',normalSide:'Debit'},{code:'331',type:'Liability',normalSide:'Credit'},{code:'33311',type:'Liability',normalSide:'Credit'},{code:'3335',type:'Liability',normalSide:'Credit'},{code:'5113',type:'Revenue',normalSide:'Credit'},{code:'632',type:'Expense',normalSide:'Debit'}],openingBalances:[],clients:[{id:'c',name:'Client'}],vendors:[{id:'v',name:'Vendor'}],people:[{id:'m',name:'Manager',status:'Active'}],projects:[{id:'p',code:'P',name:'Project',clientId:'c',managerId:'m',status:'Active',contractValue:1000,directBudget:500,progress:50}],contracts:[{id:'ct',projectId:'p',clientId:'c',contractType:'customer',status:'Active',valueExclVat:1000,effectiveDate:'2026-01-01'}],journalEntries:[{id:'j0',date:'2026-01-20',status:'Posted',projectId:'p',lines:[{accountCode:'154',debit:400,credit:0},{accountCode:'331',debit:0,credit:400}]},{id:'j1',date:'2026-02-01',status:'Posted',projectId:'p',lines:[{accountCode:'131',debit:1100,credit:0},{accountCode:'5113',debit:0,credit:1000},{accountCode:'33311',debit:0,credit:100}]},{id:'j2',date:'2026-03-01',status:'Posted',projectId:'p',lines:[{accountCode:'632',debit:400,credit:0},{accountCode:'154',debit:0,credit:400}]},{id:'j3',date:'2026-04-01',status:'Posted',projectId:'p',lines:[{accountCode:'1121',debit:1100,credit:0},{accountCode:'131',debit:0,credit:1100}]}],taxInvoices:[{id:'inv',date:'2026-02-01',dueDate:'2026-03-01',direction:'Output',status:'Valid',partnerType:'client',partnerId:'c',projectId:'p',contractId:'ct',taxBase:1000,vatAmount:100,totalAmount:1100}],finance:[{id:'pay',date:'2026-04-01',type:'Income',status:'Paid',projectId:'p',amount:1100}],paymentAllocations:[{id:'a',invoiceId:'inv',paymentId:'pay',date:'2026-04-01',amount:1100,status:'Posted'}],timesheets:[],projectBudgetVersions:[],resourcePlans:[],commitments:[],projectStages:[],pitWithholdings:[],citAdjustments:[]};
+const range={from:'2026-01-01',to:'2026-12-31'};assert.equal(C.profitAndLoss(canonical,range).profitBeforeTax,600);assert.equal(C.contractRegisterSummary(canonical,range).outstandingGross,0);assert.equal(C.invoiceAging(canonical,{direction:'Output',to:range.to,asOf:range.to}).totals.outstanding,0);assert.equal(C.projectFinancials(canonical,'p',range).recognizedRevenue,1000);assert.equal(C.projectFinancials(canonical,'p',range).actualCost,400);assert.equal(C.projectFinancials(canonical,'p',range).collectedGross,1100);assert.equal(C.dataLinkAudit(canonical).length,0);scenarios+=7;
+console.log(`PASS final-money-linkage-v4518: ${scenarios.toLocaleString('en-US')} independent money and linkage scenarios`);

@@ -1,0 +1,9 @@
+node_modules/
+.env
+.env.*
+!.env.*.example
+STAGING_ENV.cmd
+.staging-test-users.json
+*.log
+.DS_Store
+Thumbs.db

@@ -1,0 +1,131 @@
+{
+  "summary": {
+    "releaseVersion": "4.5.60",
+    "statesAudited": 6,
+    "passedStates": 6,
+    "failedStates": 0,
+    "passed": true
+  },
+  "records": [
+    {
+      "width": 360,
+      "height": 800,
+      "theme": "light",
+      "before": {
+        "sidebarOpen": true,
+        "moreMode": true,
+        "navScrollable": true,
+        "navScrollTop": 930,
+        "itemVisible": true
+      },
+      "after": {
+        "hash": "#security-center",
+        "title": "Trung tâm bảo mật",
+        "sidebarOpen": false,
+        "moreMode": false
+      },
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "theme": "dark",
+      "before": {
+        "sidebarOpen": true,
+        "moreMode": true,
+        "navScrollable": true,
+        "navScrollTop": 930,
+        "itemVisible": true
+      },
+      "after": {
+        "hash": "#security-center",
+        "title": "Trung tâm bảo mật",
+        "sidebarOpen": false,
+        "moreMode": false
+      },
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "theme": "light",
+      "before": {
+        "sidebarOpen": true,
+        "moreMode": true,
+        "navScrollable": true,
+        "navScrollTop": 898,
+        "itemVisible": true
+      },
+      "after": {
+        "hash": "#security-center",
+        "title": "Trung tâm bảo mật",
+        "sidebarOpen": false,
+        "moreMode": false
+      },
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "theme": "dark",
+      "before": {
+        "sidebarOpen": true,
+        "moreMode": true,
+        "navScrollable": true,
+        "navScrollTop": 898,
+        "itemVisible": true
+      },
+      "after": {
+        "hash": "#security-center",
+        "title": "Trung tâm bảo mật",
+        "sidebarOpen": false,
+        "moreMode": false
+      },
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "theme": "light",
+      "before": {
+        "sidebarOpen": true,
+        "moreMode": true,
+        "navScrollable": true,
+        "navScrollTop": 810,
+        "itemVisible": true
+      },
+      "after": {
+        "hash": "#security-center",
+        "title": "Trung tâm bảo mật",
+        "sidebarOpen": false,
+        "moreMode": false
+      },
+      "errors": [],
+      "passed": true
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "theme": "dark",
+      "before": {
+        "sidebarOpen": true,
+        "moreMode": true,
+        "navScrollable": true,
+        "navScrollTop": 810,
+        "itemVisible": true
+      },
+      "after": {
+        "hash": "#security-center",
+        "title": "Trung tâm bảo mật",
+        "sidebarOpen": false,
+        "moreMode": false
+      },
+      "errors": [],
+      "passed": true
+    }
+  ]
+}

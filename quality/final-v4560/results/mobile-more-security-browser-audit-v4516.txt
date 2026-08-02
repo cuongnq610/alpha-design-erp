@@ -1,0 +1,7 @@
+{
+  "releaseVersion": "4.5.60",
+  "statesAudited": 6,
+  "passedStates": 6,
+  "failedStates": 0,
+  "passed": true
+}

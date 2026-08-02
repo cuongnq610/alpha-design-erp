@@ -1,0 +1,1 @@
+{"releaseVersion": "4.5.60", "passed": true, "issues": [], "payrollStates": ["Draft", "Reviewed", "Approved", "Locked"], "annualStates": ["Draft", "Reviewed", "Approved", "Locked"]}

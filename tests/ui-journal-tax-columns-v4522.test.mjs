@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const app=fs.readFileSync(new URL('../app.js',import.meta.url),'utf8');
+const css=fs.readFileSync(new URL('../alpha-design-system.css',import.meta.url),'utf8');
+assert.match(app,/table\.classList\.contains\('table-journals'\)/);
+assert.match(app,/fixedWidths\[6\]/);
+assert.match(app,/table\.classList\.contains\('table-tax-invoices'\)/);
+assert.match(app,/fixedWidths\[7\]/);
+assert.match(css,/v4\.5\.23 — journal status centering and VAT column rhythm/);
+assert.match(css,/\.table-journals \.journal-status-stack/);
+assert.match(css,/justify-items:center!important/);
+console.log('PASS v4.5.23 journal status and VAT column static regression');

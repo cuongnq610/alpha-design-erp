@@ -1,0 +1,155 @@
+{
+  "summary": {
+    "releaseVersion": "4.5.60",
+    "states": 11,
+    "passedStates": 11,
+    "failedStates": 0,
+    "passed": true
+  },
+  "records": [
+    {
+      "scope": "desktop",
+      "labelViews": [
+        {
+          "view": "tasks",
+          "missingControls": [],
+          "missingButtons": []
+        },
+        {
+          "view": "projects",
+          "missingControls": [],
+          "missingButtons": []
+        },
+        {
+          "view": "people",
+          "missingControls": [],
+          "missingButtons": []
+        },
+        {
+          "view": "timesheets",
+          "missingControls": [],
+          "missingButtons": []
+        },
+        {
+          "view": "documents",
+          "missingControls": [],
+          "missingButtons": []
+        },
+        {
+          "view": "settings",
+          "missingControls": [],
+          "missingButtons": []
+        },
+        {
+          "view": "exports",
+          "missingControls": [],
+          "missingButtons": []
+        }
+      ],
+      "modalOpen": true,
+      "focusInModal": true,
+      "modalTrap": true,
+      "modalFocusRestore": true,
+      "drawerFocus": true,
+      "drawerFocusRestore": true,
+      "unsupportedIntegrationStaysOff": true,
+      "integrationModalNames": {
+        "missingControls": [],
+        "missingButtons": []
+      },
+      "demoTruthfulnessNote": true,
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "scope": "mobileTargets",
+      "width": 360,
+      "height": 800,
+      "theme": "light",
+      "issues": [],
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "scope": "mobileTargets",
+      "width": 360,
+      "height": 800,
+      "theme": "dark",
+      "issues": [],
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "scope": "mobileTargets",
+      "width": 390,
+      "height": 844,
+      "theme": "light",
+      "issues": [],
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "scope": "mobileTargets",
+      "width": 390,
+      "height": 844,
+      "theme": "dark",
+      "issues": [],
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "scope": "mobileTargets",
+      "width": 430,
+      "height": 900,
+      "theme": "light",
+      "issues": [],
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "scope": "mobileTargets",
+      "width": 430,
+      "height": 900,
+      "theme": "dark",
+      "issues": [],
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "scope": "mobileTargets",
+      "width": 768,
+      "height": 900,
+      "theme": "light",
+      "issues": [],
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "scope": "mobileTargets",
+      "width": 768,
+      "height": 900,
+      "theme": "dark",
+      "issues": [],
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "scope": "mobileTargets",
+      "width": 1024,
+      "height": 900,
+      "theme": "light",
+      "issues": [],
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "scope": "mobileTargets",
+      "width": 1024,
+      "height": 900,
+      "theme": "dark",
+      "issues": [],
+      "pageErrors": [],
+      "passed": true
+    }
+  ]
+}

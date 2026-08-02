@@ -1,0 +1,166 @@
+{
+  "release": "4.5.60",
+  "checks": [
+    {
+      "name": "desktop: modal form has independent overflow",
+      "pass": true,
+      "detail": "{'scrollHeight': 1026, 'clientHeight': 713, 'scrollTop': 0, 'overflow': 'auto'}"
+    },
+    {
+      "name": "desktop: modal stays inside viewport",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop: page body is scroll-locked",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop: modal overlays DEMO banner",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop: wheel scroll moves form downward",
+      "pass": true,
+      "detail": "scrollTop=312"
+    },
+    {
+      "name": "desktop: header remains fixed while form scrolls",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop: bottom action bar becomes visible",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop: final journal row is reachable",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "tablet: modal form has independent overflow",
+      "pass": true,
+      "detail": "{'scrollHeight': 1681, 'clientHeight': 799, 'scrollTop': 0, 'overflow': 'auto'}"
+    },
+    {
+      "name": "tablet: modal stays inside viewport",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "tablet: page body is scroll-locked",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "tablet: modal overlays DEMO banner",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "tablet: wheel scroll moves form downward",
+      "pass": true,
+      "detail": "scrollTop=700"
+    },
+    {
+      "name": "tablet: header remains fixed while form scrolls",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "tablet: bottom action bar becomes visible",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "tablet: final journal row is reachable",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile: modal form has independent overflow",
+      "pass": true,
+      "detail": "{'scrollHeight': 2160, 'clientHeight': 755, 'scrollTop': 0, 'overflow': 'auto'}"
+    },
+    {
+      "name": "mobile: modal stays inside viewport",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile: page body is scroll-locked",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile: modal overlays DEMO banner",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile: wheel scroll moves form downward",
+      "pass": true,
+      "detail": "scrollTop=700"
+    },
+    {
+      "name": "mobile: header remains fixed while form scrolls",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile: bottom action bar becomes visible",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile: final journal row is reachable",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "errors": [],
+  "viewports": [
+    {
+      "label": "desktop",
+      "width": 1792,
+      "height": 860,
+      "metrics": {
+        "scrollHeight": 1026,
+        "clientHeight": 713,
+        "scrollTop": 0,
+        "overflow": "auto"
+      },
+      "scrollTopAfterWheel": 312
+    },
+    {
+      "label": "tablet",
+      "width": 820,
+      "height": 1040,
+      "metrics": {
+        "scrollHeight": 1681,
+        "clientHeight": 799,
+        "scrollTop": 0,
+        "overflow": "auto"
+      },
+      "scrollTopAfterWheel": 700
+    },
+    {
+      "label": "mobile",
+      "width": 390,
+      "height": 844,
+      "metrics": {
+        "scrollHeight": 2160,
+        "clientHeight": 755,
+        "scrollTop": 0,
+        "overflow": "auto"
+      },
+      "scrollTopAfterWheel": 700
+    }
+  ],
+  "passed": 24,
+  "failed": 0
+}

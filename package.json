@@ -1,0 +1,33 @@
+{
+  "name": "alpha-design-erp-cloud",
+  "version": "4.5.67",
+  "private": true,
+  "scripts": {
+    "start": "node backend/server.mjs",
+    "test": "bash tests/run-release-audit.sh",
+    "golden": "node tests/golden-dataset.test.js",
+    "audit:financial": "node scripts/financial-audit.cjs",
+    "build": "node scripts/build-public.mjs",
+    "schema:build": "node scripts/build-consolidated-schema.mjs",
+    "dependencies:preflight": "node scripts/dependency-preflight.mjs",
+    "test:integrity": "node tests/release-package-integrity.test.mjs",
+    "manifest:generate": "node scripts/generate-file-manifest.mjs",
+    "manifest:verify": "node scripts/verify-file-manifest.mjs",
+    "deploy:preflight": "node scripts/preflight-matbao.mjs --strict",
+    "deploy:verify": "node scripts/verify-remote-deployment.mjs",
+    "supabase:verify": "node scripts/verify-supabase-project.mjs",
+    "secret:generate": "node scripts/generate-deployment-secret.mjs",
+    "deploy:preflight:demo": "node scripts/preflight-matbao.mjs",
+    "test:browser": "bash tests/run-browser-release-audit.sh",
+    "test:browser:extended": "bash tests/run-extended-browser-regression.sh",
+    "financial:certify-gate": "node scripts/certify-production-financial-gate.mjs",
+    "test:deep": "node tests/deep-accounting-finance-v4567.test.mjs && node tests/sql-deep-qa-autoheal-v4567.test.mjs",
+    "heal": "node scripts/auto-heal-release.mjs --apply",
+    "heal:full": "node scripts/auto-heal-release.mjs --apply --full"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "npm@10.9.2",
+  "description": "ALPHA DESIGN ERP Cloud v4.5.67 DEEP QA AUTOHEAL RELEASE: corrected CIT boundary, exact-package structural QA and controlled fail-closed auto-heal."
+}

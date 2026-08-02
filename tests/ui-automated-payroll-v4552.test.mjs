@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const app=readFileSync(new URL('../app.js',import.meta.url),'utf8');
+const payroll=readFileSync(new URL('../payroll-detail.js',import.meta.url),'utf8');
+const css=readFileSync(new URL('../alpha-design-system.css',import.meta.url),'utf8');
+for(const marker of ['Auto profile','Auto timesheet','Auto policy','Auto progressive','monthlyAllowance','insuranceSalary','dependentCount','pitResidence','Payroll.refreshDraftPeriods','Tính lại tự động']) assert.ok(app.includes(marker),`missing automated payroll UI marker ${marker}`);
+for(const marker of ['progressiveTax','fixedPitPolicy','sourceSignature','overtimeHours','insuranceBase','taxableIncome','ALPHA-PAYROLL-4.5.61']) assert.ok(payroll.includes(marker),`missing automated payroll formula marker ${marker}`);
+assert.ok(app.includes("['timesheets','people'].includes(type)"),'deleting a payroll source must refresh draft periods');
+assert.ok(app.includes("alpha_design_erp_cloud_v4_5_47_accounting_operations_tax_package_hardening"),'previous release storage key must remain migratable');
+assert.ok(css.includes('.cell-auto-source'),'automatic/manual source indicator styling is missing');
+console.log('PASS v4.5.52 automated payroll UI, source refresh, legacy migration and source indicators');

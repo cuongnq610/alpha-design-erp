@@ -1,0 +1,264 @@
+{
+  "releaseVersion": "4.5.60",
+  "scope": [
+    "finance-to-posted-cash-journal",
+    "one-finance-row-per-cash-journal",
+    "recognized-allocation-parent-lock",
+    "posted-schedule-history-lock",
+    "non-financial-asset-edit",
+    "cross-module-delete-protection-by-soft-archive"
+  ],
+  "checks": [
+    {
+      "name": "Paid finance blocks a non-cash Posted journal",
+      "actual": "!\nKiểm tra dữ liệu nhập\n\nChứng từ không khớp ngày, dự án, số tiền hoặc chiều tăng/giảm TK 111/112.",
+      "expectedContains": "không khớp ngày, dự án, số tiền hoặc chiều",
+      "pass": true
+    },
+    {
+      "name": "Mismatched finance modal stays open",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "Exact Paid finance is saved",
+      "actual": 85,
+      "expected": 85,
+      "pass": true
+    },
+    {
+      "name": "Exact journal has one Paid finance row",
+      "actual": 1,
+      "expected": 1,
+      "pass": true
+    },
+    {
+      "name": "Exact Paid amount remains integer VND",
+      "actual": 1234567,
+      "expected": 1234567,
+      "pass": true
+    },
+    {
+      "name": "Cash journal cannot be reused by another Paid row",
+      "actual": "!\nKiểm tra dữ liệu nhập\n\nChứng từ này đã được liên kết với một khoản Paid khác.",
+      "expectedContains": "đã được liên kết với một khoản Paid khác",
+      "pass": true
+    },
+    {
+      "name": "Duplicate link does not create finance row",
+      "actual": 85,
+      "expected": 85,
+      "pass": true
+    },
+    {
+      "name": "Recognized allocation protects invoice total",
+      "actual": "!\nKiểm tra dữ liệu nhập\n\nTổng hóa đơn không được thấp hơn số đã phân bổ 225000000 VND.",
+      "expectedContains": "không được thấp hơn số đã phân bổ",
+      "pass": true
+    },
+    {
+      "name": "Blocked invoice edit preserves total",
+      "actual": 225000000,
+      "expected": 225000000,
+      "pass": true
+    },
+    {
+      "name": "Posted schedule rebuild raises one alert",
+      "actual": 1,
+      "expected": 1,
+      "pass": true
+    },
+    {
+      "name": "Posted schedule rebuild is blocked",
+      "actual": "Không thể tạo lại lịch phân bổ CCDC vì đã có 1 kỳ/chứng từ được bảo vệ. Hãy lập điều chỉnh hoặc đảo chứng từ thay vì sửa lịch sử.",
+      "expectedContains": "không thể tạo lại lịch",
+      "pass": true
+    },
+    {
+      "name": "Blocked rebuild preserves schedule identity",
+      "actual": [
+        "tool-tool1-2026-07",
+        "tool-tool1-2026-08",
+        "tool-tool1-2026-09",
+        "tool-tool1-2026-10",
+        "tool-tool1-2026-11",
+        "tool-tool1-2026-12",
+        "tool-tool1-2027-01",
+        "tool-tool1-2027-02",
+        "tool-tool1-2027-03",
+        "tool-tool1-2027-04",
+        "tool-tool1-2027-05",
+        "tool-tool1-2027-06",
+        "tool-tool1-2027-07",
+        "tool-tool1-2027-08",
+        "tool-tool1-2027-09",
+        "tool-tool1-2027-10",
+        "tool-tool1-2027-11",
+        "tool-tool1-2027-12",
+        "tool-tool1-2028-01",
+        "tool-tool1-2028-02",
+        "tool-tool1-2028-03",
+        "tool-tool1-2028-04",
+        "tool-tool1-2028-05",
+        "tool-tool1-2028-06"
+      ],
+      "expected": [
+        "tool-tool1-2026-07",
+        "tool-tool1-2026-08",
+        "tool-tool1-2026-09",
+        "tool-tool1-2026-10",
+        "tool-tool1-2026-11",
+        "tool-tool1-2026-12",
+        "tool-tool1-2027-01",
+        "tool-tool1-2027-02",
+        "tool-tool1-2027-03",
+        "tool-tool1-2027-04",
+        "tool-tool1-2027-05",
+        "tool-tool1-2027-06",
+        "tool-tool1-2027-07",
+        "tool-tool1-2027-08",
+        "tool-tool1-2027-09",
+        "tool-tool1-2027-10",
+        "tool-tool1-2027-11",
+        "tool-tool1-2027-12",
+        "tool-tool1-2028-01",
+        "tool-tool1-2028-02",
+        "tool-tool1-2028-03",
+        "tool-tool1-2028-04",
+        "tool-tool1-2028-05",
+        "tool-tool1-2028-06"
+      ],
+      "pass": true
+    },
+    {
+      "name": "Operational tool metadata remains editable",
+      "actual": "Vận hành QA",
+      "expected": "Vận hành QA",
+      "pass": true
+    },
+    {
+      "name": "Metadata edit preserves schedule identity",
+      "actual": [
+        "tool-tool1-2026-07",
+        "tool-tool1-2026-08",
+        "tool-tool1-2026-09",
+        "tool-tool1-2026-10",
+        "tool-tool1-2026-11",
+        "tool-tool1-2026-12",
+        "tool-tool1-2027-01",
+        "tool-tool1-2027-02",
+        "tool-tool1-2027-03",
+        "tool-tool1-2027-04",
+        "tool-tool1-2027-05",
+        "tool-tool1-2027-06",
+        "tool-tool1-2027-07",
+        "tool-tool1-2027-08",
+        "tool-tool1-2027-09",
+        "tool-tool1-2027-10",
+        "tool-tool1-2027-11",
+        "tool-tool1-2027-12",
+        "tool-tool1-2028-01",
+        "tool-tool1-2028-02",
+        "tool-tool1-2028-03",
+        "tool-tool1-2028-04",
+        "tool-tool1-2028-05",
+        "tool-tool1-2028-06"
+      ],
+      "expected": [
+        "tool-tool1-2026-07",
+        "tool-tool1-2026-08",
+        "tool-tool1-2026-09",
+        "tool-tool1-2026-10",
+        "tool-tool1-2026-11",
+        "tool-tool1-2026-12",
+        "tool-tool1-2027-01",
+        "tool-tool1-2027-02",
+        "tool-tool1-2027-03",
+        "tool-tool1-2027-04",
+        "tool-tool1-2027-05",
+        "tool-tool1-2027-06",
+        "tool-tool1-2027-07",
+        "tool-tool1-2027-08",
+        "tool-tool1-2027-09",
+        "tool-tool1-2027-10",
+        "tool-tool1-2027-11",
+        "tool-tool1-2027-12",
+        "tool-tool1-2028-01",
+        "tool-tool1-2028-02",
+        "tool-tool1-2028-03",
+        "tool-tool1-2028-04",
+        "tool-tool1-2028-05",
+        "tool-tool1-2028-06"
+      ],
+      "pass": true
+    },
+    {
+      "name": "Posted schedule protects financial drivers",
+      "actual": "!\nKiểm tra dữ liệu nhập\n\nKhông thể tạo lại lịch phân bổ CCDC vì đã có 1 kỳ/chứng từ được bảo vệ. Hãy lập điều chỉnh hoặc đảo chứng từ thay vì sửa lịch sử.",
+      "expectedContains": "không thể tạo lại lịch",
+      "pass": true
+    },
+    {
+      "name": "Blocked driver edit preserves original cost",
+      "actual": 24000000,
+      "expected": 24000000,
+      "pass": true
+    },
+    {
+      "name": "Referenced project archival raises one confirmation",
+      "actual": 1,
+      "expected": 1,
+      "pass": true
+    },
+    {
+      "name": "Referenced project confirmation explains hard-delete protection",
+      "actual": "Dự án đang được 40 bản ghi nghiệp vụ tham chiếu; hãy chuyển trạng thái hoặc lập nghiệp vụ điều chỉnh thay vì xóa.\n\nDự án đã có nghiệp vụ nên không được xóa vật lý. Chuyển dự án sang trạng thái Archived để ẩn khỏi vận hành nhưng vẫn giữ dấu vết?",
+      "expectedContains": "không được xóa vật lý",
+      "pass": true
+    },
+    {
+      "name": "Soft archive preserves project row",
+      "actual": 50,
+      "expected": 50,
+      "pass": true
+    },
+    {
+      "name": "Soft archive marks project Archived",
+      "actual": "Archived",
+      "expected": "Archived",
+      "pass": true
+    },
+    {
+      "name": "Soft archive records archival marker",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "Soft archive preserves project identity",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "Soft archive preserves linked contracts",
+      "actual": 1,
+      "expected": 1,
+      "pass": true
+    }
+  ],
+  "screenshots": [
+    "quality/final-v4560/production-invariants/01-finance-exact-match-block.png",
+    "quality/final-v4560/production-invariants/02-finance-exact-match-saved.png",
+    "quality/final-v4560/production-invariants/03-finance-one-to-one-block.png",
+    "quality/final-v4560/production-invariants/04-invoice-allocation-parent-lock.png",
+    "quality/final-v4560/production-invariants/05-posted-schedule-rebuild-lock.png",
+    "quality/final-v4560/production-invariants/06-posted-schedule-driver-lock.png",
+    "quality/final-v4560/production-invariants/07-cross-module-delete-protection.png"
+  ],
+  "errors": [],
+  "passedChecks": 23,
+  "failedChecks": 0,
+  "passed": true
+}

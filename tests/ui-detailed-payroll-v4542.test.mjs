@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const app=readFileSync(new URL('../app.js',import.meta.url),'utf8');
+const html=readFileSync(new URL('../index.html',import.meta.url),'utf8');
+const css=readFileSync(new URL('../alpha-design-system.css',import.meta.url),'utf8');
+const exporter=readFileSync(new URL('../export-center.js',import.meta.url),'utf8');
+for(const marker of ['Bảng lương chi tiết theo nhân viên','payrollMonthSelect','generatePayrollPeriod','reviewPayrollPeriod','approvePayrollPeriod','lockPayrollPeriod','exportPayrollCsv','edit-payroll-item','payrollItems:{title']) assert.ok(app.includes(marker),`missing ${marker}`);
+for(const column of ['Ngày công chuẩn','Ngày hưởng lương','Giờ billable','Thuế TNCN','Thực nhận','Tổng chi phí DN','Phân bổ dự án','Cost Recovery']) assert.ok(app.includes(column),`missing payroll column ${column}`);
+assert.ok(html.includes('payroll-detail.js'),'index must load payroll-detail.js before app.js');
+assert.ok(css.includes('.payroll-detail-table')&&css.includes('table-layout:fixed')&&css.includes('.payroll-header-label'),'payroll responsive table CSS missing');
+assert.ok(exporter.includes("sheet('Bang_luong_chi_tiet'")&&exporter.includes('detailedPayrollRows'),'detailed payroll export sheet missing');
+assert.ok(app.includes('Kỳ bảng lương đã phê duyệt hoặc khóa, không thể sửa trực tiếp.'),'immutable approved period guard missing');
+console.log('PASS v4.5.42 detailed payroll UI, workflow, immutability and export wiring');

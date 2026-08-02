@@ -1,0 +1,1 @@
+{"releaseVersion": "4.5.60", "states": 46, "passedStates": 46, "failedStates": 0, "tablesAudited": 71, "headersAudited": 499, "cellsAudited": 27706, "controlsAudited": 4377, "runtimeErrors": [], "passed": true}

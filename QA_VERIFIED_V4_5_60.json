@@ -1,0 +1,44 @@
+{
+  "product": "ALPHA DESIGN ERP Cloud",
+  "version": "4.5.60",
+  "releaseLabel": "QA VERIFIED EXPORT GATE HARDENED RELEASE",
+  "auditDate": "2026-07-31",
+  "localReleaseAudit": {
+    "status": "PASS",
+    "command": "npm test"
+  },
+  "browserReleaseAudit": {
+    "status": "PASS",
+    "stepsPassed": 18,
+    "stepsTotal": 18,
+    "structuralStatesPassed": 364,
+    "structuralStatesTotal": 364
+  },
+  "extendedBrowserRegression": {
+    "status": "PASS",
+    "stepsPassed": 11,
+    "stepsTotal": 11
+  },
+  "targetedTT99Browser": {
+    "status": "PASS",
+    "checksPassed": 15,
+    "checksTotal": 15,
+    "pageErrors": 0
+  },
+  "exportCenterBrowser": {
+    "status": "PASS",
+    "checksPassed": 33,
+    "checksTotal": 33,
+    "formats": ["XLSX", "PDF", "CSV", "XML", "DOCX", "JSON", "ZIP"]
+  },
+  "formulaChanges": false,
+  "databaseMigrationChanges": false,
+  "databaseMigration": 68,
+  "productionApproval": false,
+  "evidence": {
+    "browserSummary": "quality/final-v4560/results/browser-release-audit-summary.json",
+    "tt99Browser": "quality/final-v4560/tt99-export-activation/TT99_EXPORT_ACTIVATION_BROWSER_AUDIT_V4_5_60.json",
+    "exportCenter": "quality/final-v4560/export-center-v4560/EXPORT_CENTER_BROWSER_AUDIT_V4_5_60.json",
+    "extendedStatus": "quality/final-v4560/extended-results/extended-browser-steps.tsv"
+  }
+}

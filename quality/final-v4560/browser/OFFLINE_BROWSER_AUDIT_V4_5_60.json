@@ -1,0 +1,24 @@
+{
+  "releaseVersion": "4.5.60",
+  "method": "Deterministic Chromium state simulation plus static Service Worker contract audit",
+  "checks": {
+    "serviceWorkerCachesApplicationShell": true,
+    "serviceWorkerNeverCachesApi": true,
+    "runtimeConfigUsesNetworkOnlyFailSafe": true,
+    "runtimeConfigIsNotPrecached": true,
+    "cacheCleanupIsApplicationScoped": true,
+    "serviceWorkerDoesNotCacheBusinessRecords": true,
+    "onlineDataLoaded": true,
+    "onlineWriteAllowed": true,
+    "currentScreenRetainsLoadedDataOffline": true,
+    "offlineWriteBlocked": true,
+    "offlineReasonIsExplicitReadOnly": true,
+    "offlineColdStartShellLoads": true,
+    "offlineColdStartLocked": true,
+    "offlineColdStartDoesNotExposeBusinessData": true,
+    "reconnectRestoresVerifiedData": true
+  },
+  "pageErrors": [],
+  "passed": true,
+  "offlineReason": "Mất kết nối máy chủ; hệ thống đang ở chế độ chỉ đọc và không ghi dữ liệu mới."
+}

@@ -1,0 +1,24 @@
+{
+  "release": "4.5.67",
+  "mode": "apply-full",
+  "passed": true,
+  "policy": "allowlisted-deterministic-repairs-only; fail closed on unknown defects",
+  "repairs": [
+    {
+      "id": "CIT_50B_INCLUSIVE",
+      "file": "calculation-core.js",
+      "status": "already-correct"
+    },
+    {
+      "id": "CIT_REVIEW_50B_INCLUSIVE",
+      "file": "calculation-core.js",
+      "status": "already-correct"
+    },
+    {
+      "id": "QA_CORE_KPI_SELECTOR",
+      "file": "scripts/ui-structural-browser-audit-v4525.py",
+      "status": "already-correct"
+    }
+  ],
+  "unresolved": []
+}

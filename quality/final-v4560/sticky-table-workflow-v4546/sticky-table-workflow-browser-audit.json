@@ -1,0 +1,264 @@
+{
+  "releaseVersion": "4.5.60",
+  "payrollLayout": {
+    "frame": true,
+    "scrollTop": 240,
+    "stickyTop": true,
+    "headerAligns": [
+      {
+        "text": "Mã / Họ tên",
+        "align": "center",
+        "classes": "payroll-sticky-col payroll-col-person table-col-primary",
+        "tableClasses": "payroll-detail-table balanced-table table-wide table-column-grid table-grid-exact table-authored-grid table-columns-25"
+      },
+      {
+        "text": "Bộ môn",
+        "align": "center",
+        "classes": "payroll-sticky-col payroll-col-dept table-col-text",
+        "tableClasses": "payroll-detail-table balanced-table table-wide table-column-grid table-grid-exact table-authored-grid table-columns-25"
+      },
+      {
+        "text": "Loại",
+        "align": "center",
+        "classes": "table-col-status",
+        "tableClasses": "payroll-detail-table balanced-table table-wide table-column-grid table-grid-exact table-authored-grid table-columns-25"
+      },
+      {
+        "text": "Ngày công chuẩn",
+        "align": "center",
+        "classes": "numeric table-col-date",
+        "tableClasses": "payroll-detail-table balanced-table table-wide table-column-grid table-grid-exact table-authored-grid table-columns-25"
+      },
+      {
+        "text": "Ngày hưởng lương",
+        "align": "center",
+        "classes": "numeric table-col-date",
+        "tableClasses": "payroll-detail-table balanced-table table-wide table-column-grid table-grid-exact table-authored-grid table-columns-25"
+      },
+      {
+        "text": "Giờ duyệt",
+        "align": "center",
+        "classes": "numeric table-col-numeric",
+        "tableClasses": "payroll-detail-table balanced-table table-wide table-column-grid table-grid-exact table-authored-grid table-columns-25"
+      },
+      {
+        "text": "Giờ billable",
+        "align": "center",
+        "classes": "numeric table-col-status",
+        "tableClasses": "payroll-detail-table balanced-table table-wide table-column-grid table-grid-exact table-authored-grid table-columns-25"
+      },
+      {
+        "text": "Lương / tiền công",
+        "align": "center",
+        "classes": "numeric table-col-numeric",
+        "tableClasses": "payroll-detail-table balanced-table table-wide table-column-grid table-grid-exact table-authored-grid table-columns-25"
+      },
+      {
+        "text": "Phụ cấp",
+        "align": "center",
+        "classes": "numeric table-col-numeric",
+        "tableClasses": "payroll-detail-table balanced-table table-wide table-column-grid table-grid-exact table-authored-grid table-columns-25"
+      },
+      {
+        "text": "Làm thêm",
+        "align": "center",
+        "classes": "numeric table-col-text",
+        "tableClasses": "payroll-detail-table balanced-table table-wide table-column-grid table-grid-exact table-authored-grid table-columns-25"
+      },
+      {
+        "text": "Thưởng",
+        "align": "center",
+        "classes": "numeric table-col-numeric",
+        "tableClasses": "payroll-detail-table balanced-table table-wide table-column-grid table-grid-exact table-authored-grid table-columns-25"
+      },
+      {
+        "text": "Thu nhập khác",
+        "align": "center",
+        "classes": "numeric table-col-numeric",
+        "tableClasses": "payroll-detail-table balanced-table table-wide table-column-grid table-grid-exact table-authored-grid table-columns-25"
+      },
+      {
+        "text": "Tổng thu nhập",
+        "align": "center",
+        "classes": "numeric table-col-numeric",
+        "tableClasses": "payroll-detail-table balanced-table table-wide table-column-grid table-grid-exact table-authored-grid table-columns-25"
+      },
+      {
+        "text": "BH người lao động",
+        "align": "center",
+        "classes": "numeric table-col-numeric",
+        "tableClasses": "payroll-detail-table balanced-table table-wide table-column-grid table-grid-exact table-authored-grid table-columns-25"
+      },
+      {
+        "text": "Thuế TNCN",
+        "align": "center",
+        "classes": "numeric table-col-numeric",
+        "tableClasses": "payroll-detail-table balanced-table table-wide table-column-grid table-grid-exact table-authored-grid table-columns-25"
+      },
+      {
+        "text": "Tạm ứng",
+        "align": "center",
+        "classes": "numeric table-col-numeric",
+        "tableClasses": "payroll-detail-table balanced-table table-wide table-column-grid table-grid-exact table-authored-grid table-columns-25"
+      },
+      {
+        "text": "Khấu trừ khác",
+        "align": "center",
+        "classes": "numeric table-col-numeric",
+        "tableClasses": "payroll-detail-table balanced-table table-wide table-column-grid table-grid-exact table-authored-grid table-columns-25"
+      },
+      {
+        "text": "Thực nhận",
+        "align": "center",
+        "classes": "numeric table-col-numeric",
+        "tableClasses": "payroll-detail-table balanced-table table-wide table-column-grid table-grid-exact table-authored-grid table-columns-25"
+      },
+      {
+        "text": "BH doanh nghiệp",
+        "align": "center",
+        "classes": "numeric table-col-numeric",
+        "tableClasses": "payroll-detail-table balanced-table table-wide table-column-grid table-grid-exact table-authored-grid table-columns-25"
+      },
+      {
+        "text": "Tổng chi phí DN",
+        "align": "center",
+        "classes": "numeric table-col-numeric",
+        "tableClasses": "payroll-detail-table balanced-table table-wide table-column-grid table-grid-exact table-authored-grid table-columns-25"
+      },
+      {
+        "text": "Phân bổ dự án",
+        "align": "center",
+        "classes": "numeric table-col-numeric",
+        "tableClasses": "payroll-detail-table balanced-table table-wide table-column-grid table-grid-exact table-authored-grid table-columns-25"
+      },
+      {
+        "text": "Doanh thu thu hồi",
+        "align": "center",
+        "classes": "numeric table-col-numeric",
+        "tableClasses": "payroll-detail-table balanced-table table-wide table-column-grid table-grid-exact table-authored-grid table-columns-25"
+      },
+      {
+        "text": "Utilization",
+        "align": "center",
+        "classes": "numeric table-col-progress",
+        "tableClasses": "payroll-detail-table balanced-table table-wide table-column-grid table-grid-exact table-authored-grid table-columns-25"
+      },
+      {
+        "text": "Cost Recovery",
+        "align": "center",
+        "classes": "numeric table-col-numeric",
+        "tableClasses": "payroll-detail-table balanced-table table-wide table-column-grid table-grid-exact table-authored-grid table-columns-25"
+      },
+      {
+        "text": "Thao tác",
+        "align": "center",
+        "classes": "table-col-actions",
+        "tableClasses": "payroll-detail-table balanced-table table-wide table-column-grid table-grid-exact table-authored-grid table-columns-25"
+      }
+    ],
+    "headersCentered": true,
+    "dayCellsCentered": true,
+    "horizontalOverflow": 1881,
+    "horizontalOverflowStyle": "auto",
+    "topScroller": false,
+    "horizontalSync": true,
+    "bodyOverflow": 0
+  },
+  "annualLayout": {
+    "frame": true,
+    "scrollTop": 240,
+    "stickyTop": true,
+    "headerAligns": [
+      {
+        "text": "Mã / Họ tên",
+        "align": "center",
+        "classes": "table-col-primary",
+        "tableClasses": "annual-benefit-table table-columns-10 balanced-table table-wide table-column-grid table-grid-exact table-authored-grid"
+      },
+      {
+        "text": "Bộ môn",
+        "align": "center",
+        "classes": "table-col-text",
+        "tableClasses": "annual-benefit-table table-columns-10 balanced-table table-wide table-column-grid table-grid-exact table-authored-grid"
+      },
+      {
+        "text": "Lương bình quân",
+        "align": "center",
+        "classes": "numeric table-col-numeric",
+        "tableClasses": "annual-benefit-table table-columns-10 balanced-table table-wide table-column-grid table-grid-exact table-authored-grid"
+      },
+      {
+        "text": "Ngày đủ điều kiện",
+        "align": "center",
+        "classes": "numeric table-col-date",
+        "tableClasses": "annual-benefit-table table-columns-10 balanced-table table-wide table-column-grid table-grid-exact table-authored-grid"
+      },
+      {
+        "text": "Tỷ lệ thời gian",
+        "align": "center",
+        "classes": "numeric table-col-progress",
+        "tableClasses": "annual-benefit-table table-columns-10 balanced-table table-wide table-column-grid table-grid-exact table-authored-grid"
+      },
+      {
+        "text": "Hệ số cá nhân",
+        "align": "center",
+        "classes": "numeric table-col-numeric",
+        "tableClasses": "annual-benefit-table table-columns-10 balanced-table table-wide table-column-grid table-grid-exact table-authored-grid"
+      },
+      {
+        "text": "Hệ số công ty",
+        "align": "center",
+        "classes": "numeric table-col-numeric",
+        "tableClasses": "annual-benefit-table table-columns-10 balanced-table table-wide table-column-grid table-grid-exact table-authored-grid"
+      },
+      {
+        "text": "Thưởng dự kiến",
+        "align": "center",
+        "classes": "numeric table-col-numeric",
+        "tableClasses": "annual-benefit-table table-columns-10 balanced-table table-wide table-column-grid table-grid-exact table-authored-grid"
+      },
+      {
+        "text": "Ngân sách tiền mặt",
+        "align": "center",
+        "classes": "numeric table-col-numeric",
+        "tableClasses": "annual-benefit-table table-columns-10 balanced-table table-wide table-column-grid table-grid-exact table-authored-grid"
+      },
+      {
+        "text": "Thao tác",
+        "align": "center",
+        "classes": "table-col-actions",
+        "tableClasses": "annual-benefit-table table-columns-10 balanced-table table-wide table-column-grid table-grid-exact table-authored-grid"
+      }
+    ],
+    "headersCentered": true,
+    "dayCellsCentered": true,
+    "horizontalOverflow": 316,
+    "horizontalOverflowStyle": "auto",
+    "topScroller": false,
+    "horizontalSync": true,
+    "bodyOverflow": 0
+  },
+  "payrollStates": [
+    "Draft",
+    "Reviewed",
+    "Approved",
+    "Locked"
+  ],
+  "annualStates": [
+    "Draft",
+    "Reviewed",
+    "Approved",
+    "Locked"
+  ],
+  "dialogs": [
+    "Chưa thể thực hiện bước này. Bảng lương phải ở trạng thái Reviewed; hiện tại là Draft.",
+    "Cần tạo ngân sách năm trước."
+  ],
+  "templateDownload": {
+    "filename": "ALPHA_TT133_BCTC_TEMPLATE_REFERENCE.json",
+    "valid": true
+  },
+  "pageErrors": [],
+  "issues": [],
+  "passed": true
+}

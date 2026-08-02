@@ -1,0 +1,7 @@
+ID,Severity,Area,Status,Resolution,Validation
+QA-001,High,Browser audit runner,Closed,"Per-step timeout; evidence retention; deterministic cleanup; concurrency lock; exact 15-step integrity check","15/15 PASS; reportIntegrity=true"
+QA-002,High,Release metadata and evidence,Closed,"Unified VERSION.json source; current evidence path; migration 052 release marker","Package and migration integrity PASS"
+QA-003,High,XLSX export,Closed,"Excel serial date values and normalized percentage storage","XLSX semantics regression PASS"
+QA-004,Medium,PDF/ZIP export labels,Closed,"Dynamic releaseVersion used in user-facing exports","Static/regression audit PASS"
+QA-005,Medium,UI audit authentication,Closed,"Demo login and unlocked app-shell wait before layout measurement","364/364 and 208/208 authenticated states PASS"
+QA-006,External gate,Real infrastructure and statutory UAT,Open,"Must be executed on real Supabase/MFA/SMTP/backup/devices/accounting data","See GO_LIVE_CHECKLIST.md"

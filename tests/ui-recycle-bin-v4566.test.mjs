@@ -1,0 +1,20 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const read=file=>fs.readFileSync(path.join(root,file),'utf8');
+const app=read('app.js'),index=read('index.html'),cloud=read('cloud-v2.js'),sync=read('alpha-sync.bundle.js'),permissions=read('permission-map.js'),styles=read('alpha-design-system.css');
+const version=JSON.parse(read('VERSION.json'));
+
+assert.equal(version.version,'4.5.67');
+assert.equal(version.databaseMigration,75);
+for(const marker of ['AlphaRecycleBin','trashEntries','renderTrash','moveRecordToTrash','restoreTrashEntry','purgeTrashEntry','purgeExpiredTrash'])assert.ok(app.includes(marker),`Missing app marker ${marker}`);
+assert.ok(index.includes('data-view="trash"')&&index.includes('data-permission="trash"')&&index.includes('recycle-bin.js'),'Recycle-bin navigation/runtime is missing');
+assert.ok(permissions.includes("trash:['security.manage']"),'Recycle-bin UI permission must require security.manage');
+assert.ok(sync.includes('"exportLogs","importLogs","trashEntries"'),'Recycle-bin collection must be last in Cloud sync so every source deletion reaches the server first');
+assert.ok(cloud.includes("registerTrashHandler?.('cloud-local-file'")&&cloud.includes("moveToTrash('documents'")&&cloud.includes('moveExternalToTrash'),'Cloud and IndexedDB files must use deferred recycle-bin deletion');
+assert.equal(/deleteFile\(coreDoc\.storagePath\)/.test(cloud),false,'Moving a Cloud file to trash must not delete its bytes immediately');
+assert.ok(styles.includes('v4.5.67 — Thùng rác')&&styles.includes('.table-trash'),'Recycle-bin responsive styling is missing');
+assert.ok(app.includes("requirePrivilegedAction(['security.manage'],'Khôi phục dữ liệu từ Thùng rác')")&&app.includes("requirePrivilegedAction(['security.manage'],'Xóa vĩnh viễn dữ liệu')"),'Restore and permanent purge must be privileged actions');
+console.log('PASS v4.5.67 recycle-bin UI, Cloud-file deferral, permission and automatic-cleanup wiring');

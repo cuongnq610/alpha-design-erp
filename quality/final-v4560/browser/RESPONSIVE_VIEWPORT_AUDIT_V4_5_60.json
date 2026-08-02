@@ -1,0 +1,1508 @@
+{
+  "releaseVersion": "4.5.60",
+  "testedWidths": [
+    360,
+    390,
+    430,
+    768,
+    820,
+    1024
+  ],
+  "testedViews": [
+    "dashboard",
+    "tasks",
+    "projects",
+    "controls",
+    "commercial",
+    "planning",
+    "procurement",
+    "crm",
+    "approvals",
+    "people",
+    "timesheets",
+    "payroll",
+    "documents",
+    "finance",
+    "financialAnalytics",
+    "accounting",
+    "tax",
+    "cloud-admin",
+    "readiness",
+    "users",
+    "audit",
+    "storage",
+    "integrations",
+    "exports",
+    "settings"
+  ],
+  "touchAndOrientation": true,
+  "orientationSmoke": {
+    "bodyOverflow": 0,
+    "documentOverflow": 0,
+    "viewport": "tablet",
+    "bottom": "none"
+  },
+  "screenshots": [
+    "RESPONSIVE_360_V4_5_60.png",
+    "RESPONSIVE_390_V4_5_60.png",
+    "RESPONSIVE_430_V4_5_60.png",
+    "RESPONSIVE_768_V4_5_60.png",
+    "RESPONSIVE_820_V4_5_60.png",
+    "RESPONSIVE_1024_V4_5_60.png"
+  ],
+  "results": [
+    {
+      "width": 360,
+      "height": 800,
+      "menuVisible": true,
+      "sidebarInitial": {
+        "x": -332.64,
+        "y": 0,
+        "width": 316.8,
+        "height": 800
+      },
+      "sidebarOpened": true,
+      "sidebarClosedAfterNavigation": true,
+      "bottomNavDisplay": "grid",
+      "views": {
+        "dashboard": {
+          "active": "dashboard",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "tasks": {
+          "active": "tasks",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "projects": {
+          "active": "projects",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "controls": {
+          "active": "controls",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "commercial": {
+          "active": "commercial",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 3,
+          "scrollHintCount": 3
+        },
+        "planning": {
+          "active": "planning",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 3,
+          "scrollHintCount": 3
+        },
+        "procurement": {
+          "active": "procurement",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "crm": {
+          "active": "crm",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "approvals": {
+          "active": "approvals",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "people": {
+          "active": "people",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "timesheets": {
+          "active": "timesheets",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "payroll": {
+          "active": "payroll",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 3,
+          "scrollHintCount": 3
+        },
+        "documents": {
+          "active": "documents",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "finance": {
+          "active": "finance",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "financialAnalytics": {
+          "active": "financialAnalytics",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 2,
+          "scrollHintCount": 2
+        },
+        "accounting": {
+          "active": "accounting",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 2,
+          "scrollHintCount": 2
+        },
+        "tax": {
+          "active": "tax",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "cloud-admin": {
+          "active": "cloud-admin",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "readiness": {
+          "active": "readiness",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "users": {
+          "active": "users",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "audit": {
+          "active": "audit",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "storage": {
+          "active": "storage",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "integrations": {
+          "active": "integrations",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "exports": {
+          "active": "exports",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "settings": {
+          "active": "settings",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        }
+      },
+      "errors": [],
+      "notificationDrawer": {
+        "x": 21.61,
+        "y": 0,
+        "width": 338.39,
+        "height": 800
+      },
+      "modal": {
+        "visible": true,
+        "box": {
+          "x": 18,
+          "y": 8,
+          "width": 324,
+          "height": 792
+        },
+        "inputFontPx": 16
+      },
+      "upload": {
+        "dropBox": {
+          "x": 22,
+          "y": 378,
+          "width": 316,
+          "height": 128
+        },
+        "uploaded": true
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "menuVisible": true,
+      "sidebarInitial": {
+        "x": -336,
+        "y": 0,
+        "width": 320,
+        "height": 844
+      },
+      "sidebarOpened": true,
+      "sidebarClosedAfterNavigation": true,
+      "bottomNavDisplay": "grid",
+      "views": {
+        "dashboard": {
+          "active": "dashboard",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "tasks": {
+          "active": "tasks",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "projects": {
+          "active": "projects",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "controls": {
+          "active": "controls",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "commercial": {
+          "active": "commercial",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 3,
+          "scrollHintCount": 3
+        },
+        "planning": {
+          "active": "planning",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 3,
+          "scrollHintCount": 3
+        },
+        "procurement": {
+          "active": "procurement",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "crm": {
+          "active": "crm",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "approvals": {
+          "active": "approvals",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "people": {
+          "active": "people",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "timesheets": {
+          "active": "timesheets",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "payroll": {
+          "active": "payroll",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 3,
+          "scrollHintCount": 3
+        },
+        "documents": {
+          "active": "documents",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "finance": {
+          "active": "finance",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "financialAnalytics": {
+          "active": "financialAnalytics",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 2,
+          "scrollHintCount": 2
+        },
+        "accounting": {
+          "active": "accounting",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 2,
+          "scrollHintCount": 2
+        },
+        "tax": {
+          "active": "tax",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "cloud-admin": {
+          "active": "cloud-admin",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "readiness": {
+          "active": "readiness",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "users": {
+          "active": "users",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "audit": {
+          "active": "audit",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "storage": {
+          "active": "storage",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "integrations": {
+          "active": "integrations",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "exports": {
+          "active": "exports",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "settings": {
+          "active": "settings",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        }
+      },
+      "errors": [],
+      "notificationDrawer": {
+        "x": 23.41,
+        "y": 0,
+        "width": 366.59,
+        "height": 844
+      },
+      "modal": {
+        "visible": true,
+        "box": {
+          "x": 18,
+          "y": 8,
+          "width": 354,
+          "height": 836
+        },
+        "inputFontPx": 16
+      },
+      "upload": {
+        "dropBox": {
+          "x": 22,
+          "y": 378,
+          "width": 346,
+          "height": 128
+        },
+        "uploaded": true
+      }
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "menuVisible": true,
+      "sidebarInitial": {
+        "x": -336,
+        "y": 0,
+        "width": 320,
+        "height": 932
+      },
+      "sidebarOpened": true,
+      "sidebarClosedAfterNavigation": true,
+      "bottomNavDisplay": "grid",
+      "views": {
+        "dashboard": {
+          "active": "dashboard",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "tasks": {
+          "active": "tasks",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "projects": {
+          "active": "projects",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "controls": {
+          "active": "controls",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "commercial": {
+          "active": "commercial",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 3,
+          "scrollHintCount": 3
+        },
+        "planning": {
+          "active": "planning",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 3,
+          "scrollHintCount": 3
+        },
+        "procurement": {
+          "active": "procurement",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "crm": {
+          "active": "crm",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "approvals": {
+          "active": "approvals",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "people": {
+          "active": "people",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "timesheets": {
+          "active": "timesheets",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "payroll": {
+          "active": "payroll",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 3,
+          "scrollHintCount": 3
+        },
+        "documents": {
+          "active": "documents",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "finance": {
+          "active": "finance",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "financialAnalytics": {
+          "active": "financialAnalytics",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 2,
+          "scrollHintCount": 2
+        },
+        "accounting": {
+          "active": "accounting",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 2,
+          "scrollHintCount": 2
+        },
+        "tax": {
+          "active": "tax",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "cloud-admin": {
+          "active": "cloud-admin",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "readiness": {
+          "active": "readiness",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "users": {
+          "active": "users",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "audit": {
+          "active": "audit",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "storage": {
+          "active": "storage",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "integrations": {
+          "active": "integrations",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "exports": {
+          "active": "exports",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "settings": {
+          "active": "settings",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        }
+      },
+      "errors": [],
+      "notificationDrawer": {
+        "x": 25.81,
+        "y": 0,
+        "width": 404.19,
+        "height": 932
+      },
+      "modal": {
+        "visible": true,
+        "box": {
+          "x": 18,
+          "y": 8,
+          "width": 394,
+          "height": 924
+        },
+        "inputFontPx": 16
+      },
+      "upload": {
+        "dropBox": {
+          "x": 22,
+          "y": 378,
+          "width": 386,
+          "height": 128
+        },
+        "uploaded": true
+      }
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "menuVisible": true,
+      "sidebarInitial": {
+        "x": -336,
+        "y": 0,
+        "width": 320,
+        "height": 1024
+      },
+      "sidebarOpened": true,
+      "sidebarClosedAfterNavigation": true,
+      "bottomNavDisplay": "grid",
+      "views": {
+        "dashboard": {
+          "active": "dashboard",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "tasks": {
+          "active": "tasks",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "projects": {
+          "active": "projects",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "controls": {
+          "active": "controls",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "commercial": {
+          "active": "commercial",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 3,
+          "scrollHintCount": 3
+        },
+        "planning": {
+          "active": "planning",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 3,
+          "scrollHintCount": 3
+        },
+        "procurement": {
+          "active": "procurement",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "crm": {
+          "active": "crm",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "approvals": {
+          "active": "approvals",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "people": {
+          "active": "people",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "timesheets": {
+          "active": "timesheets",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "payroll": {
+          "active": "payroll",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 2,
+          "scrollHintCount": 2
+        },
+        "documents": {
+          "active": "documents",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "finance": {
+          "active": "finance",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "financialAnalytics": {
+          "active": "financialAnalytics",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "accounting": {
+          "active": "accounting",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 2,
+          "scrollHintCount": 2
+        },
+        "tax": {
+          "active": "tax",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "cloud-admin": {
+          "active": "cloud-admin",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "readiness": {
+          "active": "readiness",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "users": {
+          "active": "users",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "audit": {
+          "active": "audit",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "storage": {
+          "active": "storage",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "integrations": {
+          "active": "integrations",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "exports": {
+          "active": "exports",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "settings": {
+          "active": "settings",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        }
+      },
+      "errors": [],
+      "notificationDrawer": {
+        "x": 348,
+        "y": 0,
+        "width": 420,
+        "height": 1024
+      },
+      "modal": {
+        "visible": true,
+        "box": {
+          "x": 18,
+          "y": 72,
+          "width": 732,
+          "height": 880
+        },
+        "inputFontPx": 14
+      },
+      "upload": {
+        "dropBox": {
+          "x": 25,
+          "y": 394,
+          "width": 718,
+          "height": 92
+        },
+        "uploaded": true
+      }
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "menuVisible": true,
+      "sidebarInitial": {
+        "x": -336,
+        "y": 0,
+        "width": 320,
+        "height": 1180
+      },
+      "sidebarOpened": true,
+      "sidebarClosedAfterNavigation": true,
+      "bottomNavDisplay": "grid",
+      "views": {
+        "dashboard": {
+          "active": "dashboard",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "tasks": {
+          "active": "tasks",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "projects": {
+          "active": "projects",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "controls": {
+          "active": "controls",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "commercial": {
+          "active": "commercial",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 3,
+          "scrollHintCount": 3
+        },
+        "planning": {
+          "active": "planning",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 2,
+          "scrollHintCount": 2
+        },
+        "procurement": {
+          "active": "procurement",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "crm": {
+          "active": "crm",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "approvals": {
+          "active": "approvals",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "people": {
+          "active": "people",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "timesheets": {
+          "active": "timesheets",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "payroll": {
+          "active": "payroll",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 2,
+          "scrollHintCount": 2
+        },
+        "documents": {
+          "active": "documents",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "finance": {
+          "active": "finance",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "financialAnalytics": {
+          "active": "financialAnalytics",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "accounting": {
+          "active": "accounting",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 2,
+          "scrollHintCount": 2
+        },
+        "tax": {
+          "active": "tax",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "cloud-admin": {
+          "active": "cloud-admin",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "readiness": {
+          "active": "readiness",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "users": {
+          "active": "users",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "audit": {
+          "active": "audit",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "storage": {
+          "active": "storage",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "integrations": {
+          "active": "integrations",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "exports": {
+          "active": "exports",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "settings": {
+          "active": "settings",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        }
+      },
+      "errors": [],
+      "notificationDrawer": {
+        "x": 400,
+        "y": 0,
+        "width": 420,
+        "height": 1180
+      },
+      "modal": {
+        "visible": true,
+        "box": {
+          "x": 18,
+          "y": 150,
+          "width": 784,
+          "height": 880
+        },
+        "inputFontPx": 14
+      },
+      "upload": {
+        "dropBox": {
+          "x": 25,
+          "y": 394,
+          "width": 770,
+          "height": 92
+        },
+        "uploaded": true
+      }
+    },
+    {
+      "width": 1024,
+      "height": 1366,
+      "menuVisible": true,
+      "sidebarInitial": {
+        "x": -336,
+        "y": 0,
+        "width": 320,
+        "height": 1366
+      },
+      "sidebarOpened": true,
+      "sidebarClosedAfterNavigation": true,
+      "bottomNavDisplay": "none",
+      "views": {
+        "dashboard": {
+          "active": "dashboard",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "tasks": {
+          "active": "tasks",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "projects": {
+          "active": "projects",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "controls": {
+          "active": "controls",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "commercial": {
+          "active": "commercial",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "planning": {
+          "active": "planning",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "procurement": {
+          "active": "procurement",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "crm": {
+          "active": "crm",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "approvals": {
+          "active": "approvals",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "people": {
+          "active": "people",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "timesheets": {
+          "active": "timesheets",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "payroll": {
+          "active": "payroll",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 2,
+          "scrollHintCount": 2
+        },
+        "documents": {
+          "active": "documents",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "finance": {
+          "active": "finance",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "financialAnalytics": {
+          "active": "financialAnalytics",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "accounting": {
+          "active": "accounting",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 2,
+          "scrollHintCount": 2
+        },
+        "tax": {
+          "active": "tax",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 1,
+          "scrollHintCount": 1
+        },
+        "cloud-admin": {
+          "active": "cloud-admin",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "readiness": {
+          "active": "readiness",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "users": {
+          "active": "users",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "audit": {
+          "active": "audit",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "storage": {
+          "active": "storage",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "integrations": {
+          "active": "integrations",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "exports": {
+          "active": "exports",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        },
+        "settings": {
+          "active": "settings",
+          "bodyOverflow": 0,
+          "documentOverflow": 0,
+          "contentOverflow": 0,
+          "tableOverflowCount": 0,
+          "scrollHintCount": 0
+        }
+      },
+      "errors": [],
+      "notificationDrawer": {
+        "x": 604,
+        "y": 0,
+        "width": 420,
+        "height": 1366
+      },
+      "modal": {
+        "visible": true,
+        "box": {
+          "x": 42,
+          "y": 243,
+          "width": 940,
+          "height": 880
+        },
+        "inputFontPx": 14
+      },
+      "upload": {
+        "dropBox": {
+          "x": 29,
+          "y": 281,
+          "width": 966,
+          "height": 92
+        },
+        "uploaded": true
+      }
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const app=fs.readFileSync(new URL('../app.js',import.meta.url),'utf8');
+const css=fs.readFileSync(new URL('../alpha-design-system.css',import.meta.url),'utf8');
+assert.ok(app.includes('accounting-report-grid'),'Accounting report grid class is missing');
+assert.ok(app.includes('accounting-management-result-table'),'Management result table class is missing');
+assert.ok(app.includes('accounting-project-profit-table'),'Project P&L table class is missing');
+assert.ok(app.includes('project-profit-wip-col'),'Dedicated TK154 width is missing');
+assert.equal(/Báo cáo kết quả hoạt động quản trị[\s\S]{0,1000}min-width:520px/.test(app),false,'Legacy management table min-width remains');
+assert.equal(/Lãi lỗ theo dự án[\s\S]{0,1300}min-width:650px/.test(app),false,'Legacy project P&L min-width remains');
+assert.ok(css.includes('grid-template-columns:minmax(340px,.78fr) minmax(0,1.22fr)'),'Desktop panel ratio is missing');
+assert.ok(css.includes('.accounting-project-profit-table .project-profit-wip-col{width:22%}'),'TK154 column width is stale');
+assert.ok(css.includes('.accounting-project-profit-table th.numeric')&&css.includes('white-space:nowrap'),'Numeric report cells are not protected from wrapping');
+assert.ok(css.includes('@media(max-width:1024px)')&&css.includes('.accounting-report-grid{grid-template-columns:1fr}'),'Tablet stacking rule is missing');
+console.log('PASS v4.5.18 accounting report cards and project P&L columns fit deterministically');

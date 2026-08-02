@@ -1,0 +1,6 @@
+{
+  "passed": 24,
+  "failed": 0,
+  "errors": [],
+  "failedChecks": []
+}

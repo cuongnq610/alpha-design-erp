@@ -1,0 +1,162 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "view": "dashboard",
+      "newErrors": [],
+      "hash": "#dashboard",
+      "modalOpened": false
+    },
+    {
+      "view": "tasks",
+      "newErrors": [],
+      "hash": "#tasks",
+      "modalOpened": true
+    },
+    {
+      "view": "projects",
+      "newErrors": [],
+      "hash": "#projects",
+      "modalOpened": true
+    },
+    {
+      "view": "controls",
+      "newErrors": [],
+      "hash": "#controls",
+      "modalOpened": false
+    },
+    {
+      "view": "documents",
+      "newErrors": [],
+      "hash": "#documents",
+      "modalOpened": true
+    },
+    {
+      "view": "commercial",
+      "newErrors": [],
+      "hash": "#commercial",
+      "modalOpened": true
+    },
+    {
+      "view": "planning",
+      "newErrors": [],
+      "hash": "#planning",
+      "modalOpened": true
+    },
+    {
+      "view": "procurement",
+      "newErrors": [],
+      "hash": "#procurement",
+      "modalOpened": true
+    },
+    {
+      "view": "crm",
+      "newErrors": [],
+      "hash": "#crm",
+      "modalOpened": true
+    },
+    {
+      "view": "approvals",
+      "newErrors": [],
+      "hash": "#approvals",
+      "modalOpened": true
+    },
+    {
+      "view": "people",
+      "newErrors": [],
+      "hash": "#people",
+      "modalOpened": true
+    },
+    {
+      "view": "timesheets",
+      "newErrors": [],
+      "hash": "#timesheets",
+      "modalOpened": true
+    },
+    {
+      "view": "payroll",
+      "newErrors": [],
+      "hash": "#payroll",
+      "modalOpened": false
+    },
+    {
+      "view": "finance",
+      "newErrors": [],
+      "hash": "#finance",
+      "modalOpened": true
+    },
+    {
+      "view": "financialAnalytics",
+      "newErrors": [],
+      "hash": "#financialAnalytics",
+      "modalOpened": false
+    },
+    {
+      "view": "accounting",
+      "newErrors": [],
+      "hash": "#accounting",
+      "modalOpened": true
+    },
+    {
+      "view": "tax",
+      "newErrors": [],
+      "hash": "#tax",
+      "modalOpened": true
+    },
+    {
+      "view": "cloud-admin",
+      "newErrors": [],
+      "hash": "#cloud-admin",
+      "modalOpened": false
+    },
+    {
+      "view": "readiness",
+      "newErrors": [],
+      "hash": "#readiness",
+      "modalOpened": false
+    },
+    {
+      "view": "security-center",
+      "newErrors": [],
+      "hash": "#security-center",
+      "modalOpened": false
+    },
+    {
+      "view": "users",
+      "newErrors": [],
+      "hash": "#users",
+      "modalOpened": false
+    },
+    {
+      "view": "audit",
+      "newErrors": [],
+      "hash": "#audit",
+      "modalOpened": false
+    },
+    {
+      "view": "storage",
+      "newErrors": [],
+      "hash": "#storage",
+      "modalOpened": false
+    },
+    {
+      "view": "integrations",
+      "newErrors": [],
+      "hash": "#integrations",
+      "modalOpened": false
+    },
+    {
+      "view": "exports",
+      "newErrors": [],
+      "hash": "#exports",
+      "modalOpened": false
+    },
+    {
+      "view": "settings",
+      "newErrors": [],
+      "hash": "#settings",
+      "modalOpened": false
+    }
+  ],
+  "errors": []
+}

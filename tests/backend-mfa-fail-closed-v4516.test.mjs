@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {requiresAal2,requirePermission} from '../backend/security.mjs';
+const privileged={permissions:['accounting.post'],aal:'aal1'};
+assert.equal(requiresAal2(privileged,['accounting.post']),true,'missing mfa_required must fail closed for a matched privileged permission');
+assert.throws(()=>requirePermission({context:privileged},['accounting.post']),error=>error?.code==='MFA_AAL2_REQUIRED');
+assert.doesNotThrow(()=>requirePermission({context:{...privileged,aal:'aal2'}},['accounting.post']));
+assert.doesNotThrow(()=>requirePermission({context:{...privileged,mfa_required:false}},['accounting.post']),'explicit company opt-out must be honored');
+assert.equal(requiresAal2({permissions:['dashboard.read'],aal:'aal1'},['admin','dashboard.read']),false,'normal dashboard reader must not inherit admin AAL2 requirement from an any-of permission list');
+assert.doesNotThrow(()=>requirePermission({context:{permissions:['dashboard.read'],aal:'aal1'}},['admin','dashboard.read']));
+assert.equal(requiresAal2({permissions:['admin'],aal:'aal1'},['admin','dashboard.read']),true,'admin matching the same route remains privileged');
+console.log('PASS v4.5.18 backend privileged permission gate is AAL2 fail-closed without over-gating normal readers');

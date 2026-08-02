@@ -1,0 +1,1 @@
+{"releaseVersion": "4.5.60", "states": 4, "passedStates": 4, "failedStates": 0, "runtimeErrors": [], "screenshots": ["quality/final-v4560/table-viewport-v4549/v4549-project-expanded-viewport.png", "quality/final-v4560/table-viewport-v4549/v4549-payroll-bottom-scroll-only.png"], "passed": true}

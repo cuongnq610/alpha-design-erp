@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const app=fs.readFileSync(new URL('../app.js',import.meta.url),'utf8');
+const css=fs.readFileSync(new URL('../alpha-design-system.css',import.meta.url),'utf8');
+assert.match(app,/function applyDesktopTableColumnLayout\(/);
+assert.match(app,/function estimatedActionColumnWidth\(/);
+assert.match(app,/table-auto-columns/);
+assert.match(app,/table-billing-milestones/);
+assert.match(app,/<th>Thao tác<\/th>/);
+assert.match(css,/global semantic column sizing and exact action-column alignment/);
+assert.match(css,/th\.table-col-actions,td\.table-col-actions/);
+assert.match(css,/justify-content:center!important/);
+assert.match(css,/table\.table-auto-columns/);
+console.log('PASS v4.5.21 semantic table columns and action alignment static regression');

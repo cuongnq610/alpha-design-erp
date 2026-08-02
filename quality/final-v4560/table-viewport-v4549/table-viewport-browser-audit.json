@@ -1,0 +1,94 @@
+{
+  "summary": {
+    "releaseVersion": "4.5.60",
+    "states": 4,
+    "passedStates": 4,
+    "failedStates": 0,
+    "runtimeErrors": [],
+    "screenshots": [
+      "quality/final-v4560/table-viewport-v4549/v4549-project-expanded-viewport.png",
+      "quality/final-v4560/table-viewport-v4549/v4549-payroll-bottom-scroll-only.png"
+    ],
+    "passed": true
+  },
+  "records": [
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "view": "projects",
+      "metrics": {
+        "clientHeight": 592,
+        "scrollHeight": 3158,
+        "top": 215,
+        "bottom": 809,
+        "gapToViewport": 91,
+        "gapToGuard": 60,
+        "rowCount": 50,
+        "visibleRows": 9,
+        "topScroller": false,
+        "hint": false
+      },
+      "issues": [],
+      "passed": true
+    },
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "view": "payroll",
+      "metrics": {
+        "overflow": 1881,
+        "scrollMoved": true,
+        "scrollLeft": 420,
+        "topScroller": false,
+        "hint": false,
+        "policy": "native-bottom-only",
+        "headerSticky": true
+      },
+      "issues": [],
+      "passed": true
+    },
+    {
+      "viewport": [
+        1792,
+        900
+      ],
+      "view": "projects",
+      "metrics": {
+        "clientHeight": 592,
+        "scrollHeight": 2885,
+        "top": 215,
+        "bottom": 809,
+        "gapToViewport": 91,
+        "gapToGuard": 60,
+        "rowCount": 50,
+        "visibleRows": 10,
+        "topScroller": false,
+        "hint": false
+      },
+      "issues": [],
+      "passed": true
+    },
+    {
+      "viewport": [
+        1792,
+        900
+      ],
+      "view": "payroll",
+      "metrics": {
+        "overflow": 1529,
+        "scrollMoved": true,
+        "scrollLeft": 420,
+        "topScroller": false,
+        "hint": false,
+        "policy": "native-bottom-only",
+        "headerSticky": true
+      },
+      "issues": [],
+      "passed": true
+    }
+  ]
+}

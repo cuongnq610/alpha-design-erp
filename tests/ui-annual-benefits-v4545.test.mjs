@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const app=readFileSync(new URL('../app.js',import.meta.url),'utf8');
+const html=readFileSync(new URL('../index.html',import.meta.url),'utf8');
+const css=readFileSync(new URL('../alpha-design-system.css',import.meta.url),'utf8');
+const exporter=readFileSync(new URL('../export-center.js',import.meta.url),'utf8');
+for(const marker of ['Ngân sách thưởng tháng lương 13 và quỹ du lịch','annualBenefitYearSelect','generateAnnualBenefitBudget','editAnnualBenefitBudget','reviewAnnualBenefitBudget','approveAnnualBenefitBudget','lockAnnualBenefitBudget','exportAnnualBenefitCsv','edit-benefit-factor','annualBenefitBudgets:{title'])assert.ok(app.includes(marker),`missing annual benefit UI marker ${marker}`);
+for(const marker of ['Quỹ tháng lương 13','Quỹ du lịch','Hạn mức phúc lợi ước tính','Phần có khả năng vượt hạn mức'])assert.ok(app.includes(marker),`missing annual benefit label ${marker}`);
+assert.ok(html.includes('annual-benefits.js')&&html.indexOf('annual-benefits.js')<html.indexOf('app.js'),'annual-benefits.js must load before app.js');
+assert.ok(css.includes('.annual-benefit-table')&&css.includes('.benefit-bridge'),'annual benefit responsive CSS missing');
+assert.ok(exporter.includes("sheet('Thuong_thang_13'")&&exporter.includes("sheet('Quy_du_lich'"),'annual benefit export sheets missing');
+assert.ok(app.includes("AnnualBenefits.isLockedStatus(item?.status)"),'locked annual budget edit guard missing');
+console.log('PASS v4.5.45 annual benefit UI, workflow, immutable status and export wiring');

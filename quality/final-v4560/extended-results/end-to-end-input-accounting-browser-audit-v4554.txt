@@ -1,0 +1,28 @@
+STAGE people
+STAGE project
+STAGE timesheets
+STAGE payroll
+STAGE accounting
+ACCOUNTING baseline metrics
+ACCOUNTING nav start
+ACCOUNTING nav done
+ACCOUNTING form opened
+ACCOUNTING fill bad start
+ACCOUNTING fill bad done
+ACCOUNTING submit bad start
+ACCOUNTING submit bad done
+ACCOUNTING read feedback start
+ACCOUNTING read feedback done
+ACCOUNTING bad checks done
+ACCOUNTING correction fill start
+ACCOUNTING correction fill done
+ACCOUNTING income submit done
+ACCOUNTING income record extracted
+STAGE persistence-dashboard
+DASHBOARD nav start
+DASHBOARD nav done
+{
+  "passed": 69,
+  "failed": 0,
+  "errors": []
+}

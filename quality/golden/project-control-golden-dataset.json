@@ -1,0 +1,448 @@
+{
+  "caseCode": "PROJECT_CONTROL_STANDARD_001",
+  "formulaVersion": "ALPHA-SMART-CONTROL-4.0",
+  "releaseVersion": "4.5.67",
+  "range": {
+    "from": "2026-01-01",
+    "to": "2026-03-31"
+  },
+  "projectId": "pr1",
+  "input": {
+    "settings": {
+      "monthlyWorkingHours": 176,
+      "employerBurdenRate": 20,
+      "targetMargin": 30
+    },
+    "accounts": [
+      {
+        "code": "1121",
+        "type": "Asset",
+        "normalSide": "Debit",
+        "active": true,
+        "postable": true
+      },
+      {
+        "code": "131",
+        "type": "Asset",
+        "normalSide": "Debit",
+        "active": true,
+        "postable": true
+      },
+      {
+        "code": "1331",
+        "type": "Asset",
+        "normalSide": "Debit",
+        "active": true,
+        "postable": true
+      },
+      {
+        "code": "154",
+        "type": "Asset",
+        "normalSide": "Debit",
+        "active": true,
+        "postable": true
+      },
+      {
+        "code": "331",
+        "type": "Liability",
+        "normalSide": "Credit",
+        "active": true,
+        "postable": true
+      },
+      {
+        "code": "334",
+        "type": "Liability",
+        "normalSide": "Credit",
+        "active": true,
+        "postable": true
+      },
+      {
+        "code": "33311",
+        "type": "Liability",
+        "normalSide": "Credit",
+        "active": true,
+        "postable": true
+      },
+      {
+        "code": "5113",
+        "type": "Revenue",
+        "normalSide": "Credit",
+        "active": true,
+        "postable": true
+      }
+    ],
+    "openingBalances": [],
+    "accountingPeriods": [],
+    "clients": [
+      {
+        "id": "cl1",
+        "code": "CL-01",
+        "name": "Golden Client"
+      }
+    ],
+    "pitWithholdings": [],
+    "citAdjustments": [],
+    "people": [
+      {
+        "id": "p1",
+        "type": "Fixed",
+        "monthlySalary": 17600000,
+        "status": "Active"
+      }
+    ],
+    "projects": [
+      {
+        "id": "pr1",
+        "code": "AD-2601",
+        "name": "Hotel",
+        "pmId": "p1",
+        "startDate": "2026-01-01",
+        "endDate": "2026-06-30",
+        "contractValue": 450000000,
+        "directBudget": 180000000,
+        "progress": 35,
+        "expectedRiskCost": 5000000,
+        "clientId": "cl1"
+      }
+    ],
+    "contracts": [
+      {
+        "id": "c1",
+        "projectId": "pr1",
+        "contractNo": "HD-01",
+        "contractType": "Customer",
+        "valueExclVat": 500000000,
+        "status": "Active"
+      }
+    ],
+    "billingMilestones": [
+      {
+        "id": "m1",
+        "contractId": "c1",
+        "projectId": "pr1",
+        "percentage": 40,
+        "amountExclVat": 200000000,
+        "status": "Active"
+      },
+      {
+        "id": "m2",
+        "contractId": "c1",
+        "projectId": "pr1",
+        "percentage": 60,
+        "amountExclVat": 300000000,
+        "status": "Active"
+      }
+    ],
+    "projectBudgetVersions": [
+      {
+        "id": "bv1",
+        "projectId": "pr1",
+        "versionNo": 1,
+        "versionName": "Baseline 1",
+        "status": "Approved",
+        "directBudget": 200000000,
+        "expectedRiskCost": 5000000
+      }
+    ],
+    "projectBudgetLines": [
+      {
+        "id": "bl1",
+        "budgetVersionId": "bv1",
+        "amount": 120000000
+      },
+      {
+        "id": "bl2",
+        "budgetVersionId": "bv1",
+        "amount": 80000000
+      }
+    ],
+    "projectStages": [
+      {
+        "id": "s1",
+        "projectId": "pr1",
+        "weightPercent": 40,
+        "progress": 100,
+        "plannedStart": "2026-01-01",
+        "plannedEnd": "2026-02-28",
+        "status": "Completed"
+      },
+      {
+        "id": "s2",
+        "projectId": "pr1",
+        "weightPercent": 60,
+        "progress": 0,
+        "plannedStart": "2026-03-01",
+        "plannedEnd": "2026-06-30",
+        "status": "In progress"
+      }
+    ],
+    "timesheets": [
+      {
+        "id": "t1",
+        "date": "2026-03-01",
+        "projectId": "pr1",
+        "personId": "p1",
+        "hours": 20,
+        "approved": true,
+        "billable": true,
+        "description": "Design"
+      },
+      {
+        "id": "t2",
+        "date": "2026-03-02",
+        "projectId": "pr1",
+        "personId": "p1",
+        "hours": 20,
+        "approved": true,
+        "billable": true,
+        "description": "Design"
+      },
+      {
+        "id": "t3",
+        "date": "2026-03-03",
+        "projectId": "pr1",
+        "personId": "p1",
+        "hours": 20,
+        "approved": true,
+        "billable": true,
+        "description": "Design"
+      },
+      {
+        "id": "t4",
+        "date": "2026-03-04",
+        "projectId": "pr1",
+        "personId": "p1",
+        "hours": 20,
+        "approved": true,
+        "billable": true,
+        "description": "Design"
+      }
+    ],
+    "resourcePlans": [
+      {
+        "id": "rp1",
+        "projectId": "pr1",
+        "personId": "p1",
+        "month": "2026-03",
+        "plannedHours": 100,
+        "costRate": 120000,
+        "status": "Approved"
+      },
+      {
+        "id": "rp2",
+        "projectId": "pr1",
+        "personId": "p1",
+        "month": "2026-04",
+        "plannedHours": 100,
+        "costRate": 120000,
+        "status": "Approved"
+      }
+    ],
+    "commitments": [
+      {
+        "id": "cm1",
+        "projectId": "pr1",
+        "amount": 20000000,
+        "recognizedAmount": 5000000,
+        "dueDate": "2026-04-15",
+        "status": "Approved"
+      }
+    ],
+    "journalEntries": [
+      {
+        "id": "j1",
+        "date": "2026-03-10",
+        "documentNo": "DT-01",
+        "status": "Posted",
+        "projectId": "pr1",
+        "description": "Doanh thu",
+        "lines": [
+          {
+            "accountCode": "131",
+            "debit": 220000000,
+            "credit": 0
+          },
+          {
+            "accountCode": "5113",
+            "debit": 0,
+            "credit": 200000000
+          },
+          {
+            "accountCode": "33311",
+            "debit": 0,
+            "credit": 20000000
+          }
+        ]
+      },
+      {
+        "id": "j2",
+        "date": "2026-03-12",
+        "documentNo": "CP-01",
+        "status": "Posted",
+        "projectId": "pr1",
+        "description": "Chi phí khảo sát trực tiếp",
+        "lines": [
+          {
+            "accountCode": "154",
+            "debit": 30000000,
+            "credit": 0
+          },
+          {
+            "accountCode": "1331",
+            "debit": 3000000,
+            "credit": 0
+          },
+          {
+            "accountCode": "331",
+            "debit": 0,
+            "credit": 33000000
+          }
+        ]
+      },
+      {
+        "id": "j3",
+        "date": "2026-03-20",
+        "documentNo": "LC-01",
+        "status": "Posted",
+        "projectId": "pr1",
+        "sourceType": "payroll",
+        "description": "Lương dự án từ timesheet",
+        "lines": [
+          {
+            "accountCode": "154",
+            "debit": 4800000,
+            "credit": 0
+          },
+          {
+            "accountCode": "334",
+            "debit": 0,
+            "credit": 4800000
+          }
+        ]
+      },
+      {
+        "id": "j4",
+        "date": "2026-03-15",
+        "documentNo": "BC-01",
+        "cashFlowCode": "01",
+        "status": "Posted",
+        "projectId": "pr1",
+        "description": "Thu tiền khách hàng",
+        "lines": [
+          {
+            "accountCode": "1121",
+            "debit": 110000000,
+            "credit": 0
+          },
+          {
+            "accountCode": "131",
+            "debit": 0,
+            "credit": 110000000
+          }
+        ]
+      },
+      {
+        "id": "j5",
+        "date": "2026-03-20",
+        "documentNo": "UNC-01",
+        "cashFlowCode": "02",
+        "status": "Posted",
+        "projectId": "pr1",
+        "description": "Thanh toán chi phí khảo sát",
+        "lines": [
+          {
+            "accountCode": "331",
+            "debit": 33000000,
+            "credit": 0
+          },
+          {
+            "accountCode": "1121",
+            "debit": 0,
+            "credit": 33000000
+          }
+        ]
+      }
+    ],
+    "taxInvoices": [
+      {
+        "id": "inv1",
+        "direction": "Output",
+        "date": "2026-03-10",
+        "dueDate": "2026-03-20",
+        "serial": "AA",
+        "invoiceNo": "0001",
+        "taxCode": "0101",
+        "projectId": "pr1",
+        "status": "Valid",
+        "taxBase": 200000000,
+        "vatRate": 10,
+        "vatAmount": 20000000,
+        "totalAmount": 220000000,
+        "deductible": false
+      }
+    ],
+    "paymentAllocations": [
+      {
+        "id": "pa1",
+        "invoiceId": "inv1",
+        "paymentId": "f1",
+        "amount": 110000000,
+        "status": "Posted",
+        "date": "2026-03-15"
+      }
+    ],
+    "finance": [
+      {
+        "id": "f1",
+        "date": "2026-03-15",
+        "type": "Income",
+        "status": "Paid",
+        "projectId": "pr1",
+        "amount": 110000000,
+        "journalEntryId": "j4"
+      },
+      {
+        "id": "f2",
+        "date": "2026-03-20",
+        "type": "Expense",
+        "status": "Paid",
+        "projectId": "pr1",
+        "amount": 33000000,
+        "journalEntryId": "j5"
+      }
+    ]
+  },
+  "expected": {
+    "contractValue": 500000000,
+    "directBudget": 200000000,
+    "progress": 40,
+    "actualCost": 39600000,
+    "earnedValue": 80000000,
+    "remainingLaborCost": 14400000,
+    "committedCostToComplete": 15000000,
+    "expectedRiskCost": 5000000,
+    "estimateAtCompletion": 200000000,
+    "forecastProfit": 300000000,
+    "recognizedRevenue": 200000000,
+    "actualProfit": 160400000,
+    "invoicedNet": 200000000,
+    "invoicedGross": 220000000,
+    "collectedGross": 110000000,
+    "collectedNet": 100000000,
+    "receivableGross": 110000000,
+    "receivableNet": 100000000,
+    "backlog": 300000000,
+    "netProjectCash": 77000000,
+    "contractCollectionRate": 20,
+    "invoiceCollectionRate": 50,
+    "cpi": 2.0202020202020203,
+    "eacMethod": "Hybrid conservative forecast",
+    "eacConfidence": "Low"
+  },
+  "tolerance": {
+    "money": 0,
+    "percentage": 0.01,
+    "ratio": 0.0001
+  },
+  "inputHash": "sha256:2114515e938c132e5db22d856ccd984120e203c496b8f0d9c772f2979fdd42ca"
+}

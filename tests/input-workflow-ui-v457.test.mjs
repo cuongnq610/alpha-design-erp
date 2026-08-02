@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const app = fs.readFileSync(new URL('../app.js', import.meta.url), 'utf8');
+const css = fs.readFileSync(new URL('../alpha-design-system.css', import.meta.url), 'utf8');
+assert.match(app, /form-live-summary/, 'live calculation summary missing');
+assert.match(app, /form-section-label/, 'form sectioning missing');
+assert.match(app, /showFormFeedback/, 'inline validation feedback missing');
+assert.match(app, /billable=formValue\('billable'\)==='true'/, 'timesheet billable preview must follow true/false form values');
+assert.match(app, /data-secondary-add="purchaseOrders"/, 'purchase-order workflow entry missing');
+assert.match(app, /table-count-badge/, 'table record count missing');
+assert.match(css, /\.balanced-table thead\{position:sticky/, 'sticky table header missing');
+assert.match(css, /\.table-action-button\[data-action-kind="danger"\]/, 'semantic action styling missing');
+assert.match(css, /\.form-live-summary\{/, 'form preview styling missing');
+assert.match(css, /\.field\.has-error/, 'field error styling missing');
+console.log('PASS input-workflow-ui-v457');

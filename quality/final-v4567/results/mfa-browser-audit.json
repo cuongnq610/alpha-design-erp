@@ -1,0 +1,20 @@
+{
+  "releaseVersion": "4.5.67",
+  "checks": {
+    "demoActionOpensVisibleScreen": true,
+    "demoExplainsNoRealMfa": true,
+    "demoEnvironmentVisible": true,
+    "demoActionDisabled": true,
+    "bundledSupabaseClientExposesMfa": true
+  },
+  "pageErrors": [],
+  "passed": true,
+  "bundleContract": {
+    "client": true,
+    "mfa": true,
+    "enroll": true,
+    "list": true,
+    "verify": true,
+    "aal": true
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "release": "4.5.31",
+  "runtimeMode": "self-contained",
+  "externalCdnRequired": false,
+  "libraries": [
+    {
+      "name": "Supabase JavaScript client",
+      "package": "@supabase/supabase-js",
+      "declaredVersion": "2.110.8",
+      "localBundle": "../alpha-sync.bundle.js",
+      "purpose": "Authentication, PostgreSQL REST/RPC, realtime and storage connectivity"
+    },
+    {
+      "name": "ALPHA calculation core",
+      "localBundle": "../calculation-core.js",
+      "purpose": "Accounting, project control, ratios, forecast and linkage calculations"
+    },
+    {
+      "name": "ALPHA enterprise runtime",
+      "localBundle": "../alpha-enterprise.js",
+      "purpose": "Enterprise runtime guard and shared application services"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';import path from 'node:path';import vm from 'node:vm';import {webcrypto} from 'node:crypto';import {fileURLToPath} from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const context={window:{},crypto:webcrypto,TextEncoder,structuredClone,console};context.globalThis=context;vm.createContext(context);
+for(const file of ['tax-compliance-package-manager.js','tax-compliance-reference.js','accounting-operations.js'])vm.runInContext(fs.readFileSync(path.join(root,file),'utf8'),context,{filename:file});
+const M=context.window.AlphaTaxCompliancePackageManager,R=context.window.AlphaTaxComplianceReference,O=context.window.AlphaAccountingOperations;
+assert.ok(M&&R&&O,'new accounting/tax modules must load');
+const baseline=structuredClone(R);
+const valid=await M.validatePackage(baseline);assert.equal(valid.valid,true,valid.errors.join('; '));assert.match(valid.packageSha256,/^[0-9a-f]{64}$/);assert.ok(valid.normalized.forms.some(x=>x.code==='01/GTGT'));
+const malicious=structuredClone(baseline);malicious.forms[0].fields[0].formula='eval(1)';const rejected=await M.validatePackage(malicious);assert.equal(rejected.valid,false);assert.ok(rejected.errors.some(x=>/không cho phép|thực thi/i.test(x)));
+const db={settings:{},taxCompliancePackages:[]};const installed=M.install(db,valid,'Kế toán trưởng');assert.equal(installed.status,'candidate');M.activate(db,installed.id,'Kế toán trưởng');assert.equal(M.getActivePackage(db,'2026-07-30').id,installed.id);assert.ok(M.resolveForm(db,'01/GTGT','2026-07-30'));
+const later=structuredClone(baseline);later.manifest.version='2027.1';later.manifest.effectiveFrom='2027-01-01';later.manifest.name='VN Tax 2027';const laterV=await M.validatePackage(later);const laterRec=M.install(db,laterV,'Kế toán trưởng');M.activate(db,laterRec.id,'Kế toán trưởng');assert.equal(M.getActivePackage(db,'2027-02-01').version,'2027.1');assert.equal(installed.status,'inactive');M.rollback(db,installed.id,'Kế toán trưởng');assert.equal(M.getActivePackage(db,'2026-08-01').version,baseline.manifest.version);
+const assessment=O.assess({taxCompliancePackages:db.taxCompliancePackages,settings:db.settings,journalEntries:[{status:'Posted'}],bankReconciliations:[],purchaseOrders:[]},{to:'2026-12-31'});assert.ok(assessment.rows.length>=13);assert.equal(assessment.rows.find(x=>x.name==='Kho & tính giá xuất kho').status,'na');assert.equal(assessment.rows.find(x=>x.name==='Ngân hàng').status,'partial');assert.equal(assessment.rows.find(x=>x.name==='Kết xuất XML nộp thuế').status,'partial');
+const app=fs.readFileSync(path.join(root,'app.js'),'utf8'),index=fs.readFileSync(path.join(root,'index.html'),'utf8');assert.ok(app.includes('Quản lý gói nghiệp vụ thuế')&&app.includes('Ma trận nghiệp vụ kế toán'));for(const f of ['tax-compliance-package-manager.js','tax-compliance-reference.js','accounting-operations.js'])assert.ok(index.indexOf(f)>0&&index.indexOf(f)<index.indexOf('app.js'),`${f} must load before app.js`);
+console.log('PASS v4.5.47 accounting operations capability matrix and effective-dated tax package manager');
