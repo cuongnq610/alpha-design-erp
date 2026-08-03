@@ -7,7 +7,8 @@
 -- ============================================================================
 -- ALPHA DESIGN ERP Cloud v3.0 - Core schema
 -- PostgreSQL / Supabase. All monetary columns are bigint VND.
-create extension if not exists pgcrypto;
+create schema if not exists extensions;
+create extension if not exists pgcrypto with schema extensions;
 create schema if not exists app;
 
 create table if not exists public.companies (
@@ -34,6 +35,7 @@ create table if not exists public.roles (
   code text not null,
   name text not null,
   permissions text[] not null default '{}',
+  description text not null default '',
   unique(company_id, code)
 );
 
@@ -312,7 +314,7 @@ create table if not exists public.audit_events (
   txid bigint not null default txid_current(),
   table_name text not null,
   record_id text not null,
-  action text not null check(action in ('INSERT','UPDATE','DELETE','POST','UNPOST','LOCK','UNLOCK','SIGNOFF')),
+  action text not null check(action ~ '^[A-Z][A-Z0-9_]{1,63}$'),
   old_data jsonb,
   new_data jsonb,
   previous_hash text,
@@ -331,7 +333,7 @@ begin
   perform pg_advisory_xact_lock(hashtextextended(p_company::text,0));
   select event_hash into prev from audit_events where company_id=p_company order by id desc limit 1;
   payload:=concat_ws('|',p_company::text,clock_timestamp()::text,coalesce(app.current_user_id()::text,''),txid_current()::text,p_table,p_record,p_action,coalesce(p_old::text,''),coalesce(p_new::text,''),coalesce(prev,''));
-  h:=encode(digest(payload,'sha256'),'hex');
+  h:=encode(extensions.digest(payload,'sha256'),'hex');
   insert into audit_events(company_id,actor_id,table_name,record_id,action,old_data,new_data,previous_hash,event_hash)
   values(p_company,app.current_user_id(),p_table,p_record,p_action,p_old,p_new,prev,h);
 end $$;
@@ -419,7 +421,7 @@ begin
   if d<=0 or d<>c then raise exception 'unbalanced entry: debit %, credit %',d,c; end if;
   if exists(select 1 from journal_lines jl join accounts a on a.id=jl.account_id where jl.entry_id=r.id and (a.company_id<>r.company_id or not a.active or not a.postable)) then raise exception 'invalid or non-postable account'; end if;
   payload:=r.id::text||'|'||r.document_no||'|'||r.document_date::text||'|'||r.description||'|'||(select string_agg(a.code||':'||jl.debit||':'||jl.credit,'|' order by jl.line_no) from journal_lines jl join accounts a on a.id=jl.account_id where jl.entry_id=r.id);
-  update journal_entries set status='posted',posted_at=clock_timestamp(),posted_by=app.current_user_id(),posting_hash=encode(digest(payload,'sha256'),'hex') where id=r.id returning * into r;
+  update journal_entries set status='posted',posted_at=clock_timestamp(),posted_by=app.current_user_id(),posting_hash=encode(extensions.digest(payload,'sha256'),'hex') where id=r.id returning * into r;
   perform app.append_audit(r.company_id,'journal_entries',r.id::text,'POST',null,to_jsonb(r));
   return r;
 end $$;
@@ -684,7 +686,7 @@ begin
     coalesce(v_actor::text,''),v_txid::text,p_table,p_record,p_action,
     coalesce(p_old::text,''),coalesce(p_new::text,''),coalesce(v_prev,'')
   );
-  v_hash:=encode(digest(convert_to(v_payload,'UTF8'),'sha256'),'hex');
+  v_hash:=encode(extensions.digest(convert_to(v_payload,'UTF8'),'sha256'),'hex');
 
   insert into audit_events(
     company_id,event_time,actor_id,txid,table_name,record_id,action,
@@ -715,7 +717,7 @@ begin
       coalesce(r.actor_id::text,''),r.txid::text,r.table_name,r.record_id,r.action,
       coalesce(r.old_data::text,''),coalesce(r.new_data::text,''),coalesce(r.previous_hash,'')
     );
-    v_expected:=encode(digest(convert_to(v_payload,'UTF8'),'sha256'),'hex');
+    v_expected:=encode(extensions.digest(convert_to(v_payload,'UTF8'),'sha256'),'hex');
     if r.event_hash is distinct from v_expected then
       return query select false,r.id; return;
     end if;
@@ -935,6 +937,7 @@ alter table report_notes_tt133 enable row level security;
 create policy notes_select on report_notes_tt133 for select using(company_id=app.current_company_id());
 create policy notes_write on report_notes_tt133 for all using(company_id=app.current_company_id() and app.has_permission('accounting.write',company_id)) with check(company_id=app.current_company_id());
 
+drop function if exists app.report_b01a_dnn(date,date);
 create or replace function app.report_b01a_dnn(p_from date,p_to date)
 returns table(code text,label text,opening_amount bigint,ending_amount bigint,level int,is_total boolean)
 language plpgsql stable security definer set search_path=public,app as $$
@@ -2333,7 +2336,7 @@ begin
     'previous_hash',v_prev,
     'request_id',v_request
   );
-  v_hash:=encode(digest(convert_to(v_payload::text,'UTF8'),'sha256'),'hex');
+  v_hash:=encode(extensions.digest(convert_to(v_payload::text,'UTF8'),'sha256'),'hex');
   insert into public.audit_events(
     company_id,event_time,actor_id,txid,table_name,record_id,action,
     old_data,new_data,previous_hash,event_hash,chain_version,request_id,
@@ -2360,7 +2363,7 @@ begin
       if r.payload_json is null then
         return query select false,r.id,'missing canonical payload'; return;
       end if;
-      v_expected:=encode(digest(convert_to(r.payload_json::text,'UTF8'),'sha256'),'hex');
+      v_expected:=encode(extensions.digest(convert_to(r.payload_json::text,'UTF8'),'sha256'),'hex');
       if r.event_hash is distinct from v_expected then
         return query select false,r.id,'event_hash mismatch'; return;
       end if;
@@ -2377,7 +2380,7 @@ language plpgsql security definer set search_path=pg_catalog,public,app as $$
 declare v_hash text; r public.idempotency_keys;
 begin
   perform app.assert_company_access(p_company);
-  v_hash:=encode(digest(convert_to(coalesce(p_request_payload,'{}'::jsonb)::text,'UTF8'),'sha256'),'hex');
+  v_hash:=encode(extensions.digest(convert_to(coalesce(p_request_payload,'{}'::jsonb)::text,'UTF8'),'sha256'),'hex');
   insert into public.idempotency_keys(company_id,request_id,operation,request_hash,created_by)
   values(p_company,p_request_id,p_operation,v_hash,app.current_user_id())
   on conflict(company_id,request_id) do nothing;
@@ -2825,16 +2828,17 @@ language plpgsql security definer set search_path=pg_catalog,public,app as $$
 declare cid uuid:=app.current_company_id(); payload jsonb; h text; r public.report_snapshots;
 begin
   if not app.has_permission('accounting.write',cid) then raise exception 'permission denied'; end if;
+  if upper(p_report_code) not in ('B01A-DNN','B02-DNN','B03-DNN','B09-DNN','F01-DNN') then raise exception 'unsupported report code'; end if;
   payload:=case upper(p_report_code)
     when 'B01A-DNN' then (select jsonb_agg(to_jsonb(x)) from app.report_b01a_dnn(p_from,p_to) x)
     when 'B02-DNN' then (select jsonb_agg(to_jsonb(x)) from app.report_b02_dnn(p_from,p_to) x)
     when 'B03-DNN' then (select jsonb_agg(to_jsonb(x)) from app.report_b03_dnn(p_from,p_to) x)
     when 'B09-DNN' then (select jsonb_agg(to_jsonb(x)) from app.report_b09_dnn(p_from,p_to) x)
     when 'F01-DNN' then (select jsonb_agg(to_jsonb(x)) from app.report_f01_dnn(p_from,p_to) x)
-    else raise exception 'unsupported report code'
+    else null
   end;
   payload:=coalesce(payload,'[]'::jsonb);
-  h:=encode(digest(convert_to(jsonb_build_object('report',upper(p_report_code),'from',p_from,'to',p_to,'parameters',p_parameters,'data',payload)::text,'UTF8'),'sha256'),'hex');
+  h:=encode(extensions.digest(convert_to(jsonb_build_object('report',upper(p_report_code),'from',p_from,'to',p_to,'parameters',p_parameters,'data',payload)::text,'UTF8'),'sha256'),'hex');
   insert into public.report_snapshots(company_id,report_code,period_from,period_to,parameters,report_data,data_hash,generated_by)
   values(cid,upper(p_report_code),p_from,p_to,p_parameters,payload,h,app.current_user_id()) returning * into r;
   perform app.append_audit(cid,'report_snapshots',r.id::text,'SIGNOFF',null,to_jsonb(r));
@@ -3726,7 +3730,7 @@ language plpgsql security definer set search_path=pg_catalog,public,app as $$
 declare v_hash text; r public.idempotency_keys; inserted boolean:=false;
 begin
   perform app.assert_company_access(p_company);
-  v_hash:=encode(digest(convert_to(coalesce(p_request_payload,'{}'::jsonb)::text,'UTF8'),'sha256'),'hex');
+  v_hash:=encode(extensions.digest(convert_to(coalesce(p_request_payload,'{}'::jsonb)::text,'UTF8'),'sha256'),'hex');
   insert into public.idempotency_keys(company_id,request_id,operation,request_hash,created_by)
   values(p_company,p_request_id,p_operation,v_hash,app.current_user_id())
   on conflict(company_id,request_id) do nothing
@@ -7220,7 +7224,7 @@ begin
       from jsonb_array_elements(case when jsonb_typeof(journal_row->'lines')='array' then journal_row->'lines' else '[]'::jsonb end) line(value);
       if journal_row is null
          or lower(coalesce(journal_row->>'sourceType',journal_row->>'source_type',''))<>
-            case when p_collection='toolAllocationSchedules' then 'tool_allocation' else 'asset_depreciation' end
+            (case when p_collection='toolAllocationSchedules' then 'tool_allocation' else 'asset_depreciation' end)
          or coalesce(journal_row->>'sourceId',journal_row->>'source_id','')<>source_id||':'||period_value
          or left(coalesce(journal_row->>'date',''),7)<>period_value
          or abs(round(debit_total,0)-round(amount_value,0))>0
@@ -7673,7 +7677,7 @@ $$;
 
 -- Backfill historical rows before installing the authenticated workflow trigger.
 update public.report_notes_tt133
-set content_sha256=encode(digest(convert_to(content::text,'UTF8'),'sha256'),'hex')
+set content_sha256=encode(extensions.digest(convert_to(content::text,'UTF8'),'sha256'),'hex')
 where content_sha256 is null;
 
 create or replace function app.enforce_b09_workflow() returns trigger
@@ -7749,7 +7753,7 @@ begin
   end if;
 
   new.status:=target_status;
-  new.content_sha256:=encode(digest(convert_to(new.content::text,'UTF8'),'sha256'),'hex');
+  new.content_sha256:=encode(extensions.digest(convert_to(new.content::text,'UTF8'),'sha256'),'hex');
   return new;
 end $$;
 
@@ -7873,7 +7877,7 @@ begin
     from app.report_b09_certification(p_from,p_to);
   else raise exception 'unsupported report hash %',p_report using errcode='22023';
   end if;
-  return encode(digest(convert_to(coalesce(canonical,'[]'),'UTF8'),'sha256'),'hex');
+  return encode(extensions.digest(convert_to(coalesce(canonical,'[]'),'UTF8'),'sha256'),'hex');
 end $$;
 
 create or replace function app.certify_tt133_release(

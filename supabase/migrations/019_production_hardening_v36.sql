@@ -204,7 +204,7 @@ language plpgsql security definer set search_path=pg_catalog,public,app as $$
 declare v_hash text; r public.idempotency_keys; inserted boolean:=false;
 begin
   perform app.assert_company_access(p_company);
-  v_hash:=encode(digest(convert_to(coalesce(p_request_payload,'{}'::jsonb)::text,'UTF8'),'sha256'),'hex');
+  v_hash:=encode(extensions.digest(convert_to(coalesce(p_request_payload,'{}'::jsonb)::text,'UTF8'),'sha256'),'hex');
   insert into public.idempotency_keys(company_id,request_id,operation,request_hash,created_by)
   values(p_company,p_request_id,p_operation,v_hash,app.current_user_id())
   on conflict(company_id,request_id) do nothing

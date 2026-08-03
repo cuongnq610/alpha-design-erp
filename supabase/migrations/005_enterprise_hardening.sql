@@ -52,7 +52,7 @@ begin
     coalesce(v_actor::text,''),v_txid::text,p_table,p_record,p_action,
     coalesce(p_old::text,''),coalesce(p_new::text,''),coalesce(v_prev,'')
   );
-  v_hash:=encode(digest(convert_to(v_payload,'UTF8'),'sha256'),'hex');
+  v_hash:=encode(extensions.digest(convert_to(v_payload,'UTF8'),'sha256'),'hex');
 
   insert into audit_events(
     company_id,event_time,actor_id,txid,table_name,record_id,action,
@@ -83,7 +83,7 @@ begin
       coalesce(r.actor_id::text,''),r.txid::text,r.table_name,r.record_id,r.action,
       coalesce(r.old_data::text,''),coalesce(r.new_data::text,''),coalesce(r.previous_hash,'')
     );
-    v_expected:=encode(digest(convert_to(v_payload,'UTF8'),'sha256'),'hex');
+    v_expected:=encode(extensions.digest(convert_to(v_payload,'UTF8'),'sha256'),'hex');
     if r.event_hash is distinct from v_expected then
       return query select false,r.id; return;
     end if;

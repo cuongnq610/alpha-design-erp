@@ -206,7 +206,22 @@
   async function login(email,password){
     try{
       if(window.AlphaOnline?.isConfigured?.()){
-        const result=await window.AlphaOnline.signIn(email,password);const ctx=result?.context||window.AlphaOnline.getContext?.();
+        let ctx=null;
+        try{const result=await window.AlphaOnline.signIn(email,password);ctx=result?.context||window.AlphaOnline.getContext?.();}
+        catch(signInError){
+          // Auth can succeed while the immediate post-login context load (get_my_context) races the
+          // session commit and errors. If a session now exists, recover below (same as clicking again);
+          // otherwise the credentials were genuinely rejected, so surface the original error.
+          const active=await window.AlphaOnline.getClient?.()?.auth?.getSession?.().then(r=>r?.data?.session).catch(()=>null);
+          if(!active)throw signInError;
+        }
+        // Retry the context load until the warmed-up session resolves it.
+        for(let attempt=0;attempt<6&&!ctx;attempt++){
+          try{await window.AlphaOnline.initialize?.();}catch{}
+          ctx=window.AlphaOnline.getContext?.();
+          if(!ctx)await new Promise(resolve=>setTimeout(resolve,300));
+        }
+        if(!ctx)throw new Error(window.AlphaOnline.status?.()?.message||'Đăng nhập thành công nhưng chưa tải được thông tin công ty. Vui lòng thử lại.');
         await completeCloudSession(ctx,{announce:true});addAudit('Đăng nhập','Hệ thống','Đăng nhập Cloud và xác minh chính sách bảo mật thành công','security');window.AlphaOnline?.getClient?.()?.rpc?.('log_security_event',{p_event_type:'auth.login',p_success:true,p_severity:'info',p_details:{client:'web-v4.5.54',aal:window.AlphaOnline?.getContext?.()?.aal||'aal1'}}).catch?.(()=>{});return true;
       }
       if(ENVIRONMENT!=='demo'||RUNTIME.allowDemoLogin!==true){toast('Môi trường này bắt buộc đăng nhập Supabase Auth.');return false;}
@@ -552,7 +567,7 @@
     if(requested && !hasPermission(requested.dataset.permission||'dashboard')) history.replaceState(null,'','#dashboard');
     if(['cloud-admin','readiness','security-center','users','audit','storage','integrations'].includes(hash)&&hasPermission(requested?.dataset.permission||'admin')) setTimeout(()=>renderCloud(hash),0);
   }
-  window.addEventListener('alpha:sync-status',e=>{const st=e.detail||{};meta.cloud.status=st.status||meta.cloud.status;meta.cloud.lastSync=st.lastSync||meta.cloud.lastSync;persist();if(st.context){completeCloudSession(st.context).catch(error=>{session=null;clearCloudSessionData();applySession();if(error?.message)toast(error.message);});}else if(ENVIRONMENT!=='demo'&&['offline','error'].includes(st.status||'')){const signedOut=/đã đăng xuất|chưa đăng nhập cloud/i.test(String(st.message||''));if(signedOut){clearCloudSessionData();session=null;applySession();reloadForCleanSession();}else applySession();}if(el('syncText'))el('syncText').textContent=st.conflicts?`${st.conflicts} xung đột`:st.status==='online'?'Đã đồng bộ':st.status==='syncing'?'Đang đồng bộ':st.status==='error'?'Lỗi đồng bộ':'Ngoại tuyến';});
+  window.addEventListener('alpha:sync-status',e=>{const st=e.detail||{};meta.cloud.status=st.status||meta.cloud.status;meta.cloud.lastSync=st.lastSync||meta.cloud.lastSync;persist();if(st.context){completeCloudSession(st.context).catch(error=>{session=null;clearCloudSessionData();applySession();if(error?.message)toast(error.message);});}else if(ENVIRONMENT!=='demo'&&['offline','error'].includes(st.status||'')){const signedOut=/đã đăng xuất|chưa đăng nhập cloud/i.test(String(st.message||''));if(signedOut&&session){clearCloudSessionData();session=null;applySession();reloadForCleanSession();}else applySession();}if(el('syncText'))el('syncText').textContent=st.conflicts?`${st.conflicts} xung đột`:st.status==='online'?'Đã đồng bộ':st.status==='syncing'?'Đang đồng bộ':st.status==='error'?'Lỗi đồng bộ':'Ngoại tuyến';});
   window.addEventListener('alpha:force-login',event=>{clearCloudSessionData();session=null;setPrivacyShield(false);applySession();window.dispatchEvent(new CustomEvent('alpha:auth-changed'));if(event.detail?.message)toast(event.detail.message);reloadForCleanSession();});
   if('serviceWorker' in navigator && location.protocol!=='file:'){let reloading=false;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(reloading)return;reloading=true;location.reload();});navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(reg=>reg.update()).catch(()=>{});}
   if(el('syncText'))el('syncText').textContent=meta.cloud.lastSync?'Đã đồng bộ':'Cloud-ready';

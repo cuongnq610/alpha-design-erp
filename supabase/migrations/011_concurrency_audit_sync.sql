@@ -113,7 +113,7 @@ begin
     'previous_hash',v_prev,
     'request_id',v_request
   );
-  v_hash:=encode(digest(convert_to(v_payload::text,'UTF8'),'sha256'),'hex');
+  v_hash:=encode(extensions.digest(convert_to(v_payload::text,'UTF8'),'sha256'),'hex');
   insert into public.audit_events(
     company_id,event_time,actor_id,txid,table_name,record_id,action,
     old_data,new_data,previous_hash,event_hash,chain_version,request_id,
@@ -140,7 +140,7 @@ begin
       if r.payload_json is null then
         return query select false,r.id,'missing canonical payload'; return;
       end if;
-      v_expected:=encode(digest(convert_to(r.payload_json::text,'UTF8'),'sha256'),'hex');
+      v_expected:=encode(extensions.digest(convert_to(r.payload_json::text,'UTF8'),'sha256'),'hex');
       if r.event_hash is distinct from v_expected then
         return query select false,r.id,'event_hash mismatch'; return;
       end if;
@@ -157,7 +157,7 @@ language plpgsql security definer set search_path=pg_catalog,public,app as $$
 declare v_hash text; r public.idempotency_keys;
 begin
   perform app.assert_company_access(p_company);
-  v_hash:=encode(digest(convert_to(coalesce(p_request_payload,'{}'::jsonb)::text,'UTF8'),'sha256'),'hex');
+  v_hash:=encode(extensions.digest(convert_to(coalesce(p_request_payload,'{}'::jsonb)::text,'UTF8'),'sha256'),'hex');
   insert into public.idempotency_keys(company_id,request_id,operation,request_hash,created_by)
   values(p_company,p_request_id,p_operation,v_hash,app.current_user_id())
   on conflict(company_id,request_id) do nothing;

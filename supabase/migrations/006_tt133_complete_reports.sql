@@ -76,6 +76,7 @@ alter table report_notes_tt133 enable row level security;
 create policy notes_select on report_notes_tt133 for select using(company_id=app.current_company_id());
 create policy notes_write on report_notes_tt133 for all using(company_id=app.current_company_id() and app.has_permission('accounting.write',company_id)) with check(company_id=app.current_company_id());
 
+drop function if exists app.report_b01a_dnn(date,date);
 create or replace function app.report_b01a_dnn(p_from date,p_to date)
 returns table(code text,label text,opening_amount bigint,ending_amount bigint,level int,is_total boolean)
 language plpgsql stable security definer set search_path=public,app as $$

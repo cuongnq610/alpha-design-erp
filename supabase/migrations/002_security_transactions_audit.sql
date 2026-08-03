@@ -58,7 +58,7 @@ begin
   perform pg_advisory_xact_lock(hashtextextended(p_company::text,0));
   select event_hash into prev from audit_events where company_id=p_company order by id desc limit 1;
   payload:=concat_ws('|',p_company::text,clock_timestamp()::text,coalesce(app.current_user_id()::text,''),txid_current()::text,p_table,p_record,p_action,coalesce(p_old::text,''),coalesce(p_new::text,''),coalesce(prev,''));
-  h:=encode(digest(payload,'sha256'),'hex');
+  h:=encode(extensions.digest(payload,'sha256'),'hex');
   insert into audit_events(company_id,actor_id,table_name,record_id,action,old_data,new_data,previous_hash,event_hash)
   values(p_company,app.current_user_id(),p_table,p_record,p_action,p_old,p_new,prev,h);
 end $$;
@@ -146,7 +146,7 @@ begin
   if d<=0 or d<>c then raise exception 'unbalanced entry: debit %, credit %',d,c; end if;
   if exists(select 1 from journal_lines jl join accounts a on a.id=jl.account_id where jl.entry_id=r.id and (a.company_id<>r.company_id or not a.active or not a.postable)) then raise exception 'invalid or non-postable account'; end if;
   payload:=r.id::text||'|'||r.document_no||'|'||r.document_date::text||'|'||r.description||'|'||(select string_agg(a.code||':'||jl.debit||':'||jl.credit,'|' order by jl.line_no) from journal_lines jl join accounts a on a.id=jl.account_id where jl.entry_id=r.id);
-  update journal_entries set status='posted',posted_at=clock_timestamp(),posted_by=app.current_user_id(),posting_hash=encode(digest(payload,'sha256'),'hex') where id=r.id returning * into r;
+  update journal_entries set status='posted',posted_at=clock_timestamp(),posted_by=app.current_user_id(),posting_hash=encode(extensions.digest(payload,'sha256'),'hex') where id=r.id returning * into r;
   perform app.append_audit(r.company_id,'journal_entries',r.id::text,'POST',null,to_jsonb(r));
   return r;
 end $$;

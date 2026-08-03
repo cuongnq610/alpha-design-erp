@@ -249,7 +249,7 @@ begin
       from jsonb_array_elements(case when jsonb_typeof(journal_row->'lines')='array' then journal_row->'lines' else '[]'::jsonb end) line(value);
       if journal_row is null
          or lower(coalesce(journal_row->>'sourceType',journal_row->>'source_type',''))<>
-            case when p_collection='toolAllocationSchedules' then 'tool_allocation' else 'asset_depreciation' end
+            (case when p_collection='toolAllocationSchedules' then 'tool_allocation' else 'asset_depreciation' end)
          or coalesce(journal_row->>'sourceId',journal_row->>'source_id','')<>source_id||':'||period_value
          or left(coalesce(journal_row->>'date',''),7)<>period_value
          or abs(round(debit_total,0)-round(amount_value,0))>0

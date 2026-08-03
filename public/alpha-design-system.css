@@ -3443,3 +3443,7 @@ html[data-theme="dark"] .ghost-btn.danger{background:#321f22;border-color:#6d3b4
 html[data-theme="dark"] .trash-source-badge{background:#102e3d;border-color:#28566b;color:#85d8eb}
 @media(max-width:1000px){.trash-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.trash-header{flex-direction:column}.trash-header>.actions{justify-content:flex-start}}
 @media(max-width:700px){.trash-kpis{grid-template-columns:1fr}.trash-tools{grid-template-columns:1fr}.record-count{justify-self:start}.trash-header>.actions{width:100%}.trash-header>.actions button{width:100%}}
+
+/* Sidebar nav must scroll within the flex column so the collapsed icon rail (which shows every
+   group's items at once) is never clipped by the sidebar's overflow:hidden. */
+.sidebar .nav{flex:1 1 auto;min-height:0}

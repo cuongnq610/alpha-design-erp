@@ -1,6 +1,10 @@
 -- ALPHA DESIGN ERP Cloud v3.0 - Core schema
 -- PostgreSQL / Supabase. All monetary columns are bigint VND.
-create extension if not exists pgcrypto;
+-- pgcrypto lives in the `extensions` schema on Supabase; create that schema so a
+-- fresh/plain Postgres matches, and install there. All digest() calls are qualified as
+-- extensions.digest(...) so they resolve regardless of the caller's search_path.
+create schema if not exists extensions;
+create extension if not exists pgcrypto with schema extensions;
 create schema if not exists app;
 
 create table if not exists public.companies (

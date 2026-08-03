@@ -136,16 +136,17 @@ language plpgsql security definer set search_path=pg_catalog,public,app as $$
 declare cid uuid:=app.current_company_id(); payload jsonb; h text; r public.report_snapshots;
 begin
   if not app.has_permission('accounting.write',cid) then raise exception 'permission denied'; end if;
+  if upper(p_report_code) not in ('B01A-DNN','B02-DNN','B03-DNN','B09-DNN','F01-DNN') then raise exception 'unsupported report code'; end if;
   payload:=case upper(p_report_code)
     when 'B01A-DNN' then (select jsonb_agg(to_jsonb(x)) from app.report_b01a_dnn(p_from,p_to) x)
     when 'B02-DNN' then (select jsonb_agg(to_jsonb(x)) from app.report_b02_dnn(p_from,p_to) x)
     when 'B03-DNN' then (select jsonb_agg(to_jsonb(x)) from app.report_b03_dnn(p_from,p_to) x)
     when 'B09-DNN' then (select jsonb_agg(to_jsonb(x)) from app.report_b09_dnn(p_from,p_to) x)
     when 'F01-DNN' then (select jsonb_agg(to_jsonb(x)) from app.report_f01_dnn(p_from,p_to) x)
-    else raise exception 'unsupported report code'
+    else null
   end;
   payload:=coalesce(payload,'[]'::jsonb);
-  h:=encode(digest(convert_to(jsonb_build_object('report',upper(p_report_code),'from',p_from,'to',p_to,'parameters',p_parameters,'data',payload)::text,'UTF8'),'sha256'),'hex');
+  h:=encode(extensions.digest(convert_to(jsonb_build_object('report',upper(p_report_code),'from',p_from,'to',p_to,'parameters',p_parameters,'data',payload)::text,'UTF8'),'sha256'),'hex');
   insert into public.report_snapshots(company_id,report_code,period_from,period_to,parameters,report_data,data_hash,generated_by)
   values(cid,upper(p_report_code),p_from,p_to,p_parameters,payload,h,app.current_user_id()) returning * into r;
   perform app.append_audit(cid,'report_snapshots',r.id::text,'SIGNOFF',null,to_jsonb(r));

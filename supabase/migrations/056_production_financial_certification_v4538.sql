@@ -58,7 +58,7 @@ $$;
 
 -- Backfill historical rows before installing the authenticated workflow trigger.
 update public.report_notes_tt133
-set content_sha256=encode(digest(convert_to(content::text,'UTF8'),'sha256'),'hex')
+set content_sha256=encode(extensions.digest(convert_to(content::text,'UTF8'),'sha256'),'hex')
 where content_sha256 is null;
 
 create or replace function app.enforce_b09_workflow() returns trigger
@@ -134,7 +134,7 @@ begin
   end if;
 
   new.status:=target_status;
-  new.content_sha256:=encode(digest(convert_to(new.content::text,'UTF8'),'sha256'),'hex');
+  new.content_sha256:=encode(extensions.digest(convert_to(new.content::text,'UTF8'),'sha256'),'hex');
   return new;
 end $$;
 
@@ -258,7 +258,7 @@ begin
     from app.report_b09_certification(p_from,p_to);
   else raise exception 'unsupported report hash %',p_report using errcode='22023';
   end if;
-  return encode(digest(convert_to(coalesce(canonical,'[]'),'UTF8'),'sha256'),'hex');
+  return encode(extensions.digest(convert_to(coalesce(canonical,'[]'),'UTF8'),'sha256'),'hex');
 end $$;
 
 create or replace function app.certify_tt133_release(
