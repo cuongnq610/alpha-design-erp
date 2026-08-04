@@ -1938,6 +1938,310 @@
 
   const clamp = (value, min = 0, max = 100) => Math.min(max, Math.max(min, n(value)));
 
+  // Client-side mirror of the server RPC app.validate_entity_payload (migration 033).
+  // Returns {ok, errors[]} using the same error markers the server raises, so bad data
+  // is blocked at the form before it can be saved locally or queued to the Cloud outbox.
+  function validateEntityPayload(collection, data = {}, db = {}, id = '') {
+    const E = [];
+    const raw = (...keys) => {
+      for (const k of keys) { const val = data[k]; if (val !== undefined && val !== null && String(val).trim() !== '') return String(val).trim(); }
+      return '';
+    };
+    const reqText = (label, max, ...keys) => { const v = raw(...keys); if (!v) { E.push(`REQUIRED_FIELD: ${label}`); return ''; } if (v.length > max) E.push(`FIELD_TOO_LONG: ${label}`); return v; };
+    const num = (label, min, max, required, ...keys) => {
+      const v = raw(...keys);
+      if (!v) { if (required) E.push(`REQUIRED_FIELD: ${label}`); return null; }
+      if (v.length > 80 || !/^[+-]?[0-9]+(\.[0-9]+)?$/.test(v)) { E.push(`INVALID_NUMBER: ${label}`); return null; }
+      const parsed = Number(v);
+      if ((min !== null && parsed < min) || (max !== null && parsed > max)) E.push(`NUMBER_OUT_OF_RANGE: ${label}`);
+      return parsed;
+    };
+    const dateV = (label, required, ...keys) => { const v = raw(...keys); if (!v) { if (required) E.push(`REQUIRED_FIELD: ${label}`); return ''; } if (!/^\d{4}-\d{2}-\d{2}$/.test(v)) { E.push(`INVALID_DATE: ${label}`); return ''; } return v; };
+    const ref = (coll, label, required, ...keys) => { const v = raw(...keys); if (!v) { if (required) E.push(`REQUIRED_FIELD: ${label}`); return ''; } const list = Array.isArray(db[coll]) ? db[coll] : []; if (!list.some((x) => String(x.id) === v)) E.push(`INVALID_REFERENCE: ${label}`); return v; };
+    const unique = (coll, field, label, value) => { if (!value) return; const list = Array.isArray(db[coll]) ? db[coll] : []; if (list.some((x) => String(x.id) !== String(id) && String(x[field]) === String(value))) E.push(`DUPLICATE_KEY: ${label}`); };
+    const monthV = (label, required, ...keys) => { const v = raw(...keys); if (!v) { if (required) E.push(`REQUIRED_FIELD: ${label}`); return ''; } if (!/^\d{4}-\d{2}$/.test(v)) { E.push(`INVALID_MONTH: ${label}`); return ''; } return v; };
+    const accountCode = (label, required, ...keys) => { const v = raw(...keys); if (!v) { if (required) E.push(`REQUIRED_FIELD: ${label}`); return ''; } const list = Array.isArray(db.accounts) ? db.accounts : []; if (list.length && !list.some((a) => String(a.code) === v)) E.push(`INVALID_REFERENCE: ${label}`); return v; };
+    const enumV = (label, allowed, required, ...keys) => { const v = raw(...keys).toLowerCase(); if (!v) { if (required) E.push(`REQUIRED_FIELD: ${label}`); return ''; } if (!allowed.includes(v)) E.push(`INVALID_ENUM: ${label}`); return v; };
+    const rules = {
+      accounts() {
+        const code = reqText('accounts.code', 32, 'code');
+        if (code && !/^[0-9A-Za-z._-]+$/.test(code)) E.push('INVALID_ACCOUNT_CODE: accounts.code');
+        unique('accounts', 'code', 'accounts.code', code);
+        reqText('accounts.name', 240, 'name');
+        const type = reqText('accounts.type', 30, 'type').toLowerCase();
+        if (type && !['asset', 'liability', 'equity', 'revenue', 'expense'].includes(type)) E.push('INVALID_ENUM: accounts.type');
+      },
+      projects() {
+        const code = reqText('projects.code', 80, 'code');
+        unique('projects', 'code', 'projects.code', code);
+        reqText('projects.name', 240, 'name');
+        ref('clients', 'projects.clientId', true, 'clientId', 'client_id');
+        ref('people', 'projects.pmId', true, 'pmId', 'pm_id');
+        const start = dateV('projects.startDate', true, 'startDate', 'start_date');
+        const end = dateV('projects.endDate', false, 'endDate', 'end_date');
+        if (start && end && end < start) E.push('INVALID_DATE_RANGE: projects.endDate');
+        const contract = num('projects.contractValue', 0, null, true, 'contractValue', 'contract_value');
+        if (contract !== null && contract <= 0) E.push('NUMBER_OUT_OF_RANGE: projects.contractValue');
+        num('projects.directBudget', 0, null, true, 'directBudget', 'direct_budget');
+        num('projects.progress', 0, 100, true, 'progress');
+      },
+      people() {
+        const code = reqText('people.code', 80, 'code'); unique('people', 'code', 'people.code', code);
+        reqText('people.name', 200, 'name');
+        num('people.monthlySalary', 0, null, false, 'monthlySalary', 'monthly_salary');
+        num('people.hourlyRate', 0, null, false, 'hourlyRate', 'hourly_rate');
+        num('people.billingRate', 0, null, false, 'billingRate', 'billing_rate');
+        dateV('people.startDate', false, 'startDate', 'start_date', 'hireDate', 'hire_date');
+        dateV('people.endDate', false, 'endDate', 'end_date');
+      },
+      clients() {
+        const code = reqText('clients.code', 80, 'code'); unique('clients', 'code', 'clients.code', code);
+        reqText('clients.name', 240, 'name');
+        unique('clients', 'taxCode', 'clients.taxCode', raw('taxCode', 'tax_code'));
+      },
+      vendors() {
+        const code = reqText('vendors.code', 80, 'code'); unique('vendors', 'code', 'vendors.code', code);
+        reqText('vendors.name', 240, 'name');
+        unique('vendors', 'taxCode', 'vendors.taxCode', raw('taxCode', 'tax_code'));
+      },
+      settings() {
+        num('settings.defaultVatRate', 0, 100, false, 'defaultVatRate');
+        num('settings.targetMargin', 0, 100, false, 'targetMargin');
+        num('settings.monthlyWorkingHours', 1, 744, false, 'monthlyWorkingHours');
+      },
+      tasks() {
+        reqText('tasks.title', 300, 'title', 'name');
+        ref('projects', 'tasks.projectId', true, 'projectId', 'project_id');
+        ref('people', 'tasks.assigneeId', true, 'assigneeId', 'assignee_id');
+        const s = dateV('tasks.startDate', false, 'startDate', 'start_date');
+        const d = dateV('tasks.dueDate', false, 'dueDate', 'due_date');
+        if (s && d && d < s) E.push('INVALID_DATE_RANGE: tasks.dueDate');
+        num('tasks.estimatedHours', 0, null, false, 'estimatedHours', 'estimated_hours');
+        num('tasks.actualHours', 0, null, false, 'actualHours', 'actual_hours');
+      },
+      timesheets() {
+        ref('projects', 'timesheets.projectId', true, 'projectId', 'project_id');
+        ref('people', 'timesheets.personId', true, 'personId', 'person_id');
+        dateV('timesheets.date', true, 'date');
+        const h = num('timesheets.hours', 0, 24, true, 'hours');
+        if (h !== null && h <= 0) E.push('NUMBER_OUT_OF_RANGE: timesheets.hours');
+      },
+      contracts() {
+        ref('projects', 'contracts.projectId', true, 'projectId', 'project_id');
+        ref('clients', 'contracts.clientId', true, 'clientId', 'client_id');
+        ref('people', 'contracts.ownerId', false, 'ownerId', 'owner_id');
+        const no = reqText('contracts.contractNo', 120, 'contractNo', 'contract_no'); unique('contracts', 'contractNo', 'contracts.contractNo', no);
+        dateV('contracts.signedDate', false, 'signedDate', 'signed_date');
+        const eff = dateV('contracts.effectiveDate', true, 'effectiveDate', 'effective_date');
+        const exp = dateV('contracts.expiryDate', false, 'expiryDate', 'expiry_date');
+        if (eff && exp && exp < eff) E.push('INVALID_DATE_RANGE: contracts.expiryDate');
+        const val = num('contracts.valueExclVat', 0, null, true, 'valueExclVat', 'value_excl_vat', 'contractValue');
+        if (val !== null && val <= 0) E.push('NUMBER_OUT_OF_RANGE: contracts.valueExclVat');
+        num('contracts.vatRate', 0, 100, false, 'vatRate', 'vat_rate');
+      },
+      journalEntries() {
+        // Structure/balance/postingHash are covered by Calc.entryValidation and computed post-submit.
+        dateV('journalEntries.date', true, 'date');
+        reqText('journalEntries.documentNo', 120, 'documentNo', 'document_no');
+      },
+      finance() {
+        dateV('finance.date', true, 'date');
+        enumV('finance.type', ['income', 'expense'], true, 'type');
+        const amt = num('finance.amount', 0, null, true, 'amount');
+        if (amt !== null && amt <= 0) E.push('NUMBER_OUT_OF_RANGE: finance.amount');
+        ref('projects', 'finance.projectId', false, 'projectId', 'project_id');
+      },
+      quotes() {
+        dateV('quotes.date', true, 'date');
+        ref('clients', 'quotes.clientId', true, 'clientId', 'client_id');
+        ref('projects', 'quotes.projectId', false, 'projectId', 'project_id');
+        reqText('quotes.projectName', 300, 'projectName', 'project_name', 'name');
+        num('quotes.amount', 0, null, true, 'amount');
+        num('quotes.probability', 0, 100, true, 'probability');
+      },
+      approvals() {
+        dateV('approvals.date', true, 'date');
+        ref('people', 'approvals.requesterId', true, 'requesterId', 'requester_id');
+        ref('projects', 'approvals.projectId', false, 'projectId', 'project_id');
+        reqText('approvals.title', 400, 'title');
+        num('approvals.amount', 0, null, false, 'amount');
+      },
+      documents() {
+        reqText('documents.title', 400, 'title');
+        dateV('documents.date', false, 'date');
+        ref('projects', 'documents.projectId', false, 'projectId', 'project_id');
+        ref('people', 'documents.ownerId', false, 'ownerId', 'owner_id');
+      },
+      taxInvoices() {
+        dateV('taxInvoices.date', true, 'date');
+        dateV('taxInvoices.dueDate', false, 'dueDate', 'due_date');
+        ref('projects', 'taxInvoices.projectId', false, 'projectId', 'project_id');
+        ref('contracts', 'taxInvoices.contractId', false, 'contractId', 'contract_id');
+        const base = num('taxInvoices.taxBase', 0, null, true, 'taxBase', 'tax_base', 'amountExclVat', 'amount_excl_vat');
+        const vat = num('taxInvoices.vatAmount', 0, null, true, 'vatAmount', 'vat_amount');
+        const total = num('taxInvoices.totalAmount', 0, null, true, 'totalAmount', 'total_amount');
+        if (base !== null && vat !== null && total !== null && Math.abs(Math.round(base + vat) - Math.round(total)) > 1) E.push('FORMULA_MISMATCH: taxInvoices.totalAmount');
+      },
+      pitWithholdings() {
+        dateV('pitWithholdings.date', true, 'date');
+        const rtype = enumV('pitWithholdings.recipientType', ['vendor', 'person', 'employee'], true, 'recipientType', 'recipient_type');
+        if (rtype === 'vendor') ref('vendors', 'pitWithholdings.recipientId', true, 'recipientId', 'recipient_id');
+        else if (rtype === 'person' || rtype === 'employee') ref('people', 'pitWithholdings.recipientId', true, 'recipientId', 'recipient_id');
+        const gross = num('pitWithholdings.grossIncome', 0, null, true, 'grossIncome', 'gross_income', 'grossAmount', 'gross_amount');
+        num('pitWithholdings.taxWithheld', 0, gross, true, 'taxWithheld', 'tax_withheld');
+      },
+      citAdjustments() {
+        dateV('citAdjustments.date', true, 'date');
+        ref('projects', 'citAdjustments.projectId', false, 'projectId', 'project_id');
+        num('citAdjustments.amount', 0, null, true, 'amount');
+        num('citAdjustments.fiscalYear', 2000, 2100, true, 'fiscalYear', 'fiscal_year');
+      },
+      taxFilings() {
+        reqText('taxFilings.period', 80, 'period');
+        dateV('taxFilings.dueDate', true, 'dueDate', 'due_date');
+        dateV('taxFilings.filedDate', false, 'filedDate', 'filed_date');
+        dateV('taxFilings.paymentDate', false, 'paymentDate', 'payment_date');
+        num('taxFilings.payableAmount', 0, null, false, 'payableAmount', 'payable_amount');
+      },
+      billingMilestones() {
+        ref('contracts', 'billingMilestones.contractId', true, 'contractId', 'contract_id');
+        ref('projects', 'billingMilestones.projectId', true, 'projectId', 'project_id');
+        ref('taxInvoices', 'billingMilestones.invoiceId', false, 'invoiceId', 'invoice_id');
+        dateV('billingMilestones.dueDate', false, 'dueDate', 'due_date');
+        const amt = num('billingMilestones.amount', 0, null, true, 'amountExclVat', 'amount_excl_vat', 'amount');
+        if (amt !== null && amt <= 0) E.push('NUMBER_OUT_OF_RANGE: billingMilestones.amount');
+        num('billingMilestones.percentage', 0, 100, false, 'percentage');
+      },
+      paymentAllocations() {
+        ref('taxInvoices', 'paymentAllocations.invoiceId', true, 'invoiceId', 'invoice_id');
+        dateV('paymentAllocations.date', true, 'date', 'allocationDate', 'allocation_date', 'paymentDate', 'payment_date');
+        const amt = num('paymentAllocations.amount', 0, null, true, 'amount', 'allocatedAmount', 'allocated_amount');
+        if (amt !== null && amt <= 0) E.push('NUMBER_OUT_OF_RANGE: paymentAllocations.amount');
+      },
+      openingBalances() {
+        accountCode('openingBalances.accountCode', true, 'accountCode', 'account_code');
+        dateV('openingBalances.asOfDate', true, 'asOfDate', 'as_of_date');
+        const dr = Number(raw('debit')) || 0, cr = Number(raw('credit')) || 0;
+        if (dr < 0 || cr < 0 || (dr > 0 && cr > 0) || (dr === 0 && cr === 0)) E.push('INVALID_OPENING_BALANCE: openingBalances');
+      },
+      accountingPeriods() {
+        const from = dateV('accountingPeriods.from', true, 'from');
+        const to = dateV('accountingPeriods.to', true, 'to');
+        if (from && to && to < from) E.push('INVALID_DATE_RANGE: accountingPeriods.to');
+      },
+      projectBudgetVersions() {
+        ref('projects', 'projectBudgetVersions.projectId', true, 'projectId', 'project_id');
+        dateV('projectBudgetVersions.effectiveFrom', false, 'effectiveFrom', 'effective_from');
+        num('projectBudgetVersions.directBudget', 0, null, true, 'directBudget', 'direct_budget');
+        num('projectBudgetVersions.contractValue', 0, null, false, 'contractValue', 'contract_value');
+      },
+      projectBudgetLines() {
+        ref('projectBudgetVersions', 'projectBudgetLines.budgetVersionId', true, 'budgetVersionId', 'budget_version_id');
+        const qty = num('projectBudgetLines.quantity', 0, null, true, 'quantity');
+        const rate = num('projectBudgetLines.unitRate', 0, null, true, 'unitRate', 'unit_rate');
+        const amt = num('projectBudgetLines.amount', 0, null, false, 'amount');
+        if (qty !== null && rate !== null && amt !== null && Math.abs(Math.round(qty * rate) - Math.round(amt)) > 1) E.push('FORMULA_MISMATCH: projectBudgetLines.amount');
+      },
+      resourcePlans() {
+        ref('projects', 'resourcePlans.projectId', true, 'projectId', 'project_id');
+        ref('people', 'resourcePlans.personId', true, 'personId', 'person_id');
+        monthV('resourcePlans.month', true, 'month');
+        num('resourcePlans.plannedHours', 0, null, true, 'plannedHours', 'planned_hours', 'hours');
+        num('resourcePlans.costRate', 0, null, false, 'costRate', 'cost_rate', 'hourlyRate', 'hourly_rate');
+      },
+      commitments() {
+        ref('projects', 'commitments.projectId', true, 'projectId', 'project_id');
+        dateV('commitments.dueDate', false, 'dueDate', 'due_date');
+        const amt = num('commitments.amount', 0, null, true, 'amount');
+        if (amt !== null && amt <= 0) E.push('NUMBER_OUT_OF_RANGE: commitments.amount');
+        const rec = num('commitments.recognizedAmount', 0, null, false, 'recognizedAmount', 'recognized_amount');
+        if (rec !== null && amt !== null && rec > amt) E.push('NUMBER_OUT_OF_RANGE: commitments.recognizedAmount');
+      },
+      projectStages() {
+        ref('projects', 'projectStages.projectId', true, 'projectId', 'project_id');
+        const ps = dateV('projectStages.plannedStart', true, 'plannedStart', 'planned_start');
+        const pe = dateV('projectStages.plannedEnd', true, 'plannedEnd', 'planned_end');
+        if (ps && pe && pe < ps) E.push('INVALID_DATE_RANGE: projectStages.plannedEnd');
+        num('projectStages.weight', 0, 100, true, 'weight', 'weightPercent', 'weight_percent');
+        num('projectStages.progress', 0, 100, false, 'progress', 'progressPercent', 'progress_percent');
+      },
+      purchaseRequests() {
+        const no = reqText('purchaseRequests.requestNo', 120, 'requestNo', 'request_no'); unique('purchaseRequests', 'requestNo', 'purchaseRequests.requestNo', no);
+        dateV('purchaseRequests.date', true, 'date');
+        reqText('purchaseRequests.itemName', 400, 'itemName', 'item_name');
+        ref('people', 'purchaseRequests.requesterId', true, 'requesterId', 'requester_id');
+        ref('projects', 'purchaseRequests.projectId', false, 'projectId', 'project_id');
+        const qty = num('purchaseRequests.quantity', 0, null, true, 'quantity');
+        if (qty !== null && qty <= 0) E.push('NUMBER_OUT_OF_RANGE: purchaseRequests.quantity');
+        num('purchaseRequests.unitPrice', 0, null, true, 'unitPrice', 'unit_price');
+        num('purchaseRequests.vatRate', 0, 100, false, 'vatRate', 'vat_rate');
+      },
+      purchaseOrders() {
+        const no = reqText('purchaseOrders.poNo', 120, 'poNo', 'po_no'); unique('purchaseOrders', 'poNo', 'purchaseOrders.poNo', no);
+        dateV('purchaseOrders.orderDate', true, 'orderDate', 'order_date');
+        dateV('purchaseOrders.invoiceDate', false, 'invoiceDate', 'invoice_date');
+        ref('purchaseRequests', 'purchaseOrders.purchaseRequestId', true, 'purchaseRequestId', 'purchase_request_id');
+        ref('vendors', 'purchaseOrders.vendorId', true, 'vendorId', 'vendor_id');
+        ref('projects', 'purchaseOrders.projectId', false, 'projectId', 'project_id');
+        const qty = num('purchaseOrders.quantity', 0, null, true, 'quantity');
+        if (qty !== null && qty <= 0) E.push('NUMBER_OUT_OF_RANGE: purchaseOrders.quantity');
+        const price = num('purchaseOrders.unitPrice', 0, null, true, 'unitPrice', 'unit_price');
+        if (price !== null && price <= 0) E.push('NUMBER_OUT_OF_RANGE: purchaseOrders.unitPrice');
+        num('purchaseOrders.vatRate', 0, 100, false, 'vatRate', 'vat_rate');
+      },
+      tools() {
+        const code = reqText('tools.toolCode', 120, 'toolCode', 'tool_code'); unique('tools', 'toolCode', 'tools.toolCode', code);
+        reqText('tools.name', 300, 'name');
+        ref('purchaseOrders', 'tools.purchaseOrderId', false, 'purchaseOrderId', 'purchase_order_id');
+        accountCode('tools.expenseAccountCode', true, 'expenseAccountCode', 'expense_account_code');
+        dateV('tools.startDate', true, 'startDate', 'start_date');
+        const cost = num('tools.originalCost', 0, null, true, 'originalCost', 'original_cost');
+        if (cost !== null && cost <= 0) E.push('NUMBER_OUT_OF_RANGE: tools.originalCost');
+        const months = num('tools.allocationMonths', 1, 1200, true, 'allocationMonths', 'allocation_months');
+        if (months !== null && months !== Math.trunc(months)) E.push('INVALID_INTEGER: tools.allocationMonths');
+      },
+      fixedAssets() {
+        const code = reqText('fixedAssets.assetCode', 120, 'assetCode', 'asset_code'); unique('fixedAssets', 'assetCode', 'fixedAssets.assetCode', code);
+        reqText('fixedAssets.name', 300, 'name');
+        accountCode('fixedAssets.assetAccountCode', true, 'assetAccountCode', 'asset_account_code');
+        accountCode('fixedAssets.depreciationAccountCode', true, 'depreciationAccountCode', 'depreciation_account_code');
+        accountCode('fixedAssets.expenseAccountCode', true, 'expenseAccountCode', 'expense_account_code');
+        dateV('fixedAssets.acquisitionDate', true, 'acquisitionDate', 'acquisition_date');
+        dateV('fixedAssets.inServiceDate', true, 'inServiceDate', 'in_service_date');
+        const cost = num('fixedAssets.originalCost', 0, null, true, 'originalCost', 'original_cost');
+        if (cost !== null && cost <= 0) E.push('NUMBER_OUT_OF_RANGE: fixedAssets.originalCost');
+        const residual = num('fixedAssets.residualValue', 0, null, false, 'residualValue', 'residual_value');
+        if (residual !== null && cost !== null && (residual < 0 || residual >= cost)) E.push('NUMBER_OUT_OF_RANGE: fixedAssets.residualValue');
+        const life = num('fixedAssets.usefulLifeMonths', 13, 1200, true, 'usefulLifeMonths', 'useful_life_months');
+        if (life !== null && life !== Math.trunc(life)) E.push('INVALID_INTEGER: fixedAssets.usefulLifeMonths');
+      },
+      toolAllocationSchedules() {
+        ref('tools', 'toolAllocationSchedules.sourceId', true, 'sourceId', 'source_id');
+        monthV('toolAllocationSchedules.period', true, 'period');
+        num('toolAllocationSchedules.amount', 0, null, true, 'amount');
+      },
+      depreciationSchedules() {
+        ref('fixedAssets', 'depreciationSchedules.sourceId', true, 'sourceId', 'source_id');
+        monthV('depreciationSchedules.period', true, 'period');
+        num('depreciationSchedules.amount', 0, null, true, 'amount');
+      },
+      financialForecastScenarios() {
+        reqText('financialForecastScenarios.name', 200, 'name');
+        num('forecast.collectionRatePercent', 0, 100, false, 'collectionRatePercent');
+        num('forecast.directCostRatioPercent', 0, 100, false, 'directCostRatioPercent');
+        num('forecast.pipelineFactorPercent', 0, 500, false, 'pipelineFactorPercent');
+        num('forecast.pipelineLagMonths', 0, 120, false, 'pipelineLagMonths');
+        num('forecast.pipelineDeliveryMonths', 1, 120, false, 'pipelineDeliveryMonths');
+        num('forecast.recurringRevenueShare', 0, 1, false, 'recurringRevenueShare');
+        num('forecast.taxRatePercent', 0, 100, false, 'taxRatePercent');
+        num('forecast.minimumCashBuffer', 0, null, false, 'minimumCashBuffer');
+      },
+    };
+    const fn = rules[collection];
+    if (fn) fn();
+    return { ok: E.length === 0, errors: E };
+  }
+
   function validateProject(project = {}) {
     const errors = [], warnings = [];
     const contractValue = vnd(project.contractValue ?? project.contract_value), directBudget = vnd(project.directBudget ?? project.direct_budget);
@@ -3250,7 +3554,7 @@
     monthlySeries, revenueByDepartment, rangeDays, monthlyAccountBalance, financeBreakdown, monthlyFinanceByCategory,
     headcountByDepartment, peopleUtilization, payrollByDepartment, revenueByClient, revenueByStage, expenseByGroup, dso,
     integrityChecks, dataLinkAudit, isPeriodLocked, accountsByPrefixes, endingDebitByPrefixes, endingCreditByPrefixes, movementNetByPrefixes, fiscalYearStartFor, cashFlowExpectedDirection, cashFlowActualDirection,
-    validateProject, validateTimesheet, projectScheduleProgress, syncProjectQuickInputs, projectFinancials, portfolioHealth,
+    validateEntityPayload, validateProject, validateTimesheet, projectScheduleProgress, syncProjectQuickInputs, projectFinancials, portfolioHealth,
     classifyPurchase, straightLineSchedule, purchaseJournalBlueprint, periodicJournalBlueprint, nextDocumentNumber, scheduleRebuildPlan, scheduleJournalMatch,
     financialPosition, financialRatios, financialForecast, financialLinkAudit, repairExactLinks, cashFlowForecastQuality,
     tt133B01a, tt133B02, tt133B03Direct, tt133F01, tt133B09, tt133ReportChecks, tt133ReportParity, tt99B01, tt99B02, tt99B03Direct, tt99B09, tt99ReportChecks, tt132B01, tt132B02, tt132F01, tt132F02, tt132ReportChecks
