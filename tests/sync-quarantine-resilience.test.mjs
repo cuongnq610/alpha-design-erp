@@ -29,4 +29,9 @@ assert.deepEqual(s1.outbox,[],'valid record b must still sync past poison a');
 assert.deepEqual(Object.keys(s1.quarantine),['a'],'poison a must be quarantined');
 assert.equal(s1.status,'online','app must stay writable after quarantine');
 assert.throws(()=>runLoop([{key:'a'}],{a:{code:'',message:'network down'}}),'transient error must retry, not quarantine');
+// Task 3: quarantine management API exposed
+assert.ok(sync.includes('discardQuarantine:')&&sync.includes('retryQuarantine:'),'Quarantine management API (discard/retry) must be exposed');
+assert.ok(/function qr\(m\)\{[^}]*u\.outbox\.push\(/.test(sync),'retryQuarantine must re-queue the record to the outbox');
+console.log('PASS phase1 task3: quarantine management API present');
+
 console.log('PASS phase1 task2: quarantine behavior verified');
