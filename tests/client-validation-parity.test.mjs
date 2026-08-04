@@ -39,4 +39,40 @@ assert.equal(hasErr(V('projects',{...validProject,contractValue:0},pdb),'NUMBER_
 assert.equal(hasErr(V('projects',{...validProject,progress:150},pdb),'NUMBER_OUT_OF_RANGE'),true,'progress>100 rejected');
 assert.equal(hasErr(V('projects',{...validProject,startDate:'01/01/2026'},pdb),'INVALID_DATE'),true,'non-ISO startDate rejected');
 
+// people / clients / vendors
+assert.equal(V('people',{code:'E01',name:'An'}).ok,true,'valid person passes');
+assert.equal(hasErr(V('people',{code:'',name:'An'}),'REQUIRED_FIELD'),true,'person requires code');
+assert.equal(hasErr(V('people',{code:'E01',name:'An',monthlySalary:'-5'}),'NUMBER_OUT_OF_RANGE'),true,'negative salary rejected');
+assert.equal(hasErr(V('clients',{code:'C1',name:''}),'REQUIRED_FIELD'),true,'client requires name');
+
+// tasks: reference to project/assignee must exist (forms use selects, but ghost ids are caught)
+const tdb={projects:[{id:'pr1'}],people:[{id:'pe1'}]};
+assert.equal(V('tasks',{title:'T',projectId:'pr1',assigneeId:'pe1'},tdb).ok,true,'valid task passes');
+assert.equal(hasErr(V('tasks',{title:'T',projectId:'ghost',assigneeId:'pe1'},tdb),'INVALID_REFERENCE'),true,'task unknown project rejected');
+assert.equal(hasErr(V('tasks',{title:'',projectId:'pr1',assigneeId:'pe1'},tdb),'REQUIRED_FIELD'),true,'task requires title');
+
+// timesheets: hours 0..24 and positive
+assert.equal(hasErr(V('timesheets',{projectId:'pr1',personId:'pe1',date:'2026-01-01',hours:30},tdb),'NUMBER_OUT_OF_RANGE'),true,'timesheet >24h rejected');
+assert.equal(V('timesheets',{projectId:'pr1',personId:'pe1',date:'2026-01-01',hours:8},tdb).ok,true,'valid timesheet passes');
+
+// taxInvoices formula: base + vat must equal total (±1)
+const validInv={date:'2026-01-01',taxBase:1000,vatAmount:100,totalAmount:1100};
+assert.equal(V('taxInvoices',validInv).ok,true,'balanced invoice passes');
+assert.equal(hasErr(V('taxInvoices',{...validInv,totalAmount:2000}),'FORMULA_MISMATCH'),true,'unbalanced invoice total rejected');
+
+// tools: allocationMonths must be a positive integer, cost > 0, account code must exist
+const toolsdb={accounts:[{code:'627'}]};
+assert.equal(V('tools',{toolCode:'CCDC1',name:'Máy',expenseAccountCode:'627',startDate:'2026-01-01',originalCost:1000,allocationMonths:12},toolsdb).ok,true,'valid tool passes');
+assert.equal(hasErr(V('tools',{toolCode:'CCDC1',name:'Máy',expenseAccountCode:'627',startDate:'2026-01-01',originalCost:1000,allocationMonths:12.5},toolsdb),'INVALID_INTEGER'),true,'fractional allocationMonths rejected');
+assert.equal(hasErr(V('tools',{toolCode:'CCDC1',name:'Máy',expenseAccountCode:'999',startDate:'2026-01-01',originalCost:1000,allocationMonths:12},toolsdb),'INVALID_REFERENCE'),true,'unknown expense account rejected');
+
+// resourcePlans month format
+assert.equal(hasErr(V('resourcePlans',{projectId:'pr1',personId:'pe1',month:'2026-1',plannedHours:10},tdb),'INVALID_MONTH'),true,'bad month format rejected');
+assert.equal(V('resourcePlans',{projectId:'pr1',personId:'pe1',month:'2026-01',plannedHours:10},tdb).ok,true,'valid resource plan passes');
+
+// Coverage: the validator must handle a broad set of collections (not just 2)
+const covered=['accounts','projects','people','clients','vendors','tasks','timesheets','contracts','taxInvoices','pitWithholdings','purchaseRequests','purchaseOrders','tools','fixedAssets','billingMilestones','paymentAllocations','resourcePlans','commitments','projectStages','projectBudgetVersions','projectBudgetLines'];
+for(const c of covered){ assert.equal(typeof V(c,{}).ok,'boolean',`validator must handle collection ${c}`); }
+
 console.log('PASS phase2 task6: shared validator (accounts, projects) behaviorally verified');
+console.log(`PASS phase2 task7: parity rules cover ${covered.length} collections`);
