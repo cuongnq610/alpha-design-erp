@@ -206,22 +206,7 @@
   async function login(email,password){
     try{
       if(window.AlphaOnline?.isConfigured?.()){
-        let ctx=null;
-        try{const result=await window.AlphaOnline.signIn(email,password);ctx=result?.context||window.AlphaOnline.getContext?.();}
-        catch(signInError){
-          // Auth can succeed while the immediate post-login context load (get_my_context) races the
-          // session commit and errors. If a session now exists, recover below (same as clicking again);
-          // otherwise the credentials were genuinely rejected, so surface the original error.
-          const active=await window.AlphaOnline.getClient?.()?.auth?.getSession?.().then(r=>r?.data?.session).catch(()=>null);
-          if(!active)throw signInError;
-        }
-        // Retry the context load until the warmed-up session resolves it.
-        for(let attempt=0;attempt<6&&!ctx;attempt++){
-          try{await window.AlphaOnline.initialize?.();}catch{}
-          ctx=window.AlphaOnline.getContext?.();
-          if(!ctx)await new Promise(resolve=>setTimeout(resolve,300));
-        }
-        if(!ctx)throw new Error(window.AlphaOnline.status?.()?.message||'Đăng nhập thành công nhưng chưa tải được thông tin công ty. Vui lòng thử lại.');
+        const result=await window.AlphaOnline.signIn(email,password);const ctx=result?.context||window.AlphaOnline.getContext?.();
         await completeCloudSession(ctx,{announce:true});addAudit('Đăng nhập','Hệ thống','Đăng nhập Cloud và xác minh chính sách bảo mật thành công','security');window.AlphaOnline?.getClient?.()?.rpc?.('log_security_event',{p_event_type:'auth.login',p_success:true,p_severity:'info',p_details:{client:'web-v4.5.54',aal:window.AlphaOnline?.getContext?.()?.aal||'aal1'}}).catch?.(()=>{});return true;
       }
       if(ENVIRONMENT!=='demo'||RUNTIME.allowDemoLogin!==true){toast('Môi trường này bắt buộc đăng nhập Supabase Auth.');return false;}
@@ -299,7 +284,7 @@
     const b=el('syncBtn');b?.classList.add('synching');if(el('syncText'))el('syncText').textContent='Đang đồng bộ';
     try{
       if(window.AlphaOnline?.isConfigured?.()){
-        const result=await window.AlphaOnline.syncNow();meta.cloud.status=result.status||'online';meta.cloud.lastSync=result.lastSync||nowISO();meta.cloud.company=result.context||null;persist();addAudit('Đồng bộ','Cloud',`Đã đồng bộ ${result.outbox||0} thay đổi còn chờ`,'system');toast((result.conflicts||0)>0?`Có ${result.conflicts} xung đột cần xử lý`:'Dữ liệu đã đồng bộ trên các thiết bị');
+        const result=await window.AlphaOnline.syncNow();meta.cloud.status=result.status||'online';meta.cloud.lastSync=result.lastSync||nowISO();meta.cloud.company=result.context||null;persist();const cCount=Object.keys(result.conflicts||{}).length,qCount=Object.keys(result.quarantine||{}).length;addAudit('Đồng bộ','Cloud',`Đã đồng bộ${qCount?` • ${qCount} bản ghi bị từ chối`:''}`,'system');toast(cCount>0?`Có ${cCount} xung đột cần xử lý`:qCount>0?`Có ${qCount} bản ghi bị từ chối cần sửa trong Quản trị Cloud`:'Dữ liệu đã đồng bộ trên các thiết bị');
       }else{await new Promise(r=>setTimeout(r,250));meta.cloud.status='local-demo';meta.cloud.lastSync=nowISO();persist();toast('Chưa cấu hình máy chủ Cloud');}
     }catch(err){meta.cloud.status='error';persist();toast(`Đồng bộ thất bại: ${err.message}`)}
     finally{b?.classList.remove('synching');if(el('syncText'))el('syncText').textContent=meta.cloud.status==='error'?'Lỗi đồng bộ':'Đã đồng bộ';}
@@ -362,7 +347,7 @@
   }
   function renderCloudAdmin(){
     setCloudHeader('Quản trị Cloud','Trạng thái bảo mật, đồng bộ, sao lưu và hạ tầng','☁');
-    const used=meta.files.reduce((s,x)=>s+(x.size||0),0), last=meta.cloud.lastSync?fmtDateTime(meta.cloud.lastSync):'Chưa đồng bộ',syncState=window.AlphaOnline?.status?.()||{},conflicts=Object.values(syncState.conflicts||{});
+    const used=meta.files.reduce((s,x)=>s+(x.size||0),0), last=meta.cloud.lastSync?fmtDateTime(meta.cloud.lastSync):'Chưa đồng bộ',syncState=window.AlphaOnline?.status?.()||{},conflicts=Object.values(syncState.conflicts||{}),quarantine=Object.values(syncState.quarantine||{});
     const configured=Boolean(window.AlphaOnline?.isConfigured?.());
     const runtimeProject=maskProjectUrl(RUNTIME.supabaseUrl||'');
     const mode=ENVIRONMENT==='demo'?'Demo cục bộ':`${ENVIRONMENT.toUpperCase()} • ${RUNTIME.dataMode||'server-authoritative'}`;
@@ -371,7 +356,10 @@
     <section class="grid two-col section cloud-deployment-grid"><div class="card admin-card deployment-config-card"><div class="section-header"><div><h2>Cấu hình triển khai</h2><p>Chỉ đọc; được tạo bởi DevOps/runtime-config.js và secret manager.</p></div></div><div class="inline-stats"><div class="mini-stat"><span>Môi trường</span><strong>${esc(mode)}</strong></div><div class="mini-stat"><span>Project</span><strong>${esc(runtimeProject)}</strong></div><div class="mini-stat"><span>Nguồn cấu hình</span><strong>Runtime / CI</strong></div></div><div class="note deployment-security-note"><strong>Bảo mật:</strong> endpoint và publishable key không thể sửa trong giao diện. Service-role key tuyệt đối không xuất hiện ở trình duyệt.</div>${ENVIRONMENT==='demo'?'':`<div class="deployment-actions"><button type="button" class="secondary-btn" id="testSync">Kiểm tra kết nối</button></div>`}</div>
     <div class="card admin-card backup-restore-card"><div class="section-header"><div><h2>Sao lưu & phục hồi</h2><p>${ENVIRONMENT==='demo'?'Bản sao mô phỏng trên thiết bị.':'Backup production chỉ chạy từ máy chủ bằng pg_dump mã hóa/PITR.'}</p></div>${ENVIRONMENT==='demo'?'<button class="primary-btn" id="backupNow">Sao lưu Demo</button>':''}</div><div class="table-wrap"><table class="table-fit-wide table-cloud-backups"><thead><tr><th>Thời gian</th><th>Loại</th><th>Dung lượng</th><th>Người tạo</th><th>Thao tác</th></tr></thead><tbody>${meta.backups.slice(0,5).map(x=>`<tr><td>${fmtDateTime(x.createdAt)}</td><td class="backup-type-cell"><span class="role-tag backup-type-pill">${esc(x.type==='Auto'?'Tự động':x.type)}</span></td><td class="backup-size-cell"><span class="backup-size backup-size-chip">${(x.size/1024).toFixed(1)} KB</span></td><td class="backup-created-by">${esc(x.createdBy)}</td><td class="actions backup-actions-cell">${ENVIRONMENT==='demo'?`<button class="ghost-btn download-backup" data-id="${esc(x.id)}">Tải xuống</button>`:'—'}</td></tr>`).join('')||'<tr><td colspan="5" class="muted">Chưa có bản sao.</td></tr>'}</tbody></table></div></div></section>`;
     if(conflicts.length){content.insertAdjacentHTML('beforeend',`<section class="card table-card section"><div class="section-header card-pad"><div><h2>Xung đột đồng bộ <span class="sync-conflict-badge">${conflicts.length}</span></h2><p>Không tự ghi đè dữ liệu khi hai thiết bị cùng sửa một bản ghi.</p></div></div><div class="table-wrap"><table><thead><tr><th>Phân hệ</th><th>Bản ghi</th><th>Phát hiện</th><th>Chọn phiên bản</th></tr></thead><tbody>${conflicts.map(c=>`<tr><td>${esc(c.collection)}</td><td>${esc(c.id)}</td><td>${fmtDateTime(c.detectedAt)}</td><td><button class="ghost-btn resolve-sync" data-write-action data-key="${esc(c.key)}" data-strategy="server">Dùng bản Cloud</button><button class="ghost-btn resolve-sync" data-write-action data-key="${esc(c.key)}" data-strategy="local">Giữ bản thiết bị</button></td></tr>`).join('')}</tbody></table></div></section>`)}
+    if(quarantine.length){content.insertAdjacentHTML('beforeend',`<section class="card table-card section"><div class="section-header card-pad"><div><h2>Bản ghi bị từ chối <span class="sync-conflict-badge">${quarantine.length}</span></h2><p>Máy chủ từ chối các bản ghi này vì dữ liệu chưa hợp lệ. Sửa lại nguồn dữ liệu rồi bấm Thử lại, hoặc Loại bỏ để ngừng đồng bộ bản ghi.</p></div></div><div class="table-wrap"><table><thead><tr><th>Phân hệ</th><th>Bản ghi</th><th>Lý do máy chủ từ chối</th><th>Phát hiện</th><th>Thao tác</th></tr></thead><tbody>${quarantine.map(q=>`<tr><td>${esc(q.collection)}</td><td>${esc(q.id)}</td><td>${esc(q.error||'')}</td><td>${fmtDateTime(q.detectedAt)}</td><td><button class="ghost-btn retry-quarantine" data-write-action data-key="${esc(q.key)}">Thử lại</button><button class="ghost-btn discard-quarantine" data-write-action data-key="${esc(q.key)}">Loại bỏ</button></td></tr>`).join('')}</tbody></table></div></section>`)}
     document.querySelectorAll('.resolve-sync').forEach(b=>b.onclick=()=>{if(!ensureCloudWritable())return;window.AlphaOnline.resolveConflict(b.dataset.key,b.dataset.strategy);toast('Đã chọn phiên bản; hệ thống đang đồng bộ lại');renderCloudAdmin()});
+    document.querySelectorAll('.retry-quarantine').forEach(b=>b.onclick=()=>{if(!ensureCloudWritable())return;window.AlphaOnline.retryQuarantine(b.dataset.key);toast('Đã đưa bản ghi vào hàng đợi đồng bộ lại');renderCloudAdmin()});
+    document.querySelectorAll('.discard-quarantine').forEach(b=>b.onclick=()=>{if(!ensureCloudWritable())return;if(!confirm('Loại bỏ bản ghi bị từ chối này? Thao tác không thể hoàn tác.'))return;window.AlphaOnline.discardQuarantine(b.dataset.key);toast('Đã loại bỏ bản ghi bị từ chối');renderCloudAdmin()});
     if(el('testSync'))el('testSync').onclick=syncCloud;
     if(el('backupNow'))el('backupNow').onclick=()=>{createBackup(false);toast('Đã tạo bản sao Demo');renderCloudAdmin()};
     document.querySelectorAll('.download-backup').forEach(b=>b.onclick=()=>{const r=meta.backups.find(x=>x.id===b.dataset.id);if(r)downloadBackup(r)});
@@ -567,7 +555,7 @@
     if(requested && !hasPermission(requested.dataset.permission||'dashboard')) history.replaceState(null,'','#dashboard');
     if(['cloud-admin','readiness','security-center','users','audit','storage','integrations'].includes(hash)&&hasPermission(requested?.dataset.permission||'admin')) setTimeout(()=>renderCloud(hash),0);
   }
-  window.addEventListener('alpha:sync-status',e=>{const st=e.detail||{};meta.cloud.status=st.status||meta.cloud.status;meta.cloud.lastSync=st.lastSync||meta.cloud.lastSync;persist();if(st.context){completeCloudSession(st.context).catch(error=>{session=null;clearCloudSessionData();applySession();if(error?.message)toast(error.message);});}else if(ENVIRONMENT!=='demo'&&['offline','error'].includes(st.status||'')){const signedOut=/đã đăng xuất|chưa đăng nhập cloud/i.test(String(st.message||''));if(signedOut&&session){clearCloudSessionData();session=null;applySession();reloadForCleanSession();}else applySession();}if(el('syncText'))el('syncText').textContent=st.conflicts?`${st.conflicts} xung đột`:st.status==='online'?'Đã đồng bộ':st.status==='syncing'?'Đang đồng bộ':st.status==='error'?'Lỗi đồng bộ':'Ngoại tuyến';});
+  window.addEventListener('alpha:sync-status',e=>{const st=e.detail||{};meta.cloud.status=st.status||meta.cloud.status;meta.cloud.lastSync=st.lastSync||meta.cloud.lastSync;persist();if(st.context){completeCloudSession(st.context).catch(error=>{session=null;clearCloudSessionData();applySession();if(error?.message)toast(error.message);});}else if(ENVIRONMENT!=='demo'&&['offline','error'].includes(st.status||'')){const signedOut=/đã đăng xuất|chưa đăng nhập cloud/i.test(String(st.message||''));if(signedOut){clearCloudSessionData();session=null;applySession();reloadForCleanSession();}else applySession();}if(el('syncText'))el('syncText').textContent=st.conflicts?`${st.conflicts} xung đột`:st.status==='online'?'Đã đồng bộ':st.status==='syncing'?'Đang đồng bộ':st.status==='error'?'Lỗi đồng bộ':'Ngoại tuyến';});
   window.addEventListener('alpha:force-login',event=>{clearCloudSessionData();session=null;setPrivacyShield(false);applySession();window.dispatchEvent(new CustomEvent('alpha:auth-changed'));if(event.detail?.message)toast(event.detail.message);reloadForCleanSession();});
   if('serviceWorker' in navigator && location.protocol!=='file:'){let reloading=false;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(reloading)return;reloading=true;location.reload();});navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(reg=>reg.update()).catch(()=>{});}
   if(el('syncText'))el('syncText').textContent=meta.cloud.lastSync?'Đã đồng bộ':'Cloud-ready';

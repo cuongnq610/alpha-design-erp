@@ -19,7 +19,6 @@
     timesheets:['timesheet.read'],
     payroll:['payroll.read'],
     documents:['documents.read'],
-    clients:['crm.read'],
     storage:['documents.read'],
     finance:['accounting.read'],
     financialAnalytics:['financial_analytics.read','reports.read','accounting.read'],
