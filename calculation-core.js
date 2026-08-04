@@ -1938,6 +1938,56 @@
 
   const clamp = (value, min = 0, max = 100) => Math.min(max, Math.max(min, n(value)));
 
+  // Client-side mirror of the server RPC app.validate_entity_payload (migration 033).
+  // Returns {ok, errors[]} using the same error markers the server raises, so bad data
+  // is blocked at the form before it can be saved locally or queued to the Cloud outbox.
+  function validateEntityPayload(collection, data = {}, db = {}, id = '') {
+    const E = [];
+    const raw = (...keys) => {
+      for (const k of keys) { const val = data[k]; if (val !== undefined && val !== null && String(val).trim() !== '') return String(val).trim(); }
+      return '';
+    };
+    const reqText = (label, max, ...keys) => { const v = raw(...keys); if (!v) { E.push(`REQUIRED_FIELD: ${label}`); return ''; } if (v.length > max) E.push(`FIELD_TOO_LONG: ${label}`); return v; };
+    const num = (label, min, max, required, ...keys) => {
+      const v = raw(...keys);
+      if (!v) { if (required) E.push(`REQUIRED_FIELD: ${label}`); return null; }
+      if (v.length > 80 || !/^[+-]?[0-9]+(\.[0-9]+)?$/.test(v)) { E.push(`INVALID_NUMBER: ${label}`); return null; }
+      const parsed = Number(v);
+      if ((min !== null && parsed < min) || (max !== null && parsed > max)) E.push(`NUMBER_OUT_OF_RANGE: ${label}`);
+      return parsed;
+    };
+    const dateV = (label, required, ...keys) => { const v = raw(...keys); if (!v) { if (required) E.push(`REQUIRED_FIELD: ${label}`); return ''; } if (!/^\d{4}-\d{2}-\d{2}$/.test(v)) { E.push(`INVALID_DATE: ${label}`); return ''; } return v; };
+    const ref = (coll, label, required, ...keys) => { const v = raw(...keys); if (!v) { if (required) E.push(`REQUIRED_FIELD: ${label}`); return ''; } const list = Array.isArray(db[coll]) ? db[coll] : []; if (!list.some((x) => String(x.id) === v)) E.push(`INVALID_REFERENCE: ${label}`); return v; };
+    const unique = (coll, field, label, value) => { if (!value) return; const list = Array.isArray(db[coll]) ? db[coll] : []; if (list.some((x) => String(x.id) !== String(id) && String(x[field]) === String(value))) E.push(`DUPLICATE_KEY: ${label}`); };
+    const rules = {
+      accounts() {
+        const code = reqText('accounts.code', 32, 'code');
+        if (code && !/^[0-9A-Za-z._-]+$/.test(code)) E.push('INVALID_ACCOUNT_CODE: accounts.code');
+        unique('accounts', 'code', 'accounts.code', code);
+        reqText('accounts.name', 240, 'name');
+        const type = reqText('accounts.type', 30, 'type').toLowerCase();
+        if (type && !['asset', 'liability', 'equity', 'revenue', 'expense'].includes(type)) E.push('INVALID_ENUM: accounts.type');
+      },
+      projects() {
+        const code = reqText('projects.code', 80, 'code');
+        unique('projects', 'code', 'projects.code', code);
+        reqText('projects.name', 240, 'name');
+        ref('clients', 'projects.clientId', true, 'clientId', 'client_id');
+        ref('people', 'projects.pmId', true, 'pmId', 'pm_id');
+        const start = dateV('projects.startDate', true, 'startDate', 'start_date');
+        const end = dateV('projects.endDate', false, 'endDate', 'end_date');
+        if (start && end && end < start) E.push('INVALID_DATE_RANGE: projects.endDate');
+        const contract = num('projects.contractValue', 0, null, true, 'contractValue', 'contract_value');
+        if (contract !== null && contract <= 0) E.push('NUMBER_OUT_OF_RANGE: projects.contractValue');
+        num('projects.directBudget', 0, null, true, 'directBudget', 'direct_budget');
+        num('projects.progress', 0, 100, true, 'progress');
+      },
+    };
+    const fn = rules[collection];
+    if (fn) fn();
+    return { ok: E.length === 0, errors: E };
+  }
+
   function validateProject(project = {}) {
     const errors = [], warnings = [];
     const contractValue = vnd(project.contractValue ?? project.contract_value), directBudget = vnd(project.directBudget ?? project.direct_budget);
@@ -3250,7 +3300,7 @@
     monthlySeries, revenueByDepartment, rangeDays, monthlyAccountBalance, financeBreakdown, monthlyFinanceByCategory,
     headcountByDepartment, peopleUtilization, payrollByDepartment, revenueByClient, revenueByStage, expenseByGroup, dso,
     integrityChecks, dataLinkAudit, isPeriodLocked, accountsByPrefixes, endingDebitByPrefixes, endingCreditByPrefixes, movementNetByPrefixes, fiscalYearStartFor, cashFlowExpectedDirection, cashFlowActualDirection,
-    validateProject, validateTimesheet, projectScheduleProgress, syncProjectQuickInputs, projectFinancials, portfolioHealth,
+    validateEntityPayload, validateProject, validateTimesheet, projectScheduleProgress, syncProjectQuickInputs, projectFinancials, portfolioHealth,
     classifyPurchase, straightLineSchedule, purchaseJournalBlueprint, periodicJournalBlueprint, nextDocumentNumber, scheduleRebuildPlan, scheduleJournalMatch,
     financialPosition, financialRatios, financialForecast, financialLinkAudit, repairExactLinks, cashFlowForecastQuality,
     tt133B01a, tt133B02, tt133B03Direct, tt133F01, tt133B09, tt133ReportChecks, tt133ReportParity, tt99B01, tt99B02, tt99B03Direct, tt99B09, tt99ReportChecks, tt132B01, tt132B02, tt132F01, tt132F02, tt132ReportChecks
