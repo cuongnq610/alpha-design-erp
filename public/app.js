@@ -890,12 +890,17 @@
   }
 
 
+  const COMPACT_MONEY_UNITS=[{t:1e3,u:'nghìn',d:0},{t:1e6,u:'tr',d:1},{t:1e9,u:'tỷ',d:2}];
   function compactMoney(v){
     const n=Number(v)||0, a=Math.abs(n);
-    if(a>=1e9) return `${fmtNum(n/1e9,2)} tỷ`;
-    if(a>=1e6) return `${fmtNum(n/1e6,1)} tr`;
-    if(a>=1e3) return `${fmtNum(n/1e3,0)} nghìn`;
-    return fmtNum(n,0);
+    let i=-1;
+    for(let k=0;k<COMPACT_MONEY_UNITS.length;k++)if(a>=COMPACT_MONEY_UNITS[k].t)i=k;
+    if(i<0) return fmtNum(n,0);
+    // Vietnamese rule: never show ≥1.000 of a smaller unit — round first, then escalate
+    // (e.g. 999.999.999 → "1 tỷ", not "1.000 tr"; 999.999 → "1 tr", not "1.000 nghìn").
+    while(i<COMPACT_MONEY_UNITS.length-1&&Math.abs(Number((n/COMPACT_MONEY_UNITS[i].t).toFixed(COMPACT_MONEY_UNITS[i].d)))>=1000)i++;
+    const {t,u,d}=COMPACT_MONEY_UNITS[i];
+    return `${fmtNum(n/t,d)} ${u}`;
   }
   const ACCOUNTING_REGIME_PROFILES={
     TT99:{code:'TT99',value:'TT99/2025/TT-BTC',label:'TT99/2025/TT-BTC — Chế độ kế toán doanh nghiệp',policyVersion:'ALPHA-TT99-2026.01',statutoryLabel:'BCTC TT99',description:'Chế độ kế toán doanh nghiệp áp dụng cho năm tài chính bắt đầu từ hoặc sau 01/01/2026.'},
@@ -923,8 +928,12 @@
     return profile;
   }
   function chartMoneyAxisMeta(maxValue){
+    // maxValue is in triệu (monthlySeries scale). Escalate to tỷ when the axis top,
+    // rounded at the triệu display precision, would reach 1.000 triệu (= 1 tỷ).
     const max=Math.abs(Number(maxValue)||0);
-    return max>=1000?{divisor:1000,unit:'tỷ',decimals:max>=10000?0:1}:{divisor:1,unit:'tr',decimals:max>=100?0:1};
+    const trDecimals=max>=100?0:1;
+    if(Number(max.toFixed(trDecimals))>=1000) return {divisor:1000,unit:'tỷ',decimals:max>=10000?0:1};
+    return {divisor:1,unit:'tr',decimals:trDecimals};
   }
   function aData(){
     const x=Calc.monthlySeries(db,currentRange()), departments=Calc.revenueByDepartment(db,currentRange());
@@ -993,7 +1002,7 @@
     const chartClass=opts.className?` ${esc(opts.className)}`:'';
     const autoScroll=opts.scrollLabels===true||(opts.scrollLabels!==false&&labels.length>18);
     const plotMinWidth=autoScroll?Math.max(Number(opts.minPlotWidth||0),labels.length*78,840):0;
-    const moneyMeta=chartMoneyAxisMeta(rawBarMax);
+    const moneyMeta=chartMoneyAxisMeta(barMax);
     const displayValue=value=>opts.integer?`${fmtNum(value,0)}${opts.axisUnit?` ${opts.axisUnit}`:''}`:opts.percent?`${fmtNum(value,0)}%`:`${fmtNum(Number(value)/moneyMeta.divisor,moneyMeta.decimals)} ${moneyMeta.unit}`;
     const plot=`<div class="plot"${plotMinWidth?` style="min-width:${plotMinWidth}px"`:''}><div class="bar-groups" style="grid-template-columns:repeat(${labels.length},minmax(0,1fr))">${labels.map((_,i)=>`<div class="bar-group">${barSeries.map(series=>`<i class="bar" title="${esc(`${series.name}: ${displayValue(Number(series.values[i])||0)}`)}" style="height:${Math.max(1,(Math.abs(Number(series.values[i])||0))/barMax*100)}%;background:${series.color}"></i>`).join('')}</div>`).join('')}</div>${lineSeries.map(series=>`<svg class="line-svg" viewBox="0 0 1000 200" preserveAspectRatio="none"><polyline points="${chartPolyline(series.values,lineMax)}" stroke="${series.color}"></polyline>${lineCircles(series.values,lineMax,series.color)}</svg>`).join('')}<div class="x-labels" style="grid-template-columns:repeat(${labels.length},1fr)">${labels.map(x=>`<span title="${esc(x)}">${esc(x)}</span>`).join('')}</div></div>`;
     const axisLabel=value=>displayValue(value);
