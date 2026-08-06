@@ -6,7 +6,7 @@ const root=resolve(fileURLToPath(new URL('..',import.meta.url)));
 const output=join(root,'public');
 // Danh sách duy nhất các tài nguyên được phép công khai. Không phát hành source backend, SQL, test hoặc tài liệu nội bộ.
 const files=[
-  'index.html','index-qa-demo-v4.5.60.html','qa-demo-seed-v4560.js','theme-bootstrap.js','runtime-config.js','alpha-design-system.css','calculation-core.js','reporting-period.js','statutory-template-manager.js','statutory-template-reference.js','tax-compliance-package-manager.js','tax-compliance-reference.js','tax-calendar.js','accounting-operations.js','payroll-detail.js','annual-benefits.js','recycle-bin.js',
+  'index.html','index-qa-demo-v4.5.60.html','qa-demo-seed-v4560.js','theme-bootstrap.js','runtime-config.js','alpha-design-system.css','calculation-core.js','reporting-period.js','statutory-template-manager.js','statutory-template-reference.js','tax-compliance-package-manager.js','tax-compliance-reference.js','tax-calendar.js','accounting-operations.js','payroll-detail.js','annual-benefits.js','recycle-bin.js','money-input.js',
   'permission-map.js','production-guard.js','export-center.js','theme-manager.js','demo-enterprise-seed.js','app.js','cloud-adapter.js',
   'alpha-sync.bundle.js','auth-security.js','cloud-v2.js','alpha-enterprise.js','sw.js','manifest.webmanifest',
   'logo-alpha-transparent.png','logo-alpha-on-dark.png','icon-192.png','icon-512.png'
